@@ -64,28 +64,66 @@ class TemplateAvaliacao(Abs_titulado):
           
         novaAvaliacao =\
         self.avaliacoes.create(titulo=self.titulo,aluno=aluno,simulado=simulado,data_inicio=data_inicio,data_termino=data_termino)
-      
-            
-       
-        #lista de questoes escolidas para essa avaliacao
-        questoes = []
-        #para cada filtroQuestao na lista de filtrosQuestoes desse templateAvaliacao
-        for fQuestao in self.filtrosQuestoes.all():
-            
 
-            #recupera uma questao para cada filtroQuestao
-            novaQuestao = fQuestao.gerarQuestao(questoes,simulado)
-            #tratar esse caso direito!
-            if novaQuestao != None:                   
-                #adciona a nova questao na lista de questoes que ja foram escolidas, pra evitar que
-                #uma mesma questao seja usada mais de uma vez numa mesma avaliacao.
-                questoes.append([novaQuestao,fQuestao])
-            else :
-            #caso entre aqui quer dizer que não pode gerar uma questao, uma dessas razoes seria que a contidade de questoes
-            #desse filtro não é o suficiente para suprir essa avaliacao.
-                print "novaQuestao foi None no filtro "+str(fQuestao.id)
-                raise Exception("Quantidade de Questoes insulficiente para gerar essa avaliacao%s"%self.titulo)
-                
+        ####MONTANDO ESTRUTURA             
+        recorrenciaDeQuestoes = {}
+        #prepara vetor que possui as questoes possiveis para cada filtro
+        opcoesDeQuestoesDeFiltro = {}
+        for fQuestao in self.filtrosQuestoes.all():
+            opcoesDeQuestoesDeFiltro[fQuestao.pk]=fQuestao.filtrarQuestao()
+            
+        for idFiltro in opcoesDeQuestoesDeFiltro:
+            for questao in opcoesDeQuestoesDeFiltro[idFiltro]:                
+                if not recorrenciaDeQuestoes.has_key(questao.id):
+                    recorrenciaDeQuestoes[questao.id] = []
+                recorrenciaDeQuestoes[questao.id].append(idFiltro)
+        ####TERMINANDO DE MONTAR ESTRUTURA
+        numQuestoesNecessarias= self.filtrosQuestoes.all().count()
+
+        while numQuestoesNecessarias < 0:      
+            arrayDosMenores =[]
+            menor=None
+            #prepara o array com as questoes que tem menor numero de recorrencia
+            #isso eh, menor numero de filtro de questoes que possui ela como opcao
+            for key, value in recorrenciaDeQuestoes.items:
+                if not menor:
+                    arrayDosMenores.append(key)
+                    menor=value.__len__()
+                else:
+                    if value.__len__() == menor:
+                        arrayDosMenores.append(key)
+                    elif value.__len__() <= menor:
+                        arrayDosMenores = [key,]
+                        
+            #randomiza uma das questoes que tem menor recorrencia
+            import random       
+            rand = random.randint(0, arrayDosMenores.__len__()-1)
+            idQuestaoEscolhida = arrayDosMenores[rand] 
+            vetorDeFiltrosDaQuestaoEscolhida = recorrenciaDeQuestoes[idQuestaoEscolhida]
+            
+            arrayDosMenores =[]
+            menor=None
+            #prepara o array com os filtros de questao que possuem a questao escolhida 
+            #que tem o menor numero de opcao de questao vinculadas a este
+            for filtro in vetorDeFiltrosDaQuestaoEscolhida:
+                if not menor:
+                    arrayDosMenores.append(filtro)
+                    menor=filtro.__len__()
+                else:
+                    if filtro.__len__() == menor:
+                        arrayDosMenores.append(filtro)
+                    elif filtro.__len__() <= menor:
+                        arrayDosMenores = [filtro,]
+           
+            #randomiza o filtro dentro os que possuem o menor numero de questoes
+            #do vetor de filtros da questao escolhidas            
+            rand = random.randint(0, arrayDosMenores.__len__()-1)
+            filtroDeQuestaoEscolhida = arrayDosMenores[rand]  
+            
+            #cria uma questao nessa avaliacao com o filtro escolhido
+            novaAvaliacao.add_questao(questao,filtroDeQuestaoEscolhida)   
+            #remove             
+
         #agora que é garantido que tds as questoes estao corretas
         #comeca a salvar cada uma delas na avaliacao           
         for questao,filtro in questoes:                 

@@ -3,7 +3,7 @@
 from django.db import models    
 from tipo_questao import TipoQuestao
 from questao import Questao
-from libs.uniqifiers_benchmark import f11 as uniqifier
+#from libs.uniqifiers_benchmark import f11 as uniqifier
 
 class FiltroQuestao(models.Model):
     """
@@ -35,69 +35,63 @@ class FiltroQuestao(models.Model):
         "verifica se um dado autor(usuario) corresponde ao autor do templateAvaliacao desse filtro"
         return self.templateAvaliacao.autor.pk == autor.pk
     
-    def gerarQuestao(self, questoesAnteriores,simulado):
+    def filtrarQuestao(self):
         """
         Retorna uma questao utilizando criterios de busca baseado no campo 'tipo', ou retorna questaoExata se esta for != None
         Passando como parametro uma lista de questoes previamente selecionadas, para evitar a selecao de uma destas.
         se for uma questão exata e simulado=True então nao pega a propria questão mas uma qualquer que seja do mesmo tipo que esta.
         """
-        from django.db.models import Q
-        #: se não for um simulado, e se tiver questão exata, retorna a mesma, caso contrario, tenta recuperar uma questão aleatoria
-        if self.questaoExata and not simulado:
+                     
+        ######################
+        #: se tiver questão exata, retorna a mesma, caso contrario, tenta recuperar uma questão aleatoria
+        if self.questaoExata:
             print "(EXATA) " + self.questaoExata.slug
             return self.questaoExata
-             
-        #: se tiver uma questão exata quer e está aqui quer dizer q esse é um simulado, e os tipos devem ser iguais aos tipos
-        #: da questão exata.
-        if self.questaoExata:
-            tipos = self.questaoExata.tipo.all()
-        else:            
-            #recupera queryset de questoes que tem TipoQuestao pertencendo a lista de TipoQuestao desse filtrosQuestoes.?
-            tipos = self.tipo.all()
-            
-        #utiliza apenas questoes verificadas
-        query = Questao.objects.filter(verificada=True)
         
-        for tipo in tipos:
-#                print tipo.id
-            #inclui tmb os tipos filho, isso para o caso em
-            #que o filtro tem um tipo A(pai de B), isso é, uma generalizacao
-            #sendo assim Qualquer questao com A ou B devem poder ser buscadas.
-#            for tipoFilho in tipo.get_descendants():
-#                pass
-                
-            query = query.filter(tipo = tipo)
-            
-           
-#        tipos = uniqifier(tipos)
-        questoes = []
-        for questao in query.select_related('tipo').distinct():
-            ok = True
-            if questoesAnteriores != None:
-                for q_anterior, f_anterior in questoesAnteriores:
-                    if questao == q_anterior or self == f_anterior:
-                        ok = False
-               
-            for tipo in questao.tipo.all():
-                if tipo not in tipos:
-                    #fazer recursao
-                    ok = False
+        #prepara os tipos requeridos, juntando n elementos de num_descendentes cada um dos tipos
+        tiposRequeridos = []
+        for tipoFiltro in self.tipo.all():            
+            listaTiposFilho = tipoFiltro.get_descendants(include_self=True)
+            tiposRequeridos.append(listaTiposFilho)   
+        print "===================================="
+        print ">>>tiposFiltro:"
+        print self.tipo.all()
+        print ">>>tiposRequeridos:"
+        print tiposRequeridos
+        print ">>>>>>>>>>>>>>>>>>>"
+        #recupera todas as questoes
+        tdsQuestoes = Questao.objects.filter(verificada=True)
+        if questoesAnteriores != []:
+            tdsQuestoes = tdsQuestoes.exclude(questoesAnteriores)
+
+        questoesSelecionadas = []
+
+        for questaoATestar in tdsQuestoes:
+            numTiposRequeridos = tiposRequeridos.__len__()
+            for tipoQuestao in questaoATestar.tipo.all():
+                for grupoDeTiposRequeridos in tiposRequeridos:
+                    if tipoQuestao in grupoDeTiposRequeridos:
+                        numTiposRequeridos-=1
+                        break
+                if numTiposRequeridos == 0:
+                    questoesSelecionadas.append(questaoATestar)
                     break
-            if ok:
-                questoes.append(questao)
-
-        #se nao tiver nenhuma questao na lista entao retorna None
-        if questoes.__len__() == 0:
         
-            return None
-           
-        #randamiza uma dessas questoes para ser a resposta.
-        import random       
-        rand = random.randint(0, questoes.__len__()-1)
-        questao = questoes[rand]
-        print str(rand) + " " + questao.slug
-
-        return questao
+        print ">>>questoesSelecionadas:"
+        for q in questoesSelecionadas:
+            print "%s - [%s]" %(q,q.tipo.all())
+        print ">>>>>>>>>>>>>>>>>>>"
+                       
+        if questoesSelecionadas == []:
+            raise Exception("Nenhuma questao encontrada para os seguintes filtro:%s"%str(self.pk))
+#        #randamiza uma dessas questoes para ser a resposta.
+#        import random       
+#        rand = random.randint(0, questoesSelecionadas.__len__()-1)
+#        questao = questoesSelecionadas[rand]
+#        print str(rand) + " " + questao.slug
+ 
+        return questoesSelecionadas
+        
         
 
 
