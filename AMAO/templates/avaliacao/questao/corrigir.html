@@ -1,0 +1,39 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Correção </span></h1>
+{% endblock %}
+
+{% block 'body-superior' %}
+<div id="sub_superior">
+	<h3><span> Questão : </span><a href={% url responderQuestao questaoAvaliacao.id %}>{{ questaoAvaliacao.questao.titulo }}</a></h3>
+</div>
+{% endblock %}
+
+{% block 'body-centered' %}
+<script>
+function updateRetorno() {
+	$.ajax({ url: "{% url ajax_retorno_correcao questaoAvaliacao.id %}",
+	                 success: function(data) {
+	                     $('#ret-correcao').html(data);
+	                     if ($('#has_return').val() == "retorno"){
+		                     clearInterval(reload);
+	                     }
+	                 }
+	});
+};
+updateRetorno();
+reload = setInterval( 'updateRetorno()', 1000 );
+</script>
+<div id="body-full">
+    
+	<!--<div id="aside-infos-questao" class="area_div zona_dados">
+	    <h2></h2>
+    </div>-->
+	<div id="aside-infos-questao" class="area_div zona_dados">
+	    <h3 class="background">Resultado:</h3>
+	    <p>{% include "avaliacao/questao/retorno_correcao.html" %}	</p>
+    </div>
+</div>
+{% endblock %}
+

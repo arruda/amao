@@ -1,0 +1,16 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Perfil</span></h1>
+{% endblock %}
+
+{% block 'body-centered' %}
+<div id="body-centered">
+<h3>Matricula:</h3> {{aluno.matricula}} </br>
+<h3>Email:</h3> {{aluno.usuario.email}} </br>
+</div>
+{% endblock %}
+
+{% block 'body-aside' %}
+	{% include 'aluno/avaliacoes_side.html' %}
+{% endblock %}

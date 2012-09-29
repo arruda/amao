@@ -1,0 +1,127 @@
+<html>
+<head>
+
+<script type="text/javascript" src="/media/js/jquery-1.5.1.js"></script>
+<script type="text/javascript">   
+$.ajaxSetup({ 
+     beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+             }
+         }
+         return cookieValue;
+         }
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+     } 
+});
+         
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+$(function() {
+    $('form').submit(function() {
+        $('#result').text(JSON.stringify($('form').serializeObject()));
+        return false;
+    });
+});
+
+    $(document).ready(function(){
+
+        $("#add_button").click(function(){
+            var data = JSON.stringify($('form').serializeObject());
+            //alert(data);
+            $.post('/contatos', data,function(data){callback_function(data)});
+        });
+
+        $("#btnContatos").click(function(){
+            $.ajax({
+                type: "GET",
+                url: "/get_contatos/",
+                dataType: "json",
+                success: function(retorno){
+                    $.each(retorno, function(i, item){
+                        $("#corpoTabela").append('<tr>' +
+                        '<td>' +
+                        item.fields['nome'] +
+                        '</td>' +
+                        '<td>' +
+                        item.fields['telefone'] +
+                        '</td>' +
+                        '<td>' +
+                        item.fields['celular'] +
+                        '</td>' +
+                        '<td>' +
+                        item.fields['email'] +
+                        '</td>' +
+                        '</tr>');
+                    });
+                }
+            });
+        });
+    });
+
+
+</script>
+</head>
+<body>
+
+{% block conteudo %}
+    <table id="contatos">
+        <thead>
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Telefone
+                </th>
+                <th>
+                    Celular
+                </th>
+                <th>
+                    E-mail
+                </th>
+            </tr>
+        </thead>
+        <tbody id="corpoTabela">
+        </tbody>
+    </table>
+    <input type="button" id="btnContatos" class="botao" value="Pegar Contatos">
+
+
+<form id="addContato" action="" method="POST">
+Nome:<input type="text" name="nome" maxlength="12" size="12"/> <br/>
+Telefone:<input type="text" name="telefone" maxlength="12" size="12"/> <br/>
+Celular:<input type="text" name="celular" maxlength="12" size="12"/> <br/>
+E-mail:<input type="text" name="email" maxlength="12" size="12"/> <br/>
+<p><input id="add_button" type="submit" /></p>
+</form>
+{% endblock %}
+</body>
+</html>

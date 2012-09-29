@@ -1,0 +1,48 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Criar Avaliacao de Turma</span></h1>
+{% endblock %}
+
+
+{% block 'body-centered' %}
+<div id="body-full">
+    {% if criado %}
+        <h2>Avaliacao Criada</h2>
+        <a href="{% url dashboard %}">Voltar</a>
+    {% else %}
+        <form action="/avaliacao/criar/" method="post" enctype="multipart/form-data" id="form_avaliacao">
+            {% csrf_token %}
+                <div class="area_div zona_dados">
+                    <h3>Avaliação</h3>
+                    <div class="campo"><label>Titulo: </label>{{form.titulo}}</div>{{ form.titulo.errors }}
+                    <div class="campo"><label>Turma: </label>{{form.turma}}</div>{{ form.turma.errors }}
+                    <div class="campo"><label>Inicio: </label>{{form.data_inicio}}</div>{{ form.data_inicio.errors }}
+                    <div class="campo"><label>Termino: </label>{{form.data_termino}}</div>{{ form.data_termino.errors }}
+                </div>
+
+                <div id="area_questoes" class="area_div zona_dados">
+                    <h3>Questoes</h3>
+                    {{ QuestoesForms.management_form }}
+                    <div id="questoes" class='agrup'>
+                    {% for Qform in QuestoesForms.forms %}
+                        <div class="questao" >
+                            <div class="campo"><label>Questão Expecifica: </label><span>{{Qform.questaoExata}}</span></div>{{ Qform.questaoExata.errors }}
+                            <div class="campo"><label>nota Base: </label><span>{{Qform.notaBase}}</span></div>{{ Qform.notaBase.errors }}
+                            <div class="campo"><label>nota Limite Minimo: </label><span>{{Qform.notaLimMinimo}}</span></div>{{ Qform.notaLimMinimo.errors }}
+                            <div class="campo"><label>nota Limite Maximo: </label><span>{{Qform.notaLimMaximo}}</span></div>{{ Qform.notaLimMaximo.errors }}
+                            <div class="campo"><label>Tipos: </label><span>{{Qform.tipo}}</span></div>{{ Qform.tipo.errors }}
+                            <div ><input type="button" class="removerQuestao" value="Remover Questao"  onClick="remover(this)"/></div >
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="adicionar('questao')" value="Adicionar Questao" />
+                </div>
+		    <input type="button" value="Salvar" onClick="salvar(this)" />
+	    </form>
+    {% endif %}
+    <script src="/static/js/jsControleFormsetDinamico.js" ></script>
+    <script src="/static/js/jsCriarAvaliacao.js" ></script>
+</div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+- fields:
+    date_joined: 2012-03-07 12:30:57
+    email: professor@professor.com
+    first_name: professor
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2012-03-07 12:30:57
+    last_name: ''
+    password: sha1$5a1b2$f970c5fb0cbb22789c4516262aa0030d1fdc13d4
+    user_permissions: []
+    username: professor
+  model: auth.user
+  pk: 4
+- fields: {usuario: 4}
+  model: Professor.professor
+  pk: 1
+- fields: {materia: 1, usuario: 3}
+  model: Professor.monitor
+  pk: 1

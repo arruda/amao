@@ -1,0 +1,32 @@
+
+<div class="area_div zona_dados">
+    <h3 class='titulo_dados' >Informações Gerais:</h3>
+    <div class='area_dados'>
+        <h4>Titulo: {{ template.titulo }} </h4>
+	    <h4>Turma: {{ template.turma }} </h4>
+        <h4>Nota Min/Max da Avaliação: {{template.get_nota_minima}}/{{template.get_nota_maxima}}</h4>
+        <h4>Inicio:{{template.data_inicio|date:"d/m/y  H:i"}}</h4>
+	    <h4>Termino:{{template.data_termino|date:"d/m/y  H:i"}}</h4>
+    </div>
+</div>
+
+<div class="area_div zona_dados">
+    <h3 class='titulo_dados' >Avaliações dos Alunos:</h3>
+    <table border=1>
+        <thead>
+	        <tr>
+		        <th>Aluno</th>
+		        <th>Nota</th>
+	        </tr>
+        </thead>
+        <tbody>
+	        {% for avaliacao in template.avaliacoes.all %}
+		        <tr>
+			        <td><a href="{% url professor_consultar %}?avaliacao={{avaliacao.id}}">{{avaliacao.aluno}}</a></td>
+			        <td>{{avaliacao.get_nota}}</td>
+		        </tr>
+	        {% endfor %}
+
+        </tbody>
+    </table>
+</div>

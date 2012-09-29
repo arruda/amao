@@ -1,0 +1,38 @@
+
+<div class="area_div zona_dados">
+    <h3 >Informações Gerais:</h3>
+    <div class='area_dados'>
+	     <h4>Template de Avaliação<a href="{% url professor_consultar %}?template={{avaliacao.templateAvaliacao.id}}">{{ avaliacao.templateAvaliacao }}</a></h4>
+	     <h4>Titulo: {{ avaliacao.titulo }} </h4>
+	     <h4>Aluno: {{ avaliacao.aluno }} </h4>
+	     <h4>Nota Min/Max da Avaliação: {{avaliacao.templateAvaliacao.get_nota_minima}}/{{avaliacao.templateAvaliacao.get_nota_maxima}}</h4>
+	     <h4>Nota do Aluno: {{avaliacao.get_nota}}</h4>
+	     <h4>Inicio:{{avaliacao.templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}</h4>
+	     <h4>Termino:{{avaliacao.templateAvaliacao.data_termino|date:"d/m/y  H:i"}}</h4>
+    </div>
+</div>
+
+
+<div class="area_div zona_dados">
+    <h3 >Questões:</h3>
+    <div class='area_dados'>
+        <table border=1>
+	        <thead>
+		        <tr>
+			        <th>Questão</th>
+			        <th>Nota</th>
+		        </tr>
+	        </thead>
+	        <tbody>
+		        {% for questao in avaliacao.questoes.all %}
+			        <tr>
+				        <td><a href="{% url professor_consultar %}?questao={{questao.id}}">{{questao.questao.titulo}}</a></td>
+				        <td>{{questao.nota}}</td>
+			        </tr>
+		        {% endfor %}
+	
+	        </tbody>
+        </table>
+    </div>
+</div>
+

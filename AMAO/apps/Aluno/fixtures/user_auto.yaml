@@ -1,0 +1,637 @@
+- fields:
+    date_joined: 2011-11-04 19:02:12.163179
+    email: root@root.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-04 19:03:09.907911
+    last_name: ''
+    password: sha1$9f8f1$f975cb6afce41c4938803f42bb88b9557096a338
+    user_permissions: []
+    username: root
+  model: auth.user
+  pk: 1
+- fields:
+    date_joined: 2011-11-05 19:47:21.694872
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 19:47:21.694862
+    last_name: ''
+    password: sha1$107c5$e0caffd481d24250b5bf94e26f5ae3afed957896
+    user_permissions: []
+    username: "(\\'\v0OhEdUe=V4+{|=:(WqnLtlSXdx"
+  model: auth.user
+  pk: 2
+- fields:
+    date_joined: 2011-11-05 19:47:21.949500
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 19:47:21.949472
+    last_name: ''
+    password: sha1$b2bea$b8c7d96f6bdc6b661a057f7b7c84967da3b01dca
+    user_permissions: []
+    username: "a:Que53p,<3U.I1oF\\Vr\r`\vi(cIZ0="
+  model: auth.user
+  pk: 3
+- fields:
+    date_joined: 2011-11-05 19:47:22.213581
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 19:47:22.213553
+    last_name: ''
+    password: sha1$a8fe2$45f17378d898ba46cf6f2f7edf7df18cb022ffeb
+    user_permissions: []
+    username: "2r7dmF<AhS$N&MZsL\f(EcW`t8!R__^"
+  model: auth.user
+  pk: 4
+- fields:
+    date_joined: 2011-11-05 19:47:22.469320
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 19:47:22.469293
+    last_name: ''
+    password: sha1$d3a8a$8d4fc1de2f98b270e46d2ebffd4aee1bf809621c
+    user_permissions: []
+    username: dGXOL*4Eo.yb1r(6 >Kw!v`e9Nsnd|
+  model: auth.user
+  pk: 5
+- fields:
+    date_joined: 2011-11-05 19:47:22.755086
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 19:47:22.755073
+    last_name: ''
+    password: sha1$acf17$b88e8743780216d92bbe1118094b830f45edbf1b
+    user_permissions: []
+    username: '}
+
+      }.uxX~+''GXwB*.nnm!;QK/e:$uNZ'
+  model: auth.user
+  pk: 6
+- fields:
+    date_joined: 2011-11-05 19:47:23.046991
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 19:47:23.046967
+    last_name: ''
+    password: sha1$dcf53$8f53b8802fdd6d502d76f5a155c645679d836b3b
+    user_permissions: []
+    username: "}\v<Cw\fYP%[LEMhC+o3$,TT]GJ7-@Y\t"
+  model: auth.user
+  pk: 7
+- fields:
+    date_joined: 2011-11-05 19:47:23.327605
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 19:47:23.327569
+    last_name: ''
+    password: sha1$da2dc$5f5a317888cceca1e9794859e6714d737df2aad4
+    user_permissions: []
+    username: '-@qPbUW=*(j
+
+      x>+l3Z1d=l<PT{|n;)'
+  model: auth.user
+  pk: 8
+- fields:
+    date_joined: 2011-11-05 19:47:23.611264
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 19:47:23.611237
+    last_name: ''
+    password: sha1$d3e0d$914dce47f573539ec9ab4145f4ec93203bf482f5
+    user_permissions: []
+    username: '+W!=C`1MMQ?[
+
+      c-&_`YDU}3{d<35]Q'
+  model: auth.user
+  pk: 9
+- fields:
+    date_joined: 2011-11-05 19:47:23.880314
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 19:47:23.880286
+    last_name: ''
+    password: sha1$31ae1$222d5427c72919cf3e690b91a684a4a28a8868c0
+    user_permissions: []
+    username: "X3x)_L3$'s\t(\rt]6\tLiHhU<`.5{B,J"
+  model: auth.user
+  pk: 10
+- fields:
+    date_joined: 2011-11-05 19:47:24.127767
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 19:47:24.127739
+    last_name: ''
+    password: sha1$c8169$4c8789c6900f4f76e2e902df66657d3403a8c8c2
+    user_permissions: []
+    username: ",mX\t\nT$8.`~M\\4n!!%VcP[|)o;7k51"
+  model: auth.user
+  pk: 11
+- fields:
+    date_joined: 2011-11-05 20:14:00.973179
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:00.973164
+    last_name: ''
+    password: "6\"S^wZ\t-\"EPYuC#Gw)az&bEQ(gu$gJj2L#Z0\"HR2]^>#8j&aQ3;3b\\1<x2.r_iUa<<X#7qujB1$Z!A}D0fm%[t\n\
+      Dcj'4Qa+=v5O$Uu06J%\";5k-c\f-v}FxUNx_3ppOAV"
+    user_permissions: []
+    username: "J'R o>\tJc@4d:Q(0G'^]uCB4tG*t\f\r"
+  model: auth.user
+  pk: 12
+- fields:
+    date_joined: 2011-11-05 20:14:01.206849
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:01.206832
+    last_name: ''
+    password: "U\\f\fFn>z]tS\tCG\\mT?g i7z&{W\\@`Za7&F8\tou\r4u5CK-Yf*\\q|\"kT'Sk2)\
+      \ Eq5s$4-Aiw?aUK|?lgw\vXn0FB=5{\r>qwWzPTrk>HQ\r_k?HA> 6nf;I\vt7}.=/uqVrV`y"
+    user_permissions: []
+    username: "^6I2Yl\rGGvW\n1{$ENzN_`2{2.O/ rj"
+  model: auth.user
+  pk: 13
+- fields:
+    date_joined: 2011-11-05 20:14:01.413836
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 20:14:01.413809
+    last_name: ''
+    password: "_Ae\\\r;?8iEX.$7u3<:^H7GcT);!SJll\"#DJx!m;1szCuFy{dj\"\f(&+VX|;\\;]Vqav/]\\\
+      >F0%IWj?T$cL7W Y`*\fa1!}!$%<sh#rq@0XUp\t=\"OG\\s'!t4fM3O2`S} XcM"
+    user_permissions: []
+    username: "h v:\f\"l`g!6\f9F9v;]p\nY-l\r\tf(mGX"
+  model: auth.user
+  pk: 14
+- fields:
+    date_joined: 2011-11-05 20:14:01.611414
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 20:14:01.611387
+    last_name: ''
+    password: "J>:$T[3rC\v)v.5Dt\vsQ:\"\f8(i'sRc^\";=WTYTy#rp5s:X\rP>+ZHQ.n9pcX<K-L)AS{5}mgKC!0\t\
+      tvj=%r899R_/8/$\\*9]\vaLk`OWn76?'\n9F#^BdZ)4mO7ZoNT.<$B+"
+    user_permissions: []
+    username: wP3zTRJ Vg}1G%c4c`H&)o}!c~G&4S
+  model: auth.user
+  pk: 15
+- fields:
+    date_joined: 2011-11-05 20:14:01.809524
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:01.809497
+    last_name: ''
+    password: ")9gkck_BW+H&a;`\"wj[`EZKl;H,aQPdXLX4wQb}`TRJcbg*qqxYtP~_rH,[k;Cw^+^vvx),l!\f\
+      O\"V`RO|(R-%rhq<Kq\"A\"@!=YgIF~]|T6.{qnjiVCaKNq{i\"8fmKBC5"
+    user_permissions: []
+    username: "2WP;Z\r&&\f5]x5oUl0V++\vh@*9,F#qo"
+  model: auth.user
+  pk: 16
+- fields:
+    date_joined: 2011-11-05 20:14:02.015090
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:02.015078
+    last_name: ''
+    password: "8F4#2sx>?$Z-\"\n(93yEtKz{hl$#L3}}&<']5rR11IZgLMKoi\\\n\"BPsg6G`kHr\\\
+      &`rPM41~ie4\vL3fYod%28r%=`!$(f*&j)6bRX)d/x!N\v\\q~l(,%4`\t8o\npHo@2/tEt"
+    user_permissions: []
+    username: "QC?k+MZ{O-ff%H7Bs d(\r(~ZY3eN-b"
+  model: auth.user
+  pk: 17
+- fields:
+    date_joined: 2011-11-05 20:14:02.262666
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 20:14:02.262652
+    last_name: ''
+    password: "eG\v7&!)|}OC**s@~\f6.G\v^RVbF^s;=6va_J6L;*PZX RH$` 0Y2lzT\\cmA:!\r\
+      !\t]ih\vj,rouLt`180j-2\n7u*\r2\\vV@Wa`8)@I1[6]xl;iVZI-|zo!W{\t~LA;2g]XS;m"
+    user_permissions: []
+    username: "b_s)5wXVTRIO>#~#L`K\rH%m|%\v\"'Tq"
+  model: auth.user
+  pk: 18
+- fields:
+    date_joined: 2011-11-05 20:14:02.470124
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:02.470088
+    last_name: ''
+    password: ">i4]%!GEVaYGIP][J)of*bfT\vRLyO~8jvaT\t\\:W<'{$dY'+{ Cc,xGYANRLcmLfI^n)2Iz\
+      \ 5\v^\"4Ew%W:aK\rif#>L>U!$T6xvt\v+$@r6|n3YDX&)Egy8UE)TR+&(X:6\n"
+    user_permissions: []
+    username: wR1Ur#A{Z/&~aQ#kF5tvi4Bk-.S>DI
+  model: auth.user
+  pk: 19
+- fields:
+    date_joined: 2011-11-05 20:14:02.708854
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:02.708827
+    last_name: ''
+    password: "faYUR\v-R3\"eETky\"PVL'tt3*l5PFs\"IQ\\iD6pFai==R;UEhRZ,Z/*lS$t%i{{`[BtaI$h?Ch=r]pg-Tk/#@-_V(P;eLsKD)UJvC$V\"\
+      d:Sm8dY*$*-Z))\"B^+6U-g_\fI#"
+    user_permissions: []
+    username: "`O]llfpW<\fG{!Z~\r\v!oV]?XTSu9O0<"
+  model: auth.user
+  pk: 20
+- fields:
+    date_joined: 2011-11-05 20:14:02.915210
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:02.915183
+    last_name: ''
+    password: "\\h}\"8G^se 5b_ZRV?D%rN/,t?TGiqv6r9\v6Dp\"unb*c&hjKBuVG19R<`8\v9p:r\t\
+      \\\vQM\nr-e@XTsw/0AnG+EwkE?e8Yy@po^`#sKGb?9-qE*l\t#BY\f.U\ttd{],pU{}7Y@"
+    user_permissions: []
+    username: $w|~=;g<F|d'N/N[EUS>w?)f_q|/s7
+  model: auth.user
+  pk: 21
+- fields:
+    date_joined: 2011-11-05 20:14:03.154439
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:03.154412
+    last_name: ''
+    password: "x^-t0-*:3jRKT4G=p{@q+Zt-5zA[3H7H$Os^_A&HlADoFmZ=ri/+$BB|\twu|L2/pB\t\
+      z&#a5jCe0lI6J}f:WfRgc-Q_3:t)r<&bRz_1W/VHq&(Fp*zNf:s_Q[B@:igr&*"
+    user_permissions: []
+    username: "Ub](\\}W7,-f\vt<>Y[kRTBWLEttzwQ2"
+  model: auth.user
+  pk: 22
+- fields:
+    date_joined: 2011-11-05 20:14:03.360793
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 20:14:03.360765
+    last_name: ''
+    password: "6\f3di?$xA 0z?d(.M*\fmClCzkZ\\T\\<1l016.Ewq#TU)\fA.Y+ F(7cq^B5-zOAl_xf+4\f\
+      tZ>\\' Gg5U`buW%'4Pk5.Q6DN=l\"XqrsG2LuUq#!oQcN}O~[A6[e+hJqCMt8"
+    user_permissions: []
+    username: "}8\vt\v23wZi3\v!={x1^hfjc6-4QHFyp"
+  model: auth.user
+  pk: 23
+- fields:
+    date_joined: 2011-11-05 20:14:03.608278
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:03.608252
+    last_name: ''
+    password: "$7nO&<ya!mXr6!U2dV#77|6H:lbDX]}_'YPU'g:\t}d\"B\rtd;[sd1y&\nlYkKz52`(]\\\
+      ul]=0t]Z`}ZY=|:3x\"\np7.sr)M,S63Ck7\n4>jrZHrP3c]Vq-[MAt+n@\"G$iR-p"
+    user_permissions: []
+    username: "m<\fsr\tyD%Dk\r/P}p0X`La_H^bh6Jcv"
+  model: auth.user
+  pk: 24
+- fields:
+    date_joined: 2011-11-05 20:14:03.806256
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:03.806229
+    last_name: ''
+    password: "tiP\nyj+:!Qm:\ruveXVZ934-&$/`?L,k=*+=0OL-1%eHaHt`ivm$K{/m$\n0G'VQ%-m#!2(gO7=-g\r\
+      a&/7FU)R]Dt`\nVW^\f0or6_\nwSzsGHZzXc'l$pUwMY=(@EP\t\vBWG#"
+    user_permissions: []
+    username: "vMC|Df*fVV#d-E&JVzJ2ew~5>:<p{\t"
+  model: auth.user
+  pk: 25
+- fields:
+    date_joined: 2011-11-05 20:14:04.061504
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:04.061478
+    last_name: ''
+    password: "q*<R#h)\n|mj\")k\tiwUf_OD#\v<hEs\t~N*]i[^SL;{,39 2`Zs!fen\tQEdD:*+VztUn_[;?+_=oLU=vOKpsl*2A+$?]Zpup0=u_$ee1+i\r\
+      Q/QBb-J9b'f\nP\f8@)pE\np18B"
+    user_permissions: []
+    username: "Tqd[7:V6n22Lxb!kP@v\f'(mWXypdVR"
+  model: auth.user
+  pk: 26
+- fields:
+    date_joined: 2011-11-05 20:14:04.301225
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 20:14:04.301198
+    last_name: ''
+    password: "l`z0^5FDk@Tc'_thP+\"~mpVj:*lVWyfru\rp+<mkL  ]\fHt<ox,4[MC\fT]2_7x8Jha\"\
+      heKN61iMX?g].~]fpp*Q{?b\td}>\tW\\eWanToH.~\tVCzFb\"200h\tq%3<DdM3\\wR"
+    user_permissions: []
+    username: " {f<}\"!/UjJ\"S9-x\f~D3!@KE&AC\"3v"
+  model: auth.user
+  pk: 27
+- fields:
+    date_joined: 2011-11-05 20:14:04.507673
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 20:14:04.507646
+    last_name: ''
+    password: "M8cTmaj]ZoMaWb'q\v[Z.-^S>rPnK*kBd\v=lNzP\fSSVUrFLm@bB:-q=!E_E8@&/UC]l%S@h!RyI;x;FCN$esz!bj[TMH:'{3G\n\
+      \"]MYxM|};:\tD{tJ/c\v`1kbgI~[;\\nHO"
+    user_permissions: []
+    username: "en{XL/>\"}WM\r\r:ZRR,$0CV\v|6x6Ii6"
+  model: auth.user
+  pk: 28
+- fields:
+    date_joined: 2011-11-05 20:14:04.713888
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:04.713862
+    last_name: ''
+    password: "0KD%Rs%DO\f:A+jw-I-]\t)=l*Tk]_8aZOg'$ ]N*hvKsGN_8R9w\n.t_|\t(_ 4[f+\n\
+      Z8PCB9PxRLR}EqDnQet3igzd\nnO{cS2Yn^30zf=rgD;rrlS{K+v0N&O;%Q\rek\\*;"
+    user_permissions: []
+    username: 4t9e[cx%xa(tF=~,![9tWabvgw#`qp
+  model: auth.user
+  pk: 29
+- fields:
+    date_joined: 2011-11-05 20:14:04.920164
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 20:14:04.920136
+    last_name: ''
+    password: "@e7HXOOsb-(4(Im9|b)\v_#I8A8E) \"igms[C='B.Z$mTr2ZaAbhQHFM#I<tRI*^x{CmD9T|\f\
+      a:- |=Z~HOvAq#\r_5qa\n36wT=LO|\ntJ'17%j?-!-FE)gGjfh\vD-.o( l"
+    user_permissions: []
+    username: 'K\.T%YQ
+
+      SOf6kOXTMciwR[ZKmcd&7t'
+  model: auth.user
+  pk: 30
+- fields:
+    date_joined: 2011-11-05 20:14:05.133866
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:05.133856
+    last_name: ''
+    password: "M\n+R[/>'GY4\vFm0e5Lwe\vR`UV2K%i0\t\rzPnFAf$\vYref$$hiMWbN0l>xs;%dM[cw&|`&HQ5?zrym|/`\\\
+      wd;1*0/n4ftgVfA!ry`9Lmr:ZDA\vbH0a)|v\fB|k=<x0&m/*n"
+    user_permissions: []
+    username: vbbd~k;o2-sgF0ofY1sN*Yo;p%~6X/
+  model: auth.user
+  pk: 31
+- fields:
+    date_joined: 2011-11-05 20:14:05.332784
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:05.332713
+    last_name: ''
+    password: "'w\n~<p PNtjBj3X3UUKb,AY7\\+hW,\fXco U}tk($k.P\v* >$X<e{:'g,k\tX&q*W]bxs}Zd~\n\
+      ???tbJz?cW+/4<E}aF{DL\" Cm1f6DPUE\fHcMMXL-pTLFZRHUQnyE\r0u>"
+    user_permissions: []
+    username: "\rrS Aw~l;lRz1P{XQH)j\\_ $zfbf\r9"
+  model: auth.user
+  pk: 32
+- fields:
+    date_joined: 2011-11-05 20:14:05.555611
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:14:05.555584
+    last_name: ''
+    password: "]9mg*9.7]\fHYUdTV?kw4d?QxOYUz^v,'@\n')^g`qOXcss\"i)gj6@BNQ\\,[E7NjbIF@V,ZpA9=&\n\
+      SC ~jj.XYK,A78$s7\\ Z!K^l]q n\\Am/hx@e0\r\t5o0ZC[psVD|(zT"
+    user_permissions: []
+    username: "(/sYr/R9>C$\nr3_+f]IX%f{\vn +oD\f"
+  model: auth.user
+  pk: 33
+- fields:
+    date_joined: 2011-11-05 20:14:05.827860
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 20:14:05.827832
+    last_name: ''
+    password: "4X1U<XwVJq}r|lEZjs0(*\f+\r.T'R-3kKb,T{Jy&BGyB8mwu?>\"2W/\r|dsI.0\t\
+      'mr%5a\nvLgV!(sN0]W[PV-5i64bdMA?49o!L'\"sP_oQ>\nFT|\vS\nuPq@dj1R/#udu]f\r"
+    user_permissions: []
+    username: "/<;\rxR@CR3P\v Ls[3/ZObMCm\t.h*k4"
+  model: auth.user
+  pk: 34
+- fields:
+    date_joined: 2011-11-05 20:14:06.034030
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: false
+    is_superuser: true
+    last_login: 2011-11-05 20:14:06.034003
+    last_name: ''
+    password: "=)<M)X0R=EOT:(f`|vA?zpx[`SnC$GLI\\*GX?!^9.L0G1\f0s=f TW1nLxl\v<WJ#AZqZ<8v0A=0bTfx&HmW[Y9h\r\
+      X+HHG.6N)tFtz+Q@(/vm{mDb\n\ns8 Wz\n0nM\t:yP^_"
+    user_permissions: []
+    username: "((c\f/XVT41X{Y6{4LVv|cP=Hv*`mRN"
+  model: auth.user
+  pk: 35
+- fields:
+    date_joined: 2011-11-05 20:17:38.668132
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:17:38.668127
+    last_name: ''
+    password: "fm\nTDB@ZY3bgNFR.\"GWe\nTs5a;J;.Ll\n\v?%z\vEDu\t\\5LQ? $zSRNP 7Vb\"\
+      e2Q-bE)uG6zWz7P-o5~bNRs'}hKj+n>f\fPLisV\v\n)ZG]vgD2&:<H.I#'BwB9D\ru TBR=X."
+    user_permissions: []
+    username: "\\^thC]=hRM(\r!gU3s'W!4M[ApYRMgj"
+  model: auth.user
+  pk: 36
+- fields:
+    date_joined: 2011-11-05 20:17:39.004740
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 20:17:39.004712
+    last_name: ''
+    password: "8e,Z.4me#15%J9*^5i_pH.06QMGK40arXNp$$f#w0O6.U j<l9k|p\\R+w&#}sCT+^_t\v\
+      g\tZJe'{_vxny{747Dw6rtgShrded=fl8*H\"J}$wNa_{FeUo]EKHurDy[Z\naf"
+    user_permissions: []
+    username: onL:vPQ"<<dU_j%s!zx-Q}EKbEF`*g
+  model: auth.user
+  pk: 37
+- fields:
+    date_joined: 2011-11-05 20:17:39.226919
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: true
+    last_login: 2011-11-05 20:17:39.226904
+    last_name: ''
+    password: "\v#Z;RT^Io_T`_aL\fbE>(nsjnK1^nG.x$ZZZBPtjl(NX_9eiDe/5&Lb8UX0YPK?:SMwYF[a\f\
+      9r .An]=#I/Nd]a\r.O\t\\m+\"@1zQR}&RH?CaR5VXLse+Dw9a\r1J|_{f\nb,"
+    user_permissions: []
+    username: "5e3E\r$~\tf(K{Gz\"|v('V2DU5kXgC9]"
+  model: auth.user
+  pk: 38
+- fields:
+    date_joined: 2011-11-05 20:17:39.492445
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: false
+    is_staff: true
+    is_superuser: false
+    last_login: 2011-11-05 20:17:39.492417
+    last_name: ''
+    password: "FS2FY3|U;zP2WBgU\rbkl6`&\r*O|\\r4T]VKA}F)WrKrY1pfb[MQy7t2vHcrVgr0VLgVwJWv}3Egt76p9&%6fIEc)^EVVVy^x/?GMdkPiZ\"\
+      >Ww|8!wr3&} $+2LkoS Fvv"
+    user_permissions: []
+    username: "Pzqs|Gt7z?mmJSz|9\fH!tS`r6G\tkJY"
+  model: auth.user
+  pk: 39
+- fields:
+    date_joined: 2011-11-05 20:17:39.747492
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2011-11-05 20:17:39.747464
+    last_name: ''
+    password: "%mkB)w1fIw[a)Fu)\nQPSJMEd1E7 U1_b!/J*GuvH\fEz`Q.BQz,D>eF&'~]k\rt[S(\"\
+      fe\r>8KA#k:ky\trrOh~>uhTByo4|\\W&ZDb^r\rD_C&jr%k{tU!s\"lMI'UF\v/2M\"<P"
+    user_permissions: []
+    username: "|\v>eP0wj{T&qcuq#$]YhdHfC&$wY/o"
+  model: auth.user
+  pk: 40

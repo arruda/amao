@@ -1,0 +1,481 @@
+html{
+    background: #333;
+    height:100%;
+}
+body {
+	width: 100%;
+	list-style-image: none;
+	list-style: none;
+	list-style-type: none;
+	font-family: helvetica;
+    margin: 0px;
+    position: relative;
+    float: left;
+    min-height:100%;
+}
+#top_bar{
+    box-shadow: 0px 3px 20px #000;
+    top:0;
+    position: absolute;
+    width: 100%;
+    height:35px;
+    background: #555;
+    background: -moz-linear-gradient(#555,#444);
+    background: -webkit-linear-gradient(#555,#444);
+}
+#menu{
+   margin:0 auto;
+   width:980px; 
+   float:initial;
+}
+#menu h1{
+    float: left;
+    line-height: 35px;
+    margin: 0px;
+    padding: 0 50px;
+    color: #FFD;
+    text-shadow: black 0px 1px 7px;
+    font-size: 20pt;
+    font-weight:bold;
+}
+#menu nav{
+    height:35px;
+    border-left:2px solid rgba(0,0,0,0.3);
+    float: right; 
+    width:780px;
+}
+#menu nav a{
+    text-decoration:none;
+    float: left;
+    padding: 0 10px;
+    color: #abb;
+    /*text-shadow: 1px 2px 1px black;*/
+    font-size: 12pt;
+    line-height: 38px;
+    font-weight:bold;
+}
+#menu nav a:hover{
+    color: #fff!important;
+}
+#containner_login{
+    height:26px;
+    margin: 4px;
+    float: right;
+    border-radius: 7px;
+    border: 1px solid #222;
+    background: #363636;
+    background: -moz-linear-gradient(#363636,#2A2A2A);
+    background: -webkit-linear-gradient(#363636,#2A2A2A);
+    padding: 0 10px;
+}
+#user{
+    line-height: 26px!important;
+    font-size: 14pt;
+    color: #abf!important;
+}
+#content {
+    float: left;
+    margin: 60px 0px 130px 0px;
+    width: 980px;
+}
+#containner{
+    width: 980px;
+    margin: 0px auto;
+}
+#header{
+    box-shadow: 0px 3px 20px #000;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    width:100%;
+    background: #ddd;
+    background: -moz-linear-gradient(#EEE,#CCC);
+    background: -webkit-linear-gradient(#EEE,#CCC);
+    z-index: 100;
+}
+#header h1{
+    letter-spacing: 2px;
+    color: #fff;
+    font-size: 20pt;
+    margin: 13px;
+}
+.area_div{
+    float:left;
+    width:100%;
+    padding: 7px;
+}
+header a {
+	text-decoration: none;
+}
+header a li{
+    color:#fea;
+    font-size:15pt;
+    font-weight:bold;
+	text-shadow: 1px 2px 1px black;
+}
+header a li:hover {
+    background:rgba(255,255,255,0.2);
+}
+footer {
+    box-shadow: 0px -1px 10px #000;
+	clear: both;
+	width: 100%;
+	position: absolute;
+    bottom:0;
+    background:#777;
+}
+#div_footer{
+    box-shadow: 0px -1px 10px #000;
+    width: 100%;
+    background: #ccc;
+    background: -moz-linear-gradient(#ccc,#bbb);
+    background: -webkit-linear-gradient(#ccc,#bbb);
+    float: left;
+    padding: 10px 0px 10px 0px;
+}
+#menu_footer{
+    height:20px;
+}
+#center_footer{
+    width:980px;
+    margin: 0px auto;
+    padding: 10px 0px 10px 0px;
+    height:50px;
+}
+footer li a{
+    font-size: 11pt;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    color: white!important;
+}
+footer h4 {
+    margin: 2px 50px;
+    float: left;
+    font-size: 28pt;
+    color: #333;
+}
+a{
+    text-decoration:none;
+}
+footer span {
+    font-size: 10pt;
+    font-weight: bold;
+    margin: 0 auto;
+    display: block;
+    width: 350px;
+}
+#body-centered {
+	float:left;
+	width:650px;
+}
+#body-full{
+    float:left;
+    width:960px;
+}
+#content h1{
+	letter-spacing:4px;
+    margin:10px;    
+	color:#555;
+}
+input[type=button]{
+    font-size:14px;
+}
+ul {
+    padding:0px 0px 0px 20px;
+    margin:0;
+}
+ul span{    
+    margin:7px;
+    float: right;
+    display:block;
+    color: #FC7;
+}
+ol li{float:none}
+li {
+    padding:4px 10px;
+    display: block;
+    float:left;
+}
+h2{
+    padding-left: 10px;
+    font-size:18pt;
+    font-weight:bold;
+}
+.bt_fechar{
+    height:15px;
+    width:15px;
+    position: absolute;
+    top:5px;
+    right:10px;
+    background: rgba(0, 0, 0, 0.2);
+    color:#555;
+    font-size:10pt;
+    line-height:15px;
+    border:2px solid #555;
+    font-weight:bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align:center;
+}
+.closed{
+    overflow-y: hidden;
+    padding-bottom: 0px!important;
+    padding-top: 0px!important;
+}
+.closed h3{
+    margin-top:0px!important;
+}
+#superior{
+    box-shadow: 0px 3px 20px #000;
+    border-radius: 10px;
+    margin: 0px 0px 25px;
+    background: #EEE;
+    padding: 40px 10px 10px 10px;
+    position: relative;             
+}
+#sub_superior{
+    margin: 30px 0px 0px 0px;
+}
+#superior h3{
+    margin: 15px 0px 5px 0px;            
+}
+textarea{
+    resize:none;
+}
+button,input[type=button],input[type=submit]{
+    border: 1px solid #555;
+    background: #ddd;
+    background: -moz-linear-gradient(#EEE,#CCC);
+    background: -webkit-linear-gradient(#EEE,#CCC);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11pt;
+}
+button:hover,input[type=button]:hover,input[type=submit]:hover{
+    border: 1px solid #999;
+    background: #eee;
+    background: -moz-linear-gradient(#fff,#ddd);
+    background: -webkit-linear-gradient(#fff,#ddd);
+}
+/********************************-ZONA-********************************/
+.zona_dados h3{
+    margin:-10px -10px 10px;
+    padding:5px 10px 2px;
+    border-radius: 10px 10px 0 0;
+    /*width:650px;*/
+    text-decoration:none!important;
+    color:#555;
+    border-bottom: 1px solid #AAA;
+    background: #ddd;
+    background: -moz-linear-gradient(#EEE,#CCC);
+    background: -webkit-linear-gradient(#EEE,#CCC);
+}
+.zona_dados{
+    box-shadow: 0px 3px 20px #000;
+    border-radius: 10px;
+    margin:0px 0px 15px;
+    background:#eeeeee;
+    padding:10px 10px 10px 10px;
+    /*width:650px;*/
+    position: relative;
+}
+.texto{
+    background: white;
+    padding: 5px;
+    border: 1px solid #AAA;
+}
+/********************************-LOGIN-********************************/
+#login{
+    padding:10px;
+    line-height: 26px!important;
+    color: #555!important;
+}
+/********************************-ASIDErS-********************************/
+aside {
+	float: right;
+	width: 280px;
+    margin-right: 20px;
+}
+aside h4 {
+	padding-left:10px;
+}
+aside h3 {
+	padding-left:10px;
+}
+.grupo_avaliacoes{
+    float:left;
+    width:100%;
+    margin-bottom:5px;
+}
+.grupo_avaliacoes div{
+    padding:8px;
+    float:left;
+    font-size:10pt;
+}
+.grupo_avaliacoes a{
+    color: #06F;
+    text-decoration: none;
+    font-size: 14pt
+}
+.grupo_avaliacoes h3{
+    float:left;
+    width:100%;
+}
+/********************************-CRIAR QUESTAO-********************************/
+.line label{
+	line-height:26px;
+	display: block;
+	float: left;
+    font-size: 12pt;
+}
+#area_fontes label{
+	width:65%;
+}
+#area_fontes .line label+label{
+	width:20%;
+}
+#area_fontes .line label+label+label{
+	width:15%;
+}
+#area_entradas .line label{
+	width:83%;
+}
+#area_entradas .line label+label{
+	width:17%;
+}
+#area_opcoes .line label{
+	width:65%;
+}
+#area_opcoes .line label+label{
+	width:10%;
+}
+#area_opcoes .line label+label+label{
+	width:10%;
+}
+#area_opcoes .line label+label+label+label{
+	width:15%;
+}
+/********************************-RESPONDER QUESTAO-********************************/
+.area_div h3{
+    /*margin:15px 0px 5px 0px;   */
+}
+#content textarea{
+    /*width: 90%;*/
+}
+#opcoes_multipla li{
+    float:none;
+    /*width:600px;*/
+}
+#opcoes_multipla li:nth-child(even){
+    background:rgba(255,255,255,0.5);
+}
+#opcoes_multipla li:nth-child(odd){
+    background:rgba(255,255,255,0.3);
+}
+#opcoes_multipla_campo{
+    background:#bbb;
+    border: 2px solid #888;
+    margin-bottom: 5px;
+}
+.agrup{
+   /* float:left;*/
+    /*width:631px;*/
+	background:#aaa;
+    border: 2px solid #888;
+    margin-bottom:5px;
+    padding: 3px 7px;
+    font-size: 10pt;
+    border-radius: 10px;
+}
+.agrup .line{
+    background: #ddd;
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 5px;
+    box-shadow: 1px 1px 4px #444;
+    /*float:left;*/
+    /*width: 621px;*/
+}
+.line{
+    height: 26px;
+}
+#fontesRes .line{
+    height: 70px;
+}
+#fontesRes .area_div{
+    padding: 0px;
+}
+/********************************-CONSULTA-********************************/
+table{
+    border-collapse: collapse;
+    border: 1px solid #000;
+    width:100%;
+}
+#tableConsultar{
+}
+th td{
+    border: 1px solid #000;
+}
+.area_dados{
+    border:2px solid #ccc;
+    background: #f8f8f8;
+    margin:0px 8px 8px 0px;
+    padding:5px 5px 5px 10px;
+}
+.area_dados h4{    
+    margin:5px 0px;
+}
+.titulo_dados{
+    margin:16px 0px 8px;
+}
+/********************************-CRIAR_AVALIACAO-********************************/
+.campo{
+	padding-left: 10px;	
+}
+#id_titulo{
+    width:400px;
+}
+.questao{	
+	background: #ddd;
+	margin: 7px 0px;
+	padding: 10px 0;
+	border-radius: 10px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+	position: relative;
+}
+.removerQuestao{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+.campo label{
+	width:160px;
+	display:block;
+	float:left;
+}
+/********************************-RESTO-********************************/
+.titulo_revisao{
+    font-weight:bold;
+    display: block;
+    margin-top:10px;
+}
+.revisao{
+    display: block;
+    background: #F9F9F9;
+    border: 1px solid black;
+    padding: 5px;
+    width: 80%;
+}
+
+.line input[type=text]{
+	width:95%;
+}
+.line label{
+	padding-left:0px;
+}
+#aside-infos-questao h2{
+    margin-bottom:3px;
+}
+.titulo_arquivo{
+    margin-bottom:5px;
+}

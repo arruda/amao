@@ -1,0 +1,107 @@
+- fields: {level: 0, lft: 1, rght: 2, tipo: C, tipoPai: null, tree_id: 1}
+  model: Questao.tipoquestao
+  pk: 1
+- fields: {level: 0, lft: 1, rght: 2, tipo: C++, tipoPai: null, tree_id: 2}
+  model: Questao.tipoquestao
+  pk: 2
+- fields:
+    autor: null
+    enunciado: Escreva um programa que ignora a entrada de dados e imprime 'hello
+      world'
+    id_corretor: 1
+    percentNotaDiscursiva: '0'
+    percentNotaMultipla: '0'
+    percentNotaProgramacao: '100'
+    respostaDiscursiva: ''
+    retorno_correcao: null
+    slug: hello-world
+    tipo: []
+    titulo: hello world
+    verificada: true
+  model: Questao.questao
+  pk: 1
+- fields:
+    autor: null
+    enunciado: escreva um programa que imprima hello world com mais de um arquivo
+      fonte.
+    id_corretor: 1
+    percentNotaDiscursiva: '0'
+    percentNotaMultipla: '0'
+    percentNotaProgramacao: '100'
+    respostaDiscursiva: ''
+    retorno_correcao: null
+    slug: multiplos-fontes
+    tipo: []
+    titulo: Multiplos Fontes
+    verificada: true
+  model: Questao.questao
+  pk: 2
+- fields:
+    autor: null
+    enunciado: escreva um programa que imprima hello world dado um arquivo de main.
+    id_corretor: 1
+    percentNotaDiscursiva: '0'
+    percentNotaMultipla: '0'
+    percentNotaProgramacao: '100'
+    respostaDiscursiva: ''
+    retorno_correcao: null
+    slug: questao-parcial
+    tipo: []
+    titulo: Questao Parcial
+    verificada: true
+  model: Questao.questao
+  pk: 3
+- fields:
+    notaBase: '5'
+    notaLimMaximo: '5'
+    notaLimMinimo: '0'
+    questaoExata: 1
+    templateAvaliacao: 1
+    tipo: [1]
+  model: Questao.filtroquestao
+  pk: 1
+- fields:
+    notaBase: '5'
+    notaLimMaximo: '5'
+    notaLimMinimo: '0'
+    questaoExata: 2
+    templateAvaliacao: 1
+    tipo: []
+  model: Questao.filtroquestao
+  pk: 2
+- fields:
+    notaBase: '10'
+    notaLimMaximo: '10'
+    notaLimMinimo: '0'
+    questaoExata: 3
+    templateAvaliacao: 2
+    tipo: []
+  model: Questao.filtroquestao
+  pk: 3
+- fields: {arquivo: gabarito/hello-world/entradas/entrada_gabarito.txt, questao: 1}
+  model: Questao.entradagabarito
+  pk: 1
+- fields: {arquivo: gabarito/multiplos-fontes/entradas/entrada_gabarito.txt, questao: 2}
+  model: Questao.entradagabarito
+  pk: 2
+- fields: {arquivo: gabarito/multiplos-fontes/entradas/entrada_gabarito2.txt, questao: 2}
+  model: Questao.entradagabarito
+  pk: 3
+- fields: {arquivo: gabarito/questao-parcial/entradas/entrada_gabarito.txt, questao: 3}
+  model: Questao.entradagabarito
+  pk: 4
+- fields: {arquivo: gabarito/hello-world/fontes/hello_world.cpp, questao: 1, usarNaResolucao: false}
+  model: Questao.fontegabarito
+  pk: 1
+- fields: {arquivo: gabarito/multiplos-fontes/fontes/hello_world.h, questao: 2, usarNaResolucao: false}
+  model: Questao.fontegabarito
+  pk: 2
+- fields: {arquivo: gabarito/multiplos-fontes/fontes/main.cpp, questao: 2, usarNaResolucao: false}
+  model: Questao.fontegabarito
+  pk: 3
+- fields: {arquivo: gabarito/questao-parcial/fontes/main.cpp, questao: 3, usarNaResolucao: true}
+  model: Questao.fontegabarito
+  pk: 4
+- fields: {arquivo: gabarito/questao-parcial/fontes/hello_world.h, questao: 3, usarNaResolucao: false}
+  model: Questao.fontegabarito
+  pk: 5

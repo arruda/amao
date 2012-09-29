@@ -1,0 +1,53 @@
+{% extends "util/base.html"%}
+{% block 'body-hgroup' %}
+	<h1><span>Consultas</span></h1>
+{% endblock %}
+
+{% block 'body-superior' %}
+    <div id="sub_superior">
+        {% if templates %}
+	    <h2>Templates de Avaliação Disponiveis:</h2>
+	    <table border="1" id="tableConsultar">
+		    <thead>
+			    <tr>
+				    <th>Template</th>
+				    <th>Turma</th>
+				    <th>Matéria</th>
+				    <th>Início</th>
+				    <th>Término</th>
+			    </tr>
+		    </thead>
+		    <tbody>
+			    {% for temp in templates %}
+				    <tr>
+					    <td><a href="{% url professor_consultar %}?template={{temp.id}}">{{temp.titulo}}</a></td>
+					    <td>{{temp.turma}}</td>
+					    <td>{{temp.turma.materia}}</td>
+					    <td>{{temp.data_inicio|date:"d/m/y  H:i"}}</td>
+					    <td>{{temp.data_termino|date:"d/m/y  H:i"}}</td>
+				    </tr>
+			    {% endfor %}
+		
+		    </tbody>
+	    </table>	
+	    {% else %}
+	        <a href="{% url professor_consultar %}">Listar Todos Templates Disponiveis</a>
+	    {% endif %}
+    </div>
+{% endblock %}
+
+{% block 'body-centered' %}
+<div id="body-full">
+    {% if template %}
+	    {% include 'professor/consultar_template.html' %}
+    {% endif %}
+
+    {% if avaliacao %}
+	    {% include 'professor/consultar_avaliacao.html' %}
+    {% endif %}
+
+    {% if questao %}
+	    {% include 'professor/consultar_questao.html' %}
+    {% endif %}
+</div>
+{% endblock %}

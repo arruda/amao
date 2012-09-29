@@ -1,0 +1,37 @@
+- fields:
+    date_joined: 2011-11-25 16:01:50
+    email: aluno@aluno.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2012-01-14 18:16:41
+    last_name: ''
+    password: sha1$d953e$cd6a142e5461670bf4d76ffb4e61dbb85438ccb9
+    user_permissions: []
+    username: aluno
+  model: auth.user
+  pk: 2
+- fields:
+    date_joined: 2011-11-25 16:01:50
+    email: aluno2@aluno.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2012-01-14 18:16:41
+    last_name: ''
+    password: sha1$d953e$cd6a142e5461670bf4d76ffb4e61dbb85438ccb9
+    user_permissions: []
+    username: aluno2
+  model: auth.user
+  pk: 3
+- fields: {matricula: '123456', slug: '123456', usuario: 2}
+  model: Aluno.aluno
+  pk: 1
+- fields: {matricula: '654321', slug: '123456', usuario: 3}
+  model: Aluno.aluno
+  pk: 2
+  

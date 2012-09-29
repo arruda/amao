@@ -1,0 +1,10 @@
+- fields: {ativa: false, autor: null, data_inicio: !!timestamp '2012-02-23 14:34:48',
+    data_termino: !!timestamp '2012-02-24 17:55:01', permite_simulado: false, titulo: Avaliacao
+      Correta, turma: 1}
+  model: Avaliacao.templateavaliacao
+  pk: 1
+- fields: {ativa: true, autor: null, data_inicio: !!timestamp '2012-02-24 17:54:48',
+    data_termino: !!timestamp '2012-02-25 18:00:29', permite_simulado: false, titulo: Avaliacao
+      Parcial, turma: 1}
+  model: Avaliacao.templateavaliacao
+  pk: 2

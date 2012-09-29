@@ -1,0 +1,13 @@
+##node
+#node_modules
+#*.sublime*
+
+#Django
+*.pyc
+*.db
+*.sqlite*
+
+.project
+.pydevproject
+.settings
+

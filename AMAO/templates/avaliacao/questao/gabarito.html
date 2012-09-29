@@ -1,0 +1,31 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Gabarito de Questao</span></h1>
+{% endblock %}
+
+{% block 'body-centered' %}
+<div id="body-centered">
+	<div class="area_div zona_dados" >
+	    <h3 class="background">Enunciado:</h3>
+	    <p>{{questao.enunciado|linebreaks}}</p>
+	</div>
+	
+	<div class="area_div zona_dados" >
+	    <h3 class="background">	Arquivos Fontes:</h3>
+	    {% for gabarito in questao.fontesGabarito.all %}
+		    <h4 class="titulo_arquivo">{{gabarito.filename}}</h4>
+		    <textarea rows="10" cols="40" disabled="disabled">{{gabarito.get_content}}</textarea>
+	    {% endfor %}
+	</div>
+</div>
+{% endblock %}
+{% block 'body-aside' %}
+	<div id="aside-infos-questao" class="area_div zona_dados" >
+        <h3>Detalhes:</h3>
+        <h2 class="avaliacao">Avaliacao: </h2>
+        <a href={% url exibir_avaliacao template_id=questaoAvaliacao.avaliacao.id %}>{{ questaoAvaliacao.avaliacao.titulo }}</a>
+        <h4>Nota Min/Max da Questao: {{questaoAvaliacao.get_nota_minima}}/{{questaoAvaliacao.get_nota_maxima}}</h4>
+	</div>
+{% endblock %}
+

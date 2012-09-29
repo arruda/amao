@@ -1,0 +1,25 @@
+{% extends "html5-boilerplate.html"%}
+
+{% block 'html-lang' %}pt-br{% endblock %}
+{% block 'meta-charset' %}utf-8{% endblock %}
+{% block 'page-title' %}AMAO - Ambiente de Aprendizado Online{% endblock %}
+{% block 'meta-description' %}#FIXME{% endblock %}
+{% block 'meta-keywords' %}ambiente,online,aprendizado{% endblock %}
+
+{% block 'meta-author' %}{% endblock %}
+{% block 'meta-generator' %}Django 1.3{% endblock %}
+
+{# block 'meta-extras' %}{% endblock #}
+{# block 'head-after-css' %}{% endblock #}
+{# block 'head-after-js' %}{% endblock #}
+
+{% block 'no-analytics' %}{% endblock %}
+
+{% block 'css-extras' %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+{% endblock %}
+
+{% block 'js-imports' %}
+	{{block.super}}
+{% endblock %}
+

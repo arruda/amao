@@ -1,0 +1,6 @@
+- fields: {level: 0, lft: 1, rght: 2, tipo: C, tipoPai: null, tree_id: 1}
+  model: Questao.tipoquestao
+  pk: 1
+- fields: {level: 0, lft: 1, rght: 2, tipo: C++, tipoPai: null, tree_id: 2}
+  model: Questao.tipoquestao
+  pk: 2

@@ -1,0 +1,3 @@
+- fields: {nome: materia 1, sigla: mt1, slug: mt1}
+  model: Materia.materia
+  pk: 1

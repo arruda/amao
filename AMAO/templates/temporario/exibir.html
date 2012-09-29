@@ -1,0 +1,11 @@
+Aluno: {{questaoAvaliacao.avaliacao.aluno.matricula}}
+<br/>
+Avaliacao: {{questaoAvaliacao.avaliacao.titulo}}
+<br/>
+Questao: {{questaoAvaliacao.questao.titulo}}
+<br/>
+<br/>
+Enunciado: 
+<br/>
+{{questaoAvaliacao.questao.enunciado|linebreaks}}
+<a href="{% url responderQuestao questaoAvaliacao.id %}">Responder</a>

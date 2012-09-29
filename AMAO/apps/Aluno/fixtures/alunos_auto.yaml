@@ -1,0 +1,68 @@
+- fields: {matricula: "pbti`ks_\t8`\r`vJ@'!/\f\n$NWfj_Y\\,yjQrta\tA$<]@Svm|0w$&\f\
+      mwFecvY'<o'z{I)WY[~K=yI^Ao\"\f6K`YWZY:$W;Y&~B7/jkxPs!J]I^JUt}7-(O,{oqrU\\0'4\r\
+      %\r{g]\ngn#,i+#3%n5PpRXRGm\v[<\fBdZH*d)csWp6v\tNhM(7JBs\"?K$o&f`Y\\MbPiT!v;W[9s&~0KAMe?A0@Z[gU\r\
+      yH;-mCV~Y`s(U$?\",8V3Hw,/FMI@z!I;4uY\fz", slug: pbtiks_-8-vj-nwfj_yyjqrta-asvm0w-mwfecvyoziwykyiao,
+    usuario: 2}
+  model: Aluno.aluno
+  pk: 1
+- fields: {matricula: "@SE5NXs\\\"_JX:vjz\"I=l/s3YwMW%_hsF6w*#,fVs\r5\v2<XNOkeKK`ce?AQ\v\
+      D} .9qKF8@qH f:qGqa#\vpF\r@Y/]^L\t${?Ho3k\v.t#,\"f<8\"8W@:Vz_|[mJ!WF$1~S\\E`Ri2=d-<'f}-E|l\\\
+      e6\"v[z-?ZFT=qpgzg\nq@\"]\tMb[M6~\"kor\r\vJx@8/~{i\"$Q5/P'/g-v)4[na\r7+~CR6Fz]Yf?I_DK\r\
+      J?p\fM*,1OMsT HkA8JaXxr \f:' Osi", slug: se5nxs_jxvjzils3ywmw_hsf6wfvs-5-2xnokekkceaq-d-9qk,
+    usuario: 3}
+  model: Aluno.aluno
+  pk: 2
+- fields: {matricula: "hJjAJB\v038s@le{D\f~\n|=Vi>=ri:A:qf_I7}L\nK>@NJ@* gxwr;pP&VBn8J2EpxGR6ea$X#cJBJwia\\\
+      ?DB#-ge[~yD@aZ M*4vy\\^P\t\vvH#`c'fjf6':~\"zT'sst\f4*pv\\;frMU%x~J9hR'UR1tm~e[\"\
+      l7(eH=;kre\f@#.~NX6\"rvx+- \fXSt~ADuG*FV+Bz?%J$lot\"uW}_<W#!;=+9;^-]/Rhy\"CXT;\r\
+      _7+#IsD q%s:$w0jA+&x0=`]", slug: hjjajb-038sled-viriaqf_i7l-knj-gxwrppvbn8j2epxgr6e,
+    usuario: 4}
+  model: Aluno.aluno
+  pk: 3
+- fields: {matricula: "N\v4bkZp6/=Vqyb>FJ+&Hs)%J)x\tY?'GQqV1^,H}.YEoj[cqAR}\np7w#8WsE-{RARMj\
+      \ y*3H.e8Ed|K\vH5!MJZe8m@?R[wcF#ZTx6+H'?i/ 8z>cX4%\v.*e23-AL)W<TJyvegYX6abZ\r\
+      ^du.ese\roras lPC\n1U-RGF{a^(}~o0'< *q]sh%Kj~a9VM+-yxLhr7\\qjJRz^)tytsO}j,{NmERV!b@k779)&XP4+@kCG?04YOLN`/ZNjV\\\
+      |Yn", slug: n-4bkzp6vqybfjhsjx-ygqqv1hyeojcqar-p7w8wse-rarmj-y, usuario: 5}
+  model: Aluno.aluno
+  pk: 4
+- fields: {matricula: "m\ry]n90tSijbi\v|x*3~PU3\\\tAtIQ)@\"'`dI$O?pu#B^\\Do}bw }|}}5S4\"\
+      -W'Q,KDD2fv :1M'Kac\nxo&nT\t#X[DT>du=dvvirh:It)fw9\tm.uTP#D}0F ()KN-Na;3/3sAkT}i{<WNHo30V_e}Ltb}W!@_Oi#\r\
+      R L,DNW4c<R$q6XS!miBCY\tC,S:z D)h)'K1-r<.V-HRmN<bZVY2\v&0$C^` ARwF#k.p\n?H&IZvui\n\
+      #N<Ls^O#iq~t\"", slug: m-yn90tsijbi-x3pu3-atiqdiopubdobw-5s4-wqkdd2fv-1mk, usuario: 6}
+  model: Aluno.aluno
+  pk: 5
+- fields: {matricula: "9`L6p~F+!ZYSkp\v~G\vQ4vZ\t5AmA(.\vNk\f`jtb2!'[n#i!b\t\"g#vP7U$&\v\
+      zJP0PJoJkfil[%IBjNU-j0\v\fd\\r#V\f\\/&pih2q\vi%Mh!JcZ0\n\fOBbmS!N33dv>xx9\"\
+      H4P7f.oA\\63 gG!+}6+K~<V'Wl~4)DpEvg\t\vqNCk\n\"R\f^;Wv+?+i_lY-\r''hAv;PrXjoV~\t\
+      k\fo$\r\"U$4apU\";-\fH[CEKK^KaLS.TiwBtFpT|,08P]P32D~lwbDa\n&I@", slug: 9l6pfzyskp-g-q4vz-5ama-nk-jtb2nib-gvp7u-zjp0pjojkf,
+    usuario: 7}
+  model: Aluno.aluno
+  pk: 6
+- fields: {matricula: "h7IUFVQQgN2)}ZvXFGfP5FWIa+2AnC1QHqD#~@v]c74S*l7Bw*CQ2Rj1L.\n\
+      \tVHenq\fvJL198zQ==@5ux^-LbIO3qs?b\fiM:Y)\vr~m+-*#H%+<*5'3vMP,P\nY+T?~HB+|QFVCf(9$XUAcR,OoZ{-\t\
+      x3#6bX{7\\9=ay^\n|fcr=\txkbs&\vti`c?EaD0t6(68XqC$cs@Tz-g:#\n5>Q>ks/y(G$.\\|9)/{/j!`b\
+      \ ?gH)isJe\nvh\fph6e~t;&WKP", slug: h7iufvqqgn2zvxfgfp5fwia2anc1qhqdvc74sl7bwcq2rj1l-v,
+    usuario: 8}
+  model: Aluno.aluno
+  pk: 7
+- fields: {matricula: "cVa\r:;P-!9b[\v-~l7wu{7ien5132)lp\t2<30U7CXT\\`R\t^*rpdfvJ+&2w<lj'XeI-{]akhJnxRg\r\
+      IQ7)z9E:\vdo/Tk;~ruy0TpQ>\t2So >:rS6z85u618_~]Me)d\\) u~U gp4Iz{(AU-s/uzx_w[4|Mm\t\
+      &*R}R:a)?K})&=}dle\v%-MYkn8%{ZR/w |}q+_ywJB$'p\\\\nZX8e)_;P$~}6Jut<\"K+;k\n\
+      U:1Bw%TC2Gj!X?ShrzUW=K0qCJ", slug: cva-p-9b-l7wu7ien5132lp-230u7cxtr-rpdfvj2wljxei-ak,
+    usuario: 9}
+  model: Aluno.aluno
+  pk: 8
+- fields: {matricula: "v8gR?'b#ZT%PI\\Q.B6\v_Z`kc}*kW >x1nXs9\t4/H+pjN\r:-|gYE^bZ1{\t\
+      tj9 GF\tqqiciiBix1cQvn!b#+\fM\rI_)t#K+| \n.;*-\nV:1x,P[[IdPJ=!(DXg=$j=md`EocW;mCsUXxr(GZ\t\
+      4d#~I<b\rC\v7G\"dHbe1qr_jZ/?h6IJ9J\f-YIh\"O'\rN9c\r\f>Xq[c:94Ry(~7SG'q2gJY&=k__j,fNt.4^PzeB]IW7ipW\r\
+      R2a|gX<0EX/UC>$B2[", slug: v8grbztpiqb6-_zkckw-x1nxs9-4hpjn-gyebz1-tj9-gf-qqi,
+    usuario: 10}
+  model: Aluno.aluno
+  pk: 9
+- fields: {matricula: "G5iW\tI#OWK~&!a\v-LFRb-x^ j{_)9<5C`\t)qzmtR%v7VmJ<2kALtMO~{uvFELfWShq\r\
+      fT=syw|3Xk\fp !4Qi|4+&|`<Gf0\"'HpT%:FkZAvlZ1Ujxni$XN~eLr4:TC4\t;;.,tZ#o@X}BYd_+Fp~pB!\f\
+      =YWGL1J7GR\n6{.m5MCT1:1^&.2D\"Y\nJ$K~Cz(kz+tZ]X/(z\n4`Uu\f\tsT1m2r(IQ&J!BLPx^WRIXx\\\
+      (\vIl!MWIW?6=|dwp;(Rq( o", slug: g5iw-iowka-lfrb-x-j_95c-qzmtrv7vmj2kaltmouvfelfwsh,
+    usuario: 11}
+  model: Aluno.aluno
+  pk: 10

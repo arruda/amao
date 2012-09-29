@@ -1,0 +1,1 @@
+prepara('fonte','fontesRes','fontes');

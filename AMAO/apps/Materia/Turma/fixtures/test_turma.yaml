@@ -1,0 +1,9 @@
+- fields:
+    alunos: [1]
+    materia: 1
+    nome: Turma 1
+    professor: 1
+    sigla: tm1
+    slug: tm1
+  model: Turma.turma
+  pk: 1

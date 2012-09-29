@@ -1,0 +1,36 @@
+- fields: {nome: "\n@og\" iIm1O)a,\\\vE\"5IK\\\tj3^x;3@M\"|3WU'mp[mF4*d#k9p#E&\fh;IAmc{d7:PtUNj{|E\"\
+      @XdtJp\\*W}B]YgNhswAdw&(zbE\t\fLIYs^.6-E}uruY+hG&'z-xqTunRE_@h-epPvcZr/Ph#t{v8s`<?_[=/#m]gB!\r\
+      zF`7Dp9VLa_M.PbIO6ZCYt]Z'R\rti:*HzXPC$\\>\nOX${qBlveg]7,h#rFC\na~\vY+]iBvak#.x!Q\
+      \ G\v)4%o\rUyVh\"", sigla: 'q]7*lC#A#M', slug: q7lcam}
+  model: Materia.materia
+  pk: 1
+- fields: {nome: " ^?` =S>uSE.l^!x6\fvsd=Tj#`5U{W3Q|C*EL=u?>#<#+]}eRSuM0F/<PYN(Am<zesu/d@\\\
+      rav_\v!l-Z^jIu<)RXUsd~wdFoFIp-:jLJFE\f7oKs+r5\fL2<&4gX!|DX4G2zllj\f .DOn[sZqJFFQF[2i}VpZr\\\
+      Ud/o'\v\"A4|`A#BeFbfm2rJ\tI[*#1[|ja\"?mu=xj\">i7#y(3+@? 0-\\$G&:\"s?!k0s6R6k\
+      \ j%#!-oDYhl!0]+Ts4E>)\rT\t", sigla: H2^)Zm#q#o, slug: h2zmqo}
+  model: Materia.materia
+  pk: 2
+- fields: {nome: "jj9&{),UG2=r&\rxcg\vj46c\\Oh;\"zMyC=Ga\t4%TWpYo7vN;7gCR5Hfsz#DE\t\
+      QF;\"tM4p`g\"g^.kf U,\r!ovr]4{\n8\"xkJ$xr&Xw>NTxYY]hc~@.m$x?5[{TigZ\vGr{FicV;rv@.wO+y;jS~Wt<\"\
+      M83W56|V3OqX,q-Jd Y@y'iafL\t~xm]CGDGkrI[vpa;nw*zZJ;P4ag+w*<#L14^#3Qh!/<G]8F0_r1ylQ\"\
+      x#\fuH^m^->s[;e9$Tl\\0\fh", sigla: "#HSxv}\fYB=", slug: hsxv-yb}
+  model: Materia.materia
+  pk: 3
+- fields: {nome: "Ne2KM_^\t#\\[lT\vwT]+Q \"OM:\f/\rzo(bR45Jh/o\\J'=%5bcrI_?YFoXrN1`5f}doY)l\n\
+      )|t\na]^S:ZZ4SFd?Uwf5E 0>/WE{:L!ewne8\\{J\f\r}&J,K\"?_<{wi`-0-\t%|46'1`sq P(JlZr{e\\\
+      ?q(\tVJiM4dF\v@W9 e!)9*$@!R=s!&][\"ovJ;l +Q5 z*kWCE\"jLHNe;zb$@U@yI~R9S/QV(,8Ws7}DHuxuJ5_>d98\
+      \ \rfeaXlE@;*/6\fMmv", sigla: =fMi|tu3)5, slug: fmitu35}
+  model: Materia.materia
+  pk: 4
+- fields: {nome: "pl!jB\tj -GKyvO /B?Q3,Z/Q,:Hd36|'.Zj5F=|SafC0 _V(FCe5ZpMh'xAQ5f2OpHL!&}-43TD4'n's\t\
+      \vq\tlO$C,RjUP8>eV-rjg'WZ\vK?`Y2FUqB/gOzw1C\\rbt:W8I!r%=0I<y7t<1HV|$kfX5PH\f\
+      rb.lIW66{\"*,U\n+!vl\r\t,u]72\":KF([64V',oUtd`qZUH\"<=JNawm \\:\"(No%\f\tTrtkIbjU6D\f\
+      <_D\"h\nSaavCcVEovzbLgLga^", sigla: '-,Q#bcDyt.', slug: qbcdyt}
+  model: Materia.materia
+  pk: 5
+- fields: {nome: "`'\f+y.%3\\<LMa!jHZAp{7rGq'V{'!sL&i\t-#kGtk4ynIV\fT|`ic\\2\r\n3\t\
+      @!KL3ZY;~b#9C!~YR_\v3tBQM\"2p]ct:#'&I>\tA3EkO<%#2!-)rb_H!e:k45~reH=EQE=Mz[H>$*?(Ppg'CA=Q_\t\
+      \f)9UQ{9\t(Nw?k>w2a~}?;R\"3,Ir\rYom5R\"*sdqlJ~.&eb(<ko\\a}iQgy+Ud0yfWuJ@zTr^+Nxa+fV9*$+_naw\\\
+      vX.s#7x}iM38&-y\n`l,Z", sigla: "Iv=9\t~NSw,", slug: iv9-nsw}
+  model: Materia.materia
+  pk: 6

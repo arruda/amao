@@ -1,0 +1,15 @@
+- fields:
+    date_joined: 2012-04-27 20:02:19.662821
+    email: amao@uniriotec.br
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2012-04-27 20:02:19.662821
+    last_name: ''
+    password: sha1$f07a5$ee52c6775b32ed3115e8dc63f5d27090c97c11bc
+    user_permissions: []
+    username: amao
+  model: auth.user
+  pk: 1

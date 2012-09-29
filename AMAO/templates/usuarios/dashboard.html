@@ -1,0 +1,34 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>DashBoard</span></h1>
+{% endblock %}
+
+{% block 'body-centered' %}
+	<div id="body-centered" class="area_div zona_dados">
+        <h3>Perfil</h3>
+		{% if aluno %}
+			<span>Matricula:</span> {{aluno.matricula}} </br>
+			<span>Email:</span> {{aluno.usuario.email}} </br>
+		{% else %}
+			<span>{{request.user}}</span>  </br>
+			<span>Email:</span> {{request.user.email}} </br>
+		{% endif %}
+		<h5><a href="{% url password_change %}">Alterar Senha</a></h5>
+		
+	</div>
+{% endblock %}
+
+{% block 'body-aside' %}
+    <div class="grupo_avaliacoes area_div zona_dados">
+	{% if aluno %}
+		{% include 'aluno/avaliacoes_side.html' %}
+	{% else %}
+        {% if monitor %}<h2>Monitoria</h2>{% endif %}
+		<h4><a href="{% url criar_questao %}">Criar Questão</a></h4>
+		<h4><a href="{% url criar_avaliacao %}">Criar Avaliação</a></h4>
+		<h4><a href="{% url professor_consultar %}">Consultar Notas</a></h4>
+		<h4><a href="{% url criar_tipo %}">Criar Tipo de Questão</a></h4>
+	{% endif %}
+    </div>
+{% endblock %}

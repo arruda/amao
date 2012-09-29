@@ -1,0 +1,17 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>AMAO - Ambiente de Avaliação Online</span></h1>
+{% endblock %}
+
+{% block 'body-centered' %}
+	<div id="body-centered">
+	<ol>
+		<li>Faça seu  <a href="{% url login %}">login</a></li>
+		<li>Acesse seu <a href="{% url dashboard %}">dashboard</a></li>
+		<li>Escolha uma avaliacao</li>
+		<li>Resolva suas questões</li>
+		<li>Receba o resultado na hora.</li>
+	</ol>
+	</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "util/base.html"%}
+
+{% block 'js-imports' %}
+{{ block.super }}
+  	<script src="{{ STATIC_URL }}js/accordion.js"></script> 
+{% endblock %}
+
+{% block 'body-hgroup' %}
+	<h1><span>Responder Questao</span></h1>
+{% endblock %}
+
+{% block 'body-superior' %}
+<div id="sub_superior">
+	<h2 class="avaliacao">Avaliacao: <a href={% url exibir_avaliacao template_id=questaoAvaliacao.avaliacao.id %}>{{ questaoAvaliacao.avaliacao.titulo }}</a></h2>
+	<h3 class="background">Enunciado:</h3>
+    <div class='texto'>{{ questaoAvaliacao.questao.enunciado }}</div>
+</div>
+{% endblock %}
+
+
+{% block 'body-centered' %}
+<div id="body-centered">
+	{% if fontes_extra_gabarito %}
+		<div id="fontes_pre_definidos" class="area_div zona_dados">
+            <div class='bt_fechar' onClick='fecharDiv(this)'>F</div>
+			<h3>Arquivos Fontes Pré-Definidos:</h3>
+				<div >
+					{% for prefonte in fontes_extra_gabarito %}
+						<div>{{prefonte.filename}}</div>
+						<textarea rows="10" cols="75" disabled="disabled">{{prefonte.get_content}}</textarea>
+					{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+	<form action="{% url responderQuestao questaoAvaliacao.pk %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    	 {{questao_form.errors}}
+		{% if questaoAvaliacao.questao.is_programacao %}
+         <div id="area_fontes_resolucao" class="area_div zona_dados">
+			<h3 >Envie seus arquivos fontes:</h3>
+            {{ fontes_formset.management_form }}
+            <div id="fontesRes" class='agrup'>
+            {% for Qform in fontes_formset %}
+                {{Qform.errors}}
+                <div class="fonte line" >
+                    <div class='area_div'><label>Arquivo: </label><span>{{Qform.arquivo}}</span></div>
+                    <div class='area_div'><label>Apagar </label><span>{{Qform.DELETE}}</span><span>{{Qform.questao}}</span><span>{{Qform.id}}</span>
+                    <input type="button" class="removerFonte" value="Remover Fonte"  onClick="remover(this)"/></div>
+                </div>
+            {% endfor %}
+            </div>
+            <input type="button" onClick="adicionar('fonte')" value="adicionar Fonte" />
+        </div>
+		{%endif%}
+		<div id="opcoes_multipla" class="area_div zona_dados">
+       		<h3 >Multipla Escolha:</h3>
+			<div id='opcoes_multipla_campo' >
+                {{questao_form.opcoesMultiplaEscolha}}
+	        </div>
+        </div>
+		<div id="discursiva" class="area_div zona_dados">
+       		<h3 >Resposta Discursiva:</h3>
+			<div class='area_div'>
+   				{{questao_form.respostaDiscursiva}}
+	        </div>
+        </div>
+		<div class="area_div zona_dados">
+		    <input type="button" onClick="salvar(this)" value="Responder/Enviar" />
+	        <a href="{% url corrigirQuestao questaoAvaliacao.id %}"><input type="button" value="Corrigir Programação"></a>
+        </div>
+	</form>
+</div>
+<script src="/static/js/jsControleFormsetDinamico.js" ></script>
+<script src="/static/js/jsResponderQuestao.js" ></script>
+{% endblock %}
+{% block 'body-aside' %}
+	<div id="aside-infos-questao" class="area_div zona_dados">
+	 <h1>Detalhes:</h1>
+	 <h4>Nota Min/Max da Questao: {{questaoAvaliacao.get_nota_minima}}/{{questaoAvaliacao.get_nota_maxima}}</h4>
+	 <h4>Sua Nota: {{questaoAvaliacao.nota}}</h4>
+	 	<h3>Nota Programação: {{questaoAvaliacao.get_nota_prog}}/{{questaoAvaliacao.get_nota_prog_max}}</h3>
+	 	<h3>Nota Multipla Escolha: {{questaoAvaliacao.get_nota_mult}}/{{questaoAvaliacao.get_nota_mult_max}}</h3>
+	 	<h3>Nota Discursiva: {{questaoAvaliacao.get_nota_disc}}/{{questaoAvaliacao.get_nota_disc_max}}</h3>
+	</div>
+{% endblock %}
+

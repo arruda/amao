@@ -1,0 +1,146 @@
+- fields:
+    alunos: []
+    materia: 1
+    nome: "mQP9S?|+5e_#7GQoZ1\\n\tqp]B:FfXsd#\f+|`@E_Fc6|Ue|m@)f2_'7z\tB54?jGDG=O\"\
+      7_IQp{$vm+[eg2wj.ZXu--A>%\v.BD9dyw7QGL-\tuTj`a/0V8@jhZC>mGW]A'bPmTxz%)->5W^:c7rk+<\
+      \ MhY#s-:{*|.NshhZ\foOS,Ngx}8kni*yy+:q2C00lYPs.<bx@bJQ-VxCdrkrH&K=@AAqEW;b(/8}Q.U*{\"\
+      ?3j%AP})\tO{2sBA\"Wa\fmf"
+    professor: 1
+    sigla: "uO'ac\t<\"3g"
+    slug: uoac-3g
+  model: Turma.turma
+  pk: 1
+- fields:
+    alunos: []
+    materia: 1
+    nome: "U}E'h'n%Twi^;|jt5(XXx\r$c4^zRwUH==^W~dS%W@D-db)R43)N\rtzK$.]eB||'#~CZq&{VeY,\\\
+      5}`ZA-4~6~3M7HRJ[vh\"%CUX!T7r8zc2VLfCd8*(0P%[$IF7;Z03OyXn,\t%=tXINodzGU/,*[0\f\
+      ,a )U*$IcQuZ8 B48L\rO,sR\f]@.z/:F-}52[[Ir?%\v\t F.*W[=1L~8fkHc~>v5~\f/zS5f+hc\t\
+      $x+fls(/Z'GWSkuCr1u^x8FwOoC"
+    professor: 2
+    sigla: /aM72wB|Al
+    slug: am72wbal
+  model: Turma.turma
+  pk: 2
+- fields:
+    alunos: [25, 26, 27, 28, 29]
+    materia: 2
+    nome: "itGg$~J&ir6m{_U@.76w:a\fGs?dJ<]KB-/>?n*f0^B\rO\v+q79tdcvK1_ )!oly>^}t!\
+      \ =\nK$=.fH2,-[h~-\t]g)iW1U#0li6crII:'&?JadifU}w+\tp-ckT?H'&aDZ00V\t\vN\\E$~K2-\f\
+      W!@>2l]hI\\vyZzAc_\v7s.]-*;E B53A0\n*`PB\r,3F0y=h6@5wf$fn]lk:u.gi\tpH`-,BnR6*Kp)jilr;T@\\\
+      q:<dZo|Cr`qXdG&r&2cP!1w0+vP"
+    professor: 1
+    sigla: ">\r%_a21!6Z"
+    slug: _a216z
+  model: Turma.turma
+  pk: 3
+- fields:
+    alunos: [25, 26, 27, 28, 29]
+    materia: 2
+    nome: "A_h#v\nrzKC,=%/\"]6sW$`'&6lu|Yh_\nS7_\r-*+y]:\r91]j<\t6RfD\fryNx?y-:gc$yG2?n$3b]rHFu$rJZ\f\
+      3n\f<)^_$2<d\fuvAdT_j((/8Gp#sA0gSj6>~~ixIe\"Z{<,70E-T_>%\tr4*>o\v3\r\v\"0lPr_~w%vgC|VYFXn{mG[\
+      \ T5^fXjQkFv?`+<[) ,0E.EsB\tiF\nGy-PBo.=O`#l';]y!\"N\f uZ;_k>,!\rB9*BeW\";7Qdjb8b.lZ1D7z3d"
+    professor: 2
+    sigla: )Q5o2j3oU]
+    slug: q5o2j3ou
+  model: Turma.turma
+  pk: 4
+- fields:
+    alunos: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    materia: 3
+    nome: "\nZ`Re*z\\XKsUu_#'bi60tk9bB7ed(]yT/^kJH7nb 50(`$\vzVW\v,ND4\"`QP[&9;XuV39j\n\
+      J`y6zzh\fwH;9K=\"IA87\vugJ#0]K\"!1)\f:MZ88AQ8!0w@7/\"4&\tYc2GML{+ch`\v@BpW\"\
+      J{s%B,?bCKeN/+B;+|-a_z;S5imKZ}Q'VE|ds\rHZ^QbTSh |:\tG7~\n2-XXZtjfZT1OKq3 =nKXdZ&]__EY#{H^=]Me[+|yfk^6?IVrE#R+\r\
+      _o_)dx"
+    professor: 1
+    sigla: B}G'V%kt'8
+    slug: bgvkt8
+  model: Turma.turma
+  pk: 5
+- fields:
+    alunos: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    materia: 3
+    nome: "3 kTY;yxC~2#8?#Fv$o_dF3zLqXy|\\$8y/&m2rkeDf2!BT d\\TxH94d5`TzlD`2>MR3btwBh9uEFFt)>AUy)~>/}*3~\
+      \ %BD^>.W|B\\\"{G\\dW!nuz9a~0H!*}OSVlHmin\"|fy9P;Qw;CE6=6.`r[(i7m\t'\rW3d|aS>zWT0lI1V:SBUoOye0R/(T[zDvBZ\r\
+      Ks\"J\r`v7wH3{b}6> !9[g}]qp)5]MwD\\K3|Rrn9Q(uc;\\\t~nB!5{imC>j%\\}7"
+    professor: 2
+    sigla: ;W1*/p3c:E
+    slug: w1p3ce
+  model: Turma.turma
+  pk: 6
+- fields:
+    alunos: [28, 29, 30, 31]
+    materia: 4
+    nome: "23v\t7Dg36@f2HHo\"q\"BA&7 )Cdw^\nsVjg$A'#mP^XM?\tmX(\f87\nT9d+e5-?lMA&pR1T\
+      \ Dm#>pO]9Ra\\f6b7h.2bBA\\X;Wsw!\vFq#(5Tb$,d^}$jLi[_5#3oFq`9#'lh{-i\fIZ`3x$1r-zakd\
+      \ \fQj-Bee?CmU;#^w5]973j|k$:$/=+*-#{Sb[>Zk`t\n:8QdKiy >Q+e\nG\fa,|4,gvyj?\r\
+      +PF\"@nBwF^j:Hs\f!\f}hN\re<M dG\t&!ZtWA&\"["
+    professor: 1
+    sigla: d,v,e.rRcT
+    slug: dverrct
+  model: Turma.turma
+  pk: 7
+- fields:
+    alunos: [28, 29, 30, 31]
+    materia: 4
+    nome: "5]}>~\"]`\"M@!v6F/%lF5{X_o2pAb.<+rx\n@leIs%3X,r^a7p3\rGASZ([k3)6L\nr=zuO(+h}\n\
+      #_DS@{-K)gegEcx~Uo73qQ~g\f$}KZE\r'R[S=Io& ]Cf~V4qeeTKDh1Xb0siBV\"}IMLsvl#RUgmx#@GeBrOr[O@!5^t)IR'92)VK-6nnUKcSER3tE$\v\
+      3Qs()`D2E')I/bf/`[XH_CW8e.&\fB`/t#ty\fjG\r\"U0N\\\\LDR}`=yfq-Y'OX:56BO"
+    professor: 2
+    sigla: '(R/$
+
+      bVHU#'
+    slug: r-bvhu
+  model: Turma.turma
+  pk: 8
+- fields:
+    alunos: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+      41, 42, 43, 44, 45, 46, 47, 48]
+    materia: 5
+    nome: "M\r~ToLaf_\v=z8E]DlA7+\"K vE4\vZTY!lZR/*;4CdLmH7WC]BY>Ho\fN*~9C'-ldLo<%j?uPe#bHT~t,V\
+      \ (p(er1?*UvmJSL!h7G<@[$)?3B!*e\nX\t4?@QZ1TLfksA>w'dZ\">YLDP'n8U]SpWV(lL\n\"\
+      a)l0A7ju_[.V)9AUgCLlA\r}/B\"y]lR7F5s_-t_?uvd0|DI*,^1/_xg4p.57X \vpTO\nz\n\n\
+      < ./B{PGDZohI1^WY4t_c.t\v0,5~q\n ?"
+    professor: 1
+    sigla: C(iw cm!ui
+    slug: ciw-cmui
+  model: Turma.turma
+  pk: 9
+- fields:
+    alunos: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+      41, 42, 43, 44, 45, 46, 47, 48]
+    materia: 5
+    nome: "\\O2YFkN5=,_^UzR~AO+t\"XS&w<bq,8![J(LGy\v%J xVBV)Pz-a*9C\n_cx[1Xo#\n=Fs*B,z&7Gb&6>il5.3}'6<v~p\t\
+      Q2l@W-b^U.`$@H0\n[f\">YCQ#*lNt\v\n8 g*..<PWcrT\r=_vX!vu~KU\fj,k`*<+?zh!|hb[%rhf9O3o!+Z?=(X`r?lg;xuG]-(\f\
+      {dm\\+C%g{>zZ]+TEnDF@` mZ4,g>z jPt^yAK@\"<bdAh}RXtNs,fN0(]8}09Hn4"
+    professor: 2
+    sigla: yv|0Ia>hzX
+    slug: yv0iahzx
+  model: Turma.turma
+  pk: 10
+- fields:
+    alunos: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+      34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+    materia: 6
+    nome: "RT|}sYak+S*wW+yx2dRs'Q?eI+yBR:q.@\nC^/0Wo~EBhSPRg,2N%\f4B\\c_\vmIJv[U.IISn;v99\r\
+      !\tLmlQd^1 8Eg+|/0a^i`l1C[9/IZ}\rHM\"VX\"0tHLsG*0;\fULkg\tpRU&i&hspH7S6MATYX%;J3i2HIibF_YC\"\
+      wSP\"+^&(-kM7\vT^\vf~uWOrL,5&Z)q\t0:tm8Em\nRbEQ}[rYgnR,F4w'pXn]vhdp?T)>I6\f\
+      VE]v\rR\"{ @^[Aon;}xT\"#"
+    professor: 1
+    sigla: Mht"m34fs1
+    slug: mhtm34fs1
+  model: Turma.turma
+  pk: 11
+- fields:
+    alunos: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
+      34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+    materia: 6
+    nome: "c,Qil]L9i2@i<\vY+S?&ce!;:j2Y\r#SyYbIzr~=kNv W,g%cZcr[\\!L_IfgWE93FAW<y?eyz|B,\
+      \ _V\t] ~I.+S*xO6{?BYe{&Ii[n}\\Z.dQnm0bA@\"ij6I+``yc00Zh-|PlPR>KCNE`/8\rNLY@q6du}S\\\
+      74D4,o\fHaCH<yl&Lyf)Pk_ec>QJLk@*3+?-P {sfL)ig\v@C}>(k`u5{y(77|XPv:/$~8R2&uoIRDlM\t\
+      L\"oSVB~v(OOf/(x{xe+"
+    professor: 2
+    sigla: "LJB!Y\v^w&k"
+    slug: ljby-wk
+  model: Turma.turma
+  pk: 12

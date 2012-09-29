@@ -1,0 +1,56 @@
+{% extends "util/skeleton.html"%}
+
+{% block 'jquery-winload' %}
+	{{ block.super }}
+{% endblock %}
+
+
+{% block body %}
+	{% include "util/top-bar.html" %}
+    <div id="containner">
+	<!--<header>
+		{% include "util/header.html" %}
+	</header>-->
+	<div id="content">
+        {% block 'body-content' %}
+			<hgroup id="header">
+		        {% block 'body-hgroup' %}
+
+				{% endblock %}
+			</hgroup>
+			<div id="superior">
+		        {% block 'body-superior' %}
+
+				{% endblock %}
+			</div>
+			
+			{% block 'body-centered' %}
+			
+			{% endblock %}
+			
+			<aside>
+		        {% block 'body-aside' %}
+
+				{% endblock %}
+			</aside>
+			
+			<section>
+		        {% block 'body-section' %}
+				
+				{% endblock %}
+			</section>
+		{% endblock %}
+		<br class="clear"/>
+	</div>
+	
+    </div>
+<footer class="clear background">
+	{% include "util/footer.html" %}
+</footer>
+{% endblock %}
+
+{% block 'js-imports' %}
+    <script src="/static/js/jsControleFormsetDinamico.js" ></script>
+    <script src="/static/js/jsInterface.js" ></script>
+{% endblock %}
+

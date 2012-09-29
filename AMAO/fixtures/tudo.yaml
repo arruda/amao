@@ -1,0 +1,569 @@
+- fields: {app_label: Aluno, model: aluno, name: Aluno}
+  model: contenttypes.contenttype
+  pk: 22
+- fields: {app_label: Avaliacao, model: avaliacao, name: "Avalia\xE7\xE3o"}
+  model: contenttypes.contenttype
+  pk: 13
+- fields: {app_label: Questao, model: entradagabarito, name: Entrada Gabarito}
+  model: contenttypes.contenttype
+  pk: 17
+- fields: {app_label: Questao, model: filtroquestao, name: "Filtro de Quest\xE3o"}
+  model: contenttypes.contenttype
+  pk: 20
+- fields: {app_label: Questao, model: fonte, name: Fonte}
+  model: contenttypes.contenttype
+  pk: 19
+- fields: {app_label: Questao, model: fontegabarito, name: Fonte Gabarito}
+  model: contenttypes.contenttype
+  pk: 18
+- fields: {app_label: Materia, model: materia, name: Materia}
+  model: contenttypes.contenttype
+  pk: 10
+- fields: {app_label: Professor, model: monitor, name: Monitor}
+  model: contenttypes.contenttype
+  pk: 24
+- fields: {app_label: Professor, model: professor, name: Professor}
+  model: contenttypes.contenttype
+  pk: 23
+- fields: {app_label: Questao, model: questao, name: "Quest\xE3o"}
+  model: contenttypes.contenttype
+  pk: 15
+- fields: {app_label: Questao, model: questaodeavaliacao, name: "Quest\xE3o de Avalia\xE7\
+      \xE3o"}
+  model: contenttypes.contenttype
+  pk: 16
+- fields: {app_label: Questao, model: respostamultiplaescolha, name: Resposta Multipla
+      Escolha}
+  model: contenttypes.contenttype
+  pk: 21
+- fields: {app_label: Avaliacao, model: templateavaliacao, name: Template de Avaliacao}
+  model: contenttypes.contenttype
+  pk: 12
+- fields: {app_label: Questao, model: tipoquestao, name: "Tipo de Quest\xE3o"}
+  model: contenttypes.contenttype
+  pk: 14
+- fields: {app_label: Turma, model: turma, name: Turma}
+  model: contenttypes.contenttype
+  pk: 11
+- fields: {app_label: contenttypes, model: contenttype, name: content type}
+  model: contenttypes.contenttype
+  pk: 5
+- fields: {app_label: auth, model: group, name: group}
+  model: contenttypes.contenttype
+  pk: 2
+- fields: {app_label: admin, model: logentry, name: log entry}
+  model: contenttypes.contenttype
+  pk: 8
+- fields: {app_label: auth, model: message, name: message}
+  model: contenttypes.contenttype
+  pk: 4
+- fields: {app_label: south, model: migrationhistory, name: migration history}
+  model: contenttypes.contenttype
+  pk: 9
+- fields: {app_label: auth, model: permission, name: permission}
+  model: contenttypes.contenttype
+  pk: 1
+- fields: {app_label: sessions, model: session, name: session}
+  model: contenttypes.contenttype
+  pk: 6
+- fields: {app_label: sites, model: site, name: site}
+  model: contenttypes.contenttype
+  pk: 7
+- fields: {app_label: auth, model: user, name: user}
+  model: contenttypes.contenttype
+  pk: 3
+- fields: {expire_date: !!timestamp '2012-01-29 20:42:47.559663', session_data: 'MTI1MTM4Y2FiYzVjNjM2NTliMWQ4NjQwZmRmY2U1MWJmMzYxOGU3ODqAAn1xAShVEl9hdXRoX3Vz
+
+      ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+
+      VQ1fYXV0aF91c2VyX2lkcQRLAXUu
+
+      '}
+  model: sessions.session
+  pk: 4bdb995513536abcf52e38ad54cc03b8
+- fields: {domain: example.com, name: example.com}
+  model: sites.site
+  pk: 1
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:48:51.116002',
+    change_message: '', content_type: 12, object_id: '1', object_repr: Avaliacao 1
+      turma 1 materia 1, user: 1}
+  model: admin.logentry
+  pk: 11
+- fields: {action_flag: 3, action_time: !!timestamp '2012-01-15 20:47:35.622077',
+    change_message: '', content_type: 12, object_id: '1', object_repr: Avaliacao Correta,
+    user: 1}
+  model: admin.logentry
+  pk: 10
+- fields: {action_flag: 2, action_time: !!timestamp '2012-01-15 20:47:10.669686',
+    change_message: Modificado email., content_type: 3, object_id: '3', object_repr: professor,
+    user: 1}
+  model: admin.logentry
+  pk: 9
+- fields: {action_flag: 2, action_time: !!timestamp '2012-01-15 20:46:57.619790',
+    change_message: Modificado email., content_type: 3, object_id: '4', object_repr: aluno2,
+    user: 1}
+  model: admin.logentry
+  pk: 8
+- fields: {action_flag: 2, action_time: !!timestamp '2012-01-15 20:46:43.849641',
+    change_message: Modificado email., content_type: 3, object_id: '2', object_repr: aluno,
+    user: 1}
+  model: admin.logentry
+  pk: 7
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:46:16.630062',
+    change_message: '', content_type: 11, object_id: '1', object_repr: turma1, user: 1}
+  model: admin.logentry
+  pk: 6
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:46:13.679168',
+    change_message: '', content_type: 22, object_id: '2', object_repr: '654321', user: 1}
+  model: admin.logentry
+  pk: 5
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:46:05.077873',
+    change_message: '', content_type: 3, object_id: '4', object_repr: aluno2, user: 1}
+  model: admin.logentry
+  pk: 4
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:45:44.100192',
+    change_message: '', content_type: 23, object_id: '1', object_repr: professor,
+    user: 1}
+  model: admin.logentry
+  pk: 3
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:45:42.100929',
+    change_message: '', content_type: 3, object_id: '3', object_repr: professor, user: 1}
+  model: admin.logentry
+  pk: 2
+- fields: {action_flag: 1, action_time: !!timestamp '2012-01-15 20:43:04.694635',
+    change_message: '', content_type: 10, object_id: '1', object_repr: materia 1,
+    user: 1}
+  model: admin.logentry
+  pk: 1
+- fields: {app_name: Materia, applied: !!timestamp '2012-01-12 22:27:00.166638', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 1
+- fields: {app_name: Turma, applied: !!timestamp '2012-01-12 22:27:01.506774', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 2
+- fields: {app_name: Avaliacao, applied: !!timestamp '2012-01-12 22:27:02.349026',
+    migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 3
+- fields: {app_name: Avaliacao, applied: !!timestamp '2012-01-12 22:27:02.593426',
+    migration: 0002_auto__add_templateavaliacao}
+  model: south.migrationhistory
+  pk: 4
+- fields: {app_name: Avaliacao, applied: !!timestamp '2012-01-12 22:27:03.129533',
+    migration: 0003_auto__add_field_templateavaliacao_turma}
+  model: south.migrationhistory
+  pk: 5
+- fields: {app_name: Avaliacao, applied: !!timestamp '2012-01-12 22:27:03.619054',
+    migration: 0004_auto__add_field_avaliacao_templateAvaliacao}
+  model: south.migrationhistory
+  pk: 6
+- fields: {app_name: Questao, applied: !!timestamp '2012-01-12 22:27:07.447430', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 7
+- fields: {app_name: Questao, applied: !!timestamp '2012-01-12 22:27:07.950664', migration: 0002_auto__add_field_questao_corretor}
+  model: south.migrationhistory
+  pk: 8
+- fields: {app_name: Aluno, applied: !!timestamp '2012-01-12 22:27:11.631071', migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 9
+- fields: {app_name: Professor, applied: !!timestamp '2012-01-12 22:27:12.579975',
+    migration: 0001_initial}
+  model: south.migrationhistory
+  pk: 10
+- fields: {app_name: Questao, applied: !!timestamp '2012-01-13 01:37:19.362356', migration: 0003_auto__del_field_questao_corretor__add_field_questao_id_corretor}
+  model: south.migrationhistory
+  pk: 11
+- fields: {app_name: Avaliacao, applied: !!timestamp '2012-01-14 19:41:32.705891',
+    migration: 0005_auto__add_field_templateavaliacao_active}
+  model: south.migrationhistory
+  pk: 12
+- fields: {nome: materia 1, sigla: mt1, slug: mt1}
+  model: Materia.materia
+  pk: 1
+- fields:
+    alunos: [1, 2]
+    materia: 1
+    nome: turma1
+    professor: 1
+    sigla: t1
+    slug: t1
+  model: Turma.turma
+  pk: 1
+- fields: {ativa: false, titulo: Avaliacao 1 turma 1 materia 1, turma: 1}
+  model: Avaliacao.templateavaliacao
+  pk: 1
+- fields: {tipo: c, tipoPai: null}
+  model: Questao.tipoquestao
+  pk: 1
+- fields: {tipo: facil, tipoPai: 1}
+  model: Questao.tipoquestao
+  pk: 2
+- fields:
+    enunciado: "Ol\xE1 Mundo!!!"
+    id_corretor: 1
+    percentNotaProgramacao: '100'
+    respostaDiscursiva: ''
+    slug: hello-world
+    tipo: [1, 2]
+    titulo: hello world
+  model: Questao.questao
+  pk: 1
+- fields:
+    enunciado: "Quest\xE3o que imprime \"Hello World!\" usando multiplos arquivos\
+      \ fontes."
+    id_corretor: 1
+    percentNotaProgramacao: '100'
+    respostaDiscursiva: ''
+    slug: multiplos-fontes
+    tipo: [1]
+    titulo: Multiplos Fontes
+  model: Questao.questao
+  pk: 2
+- fields: {arquivo: gabarito/hello-world/entradas/entrada_gabarito.txt, questao: 1}
+  model: Questao.entradagabarito
+  pk: 1
+- fields: {arquivo: gabarito/multiplos-fontes/entradas/entrada_gabarito.txt, questao: 2}
+  model: Questao.entradagabarito
+  pk: 2
+- fields: {arquivo: gabarito/hello-world/fontes/hello_world.cpp, questao: 1}
+  model: Questao.fontegabarito
+  pk: 1
+- fields: {arquivo: gabarito/multiplos-fontes/fontes/main.cpp, questao: 2}
+  model: Questao.fontegabarito
+  pk: 2
+- fields: {arquivo: gabarito/multiplos-fontes/fontes/hello_world.h, questao: 2}
+  model: Questao.fontegabarito
+  pk: 3
+- fields:
+    notaBase: '5'
+    notaLimMaximo: '5'
+    notaLimMinimo: '0'
+    questaoExata: 1
+    templateAvaliacao: 1
+    tipo: [1]
+  model: Questao.filtroquestao
+  pk: 1
+- fields:
+    notaBase: '5'
+    notaLimMaximo: '5'
+    notaLimMinimo: '0'
+    questaoExata: 2
+    templateAvaliacao: 1
+    tipo: [1]
+  model: Questao.filtroquestao
+  pk: 2
+- fields: {matricula: '123456', slug: '123456', usuario: 2}
+  model: Aluno.aluno
+  pk: 1
+- fields: {matricula: '654321', slug: '654321', usuario: 4}
+  model: Aluno.aluno
+  pk: 2
+- fields: {usuario: 3}
+  model: Professor.professor
+  pk: 1
+- fields: {codename: add_aluno, content_type: 22, name: Can add Aluno}
+  model: auth.permission
+  pk: 64
+- fields: {codename: change_aluno, content_type: 22, name: Can change Aluno}
+  model: auth.permission
+  pk: 65
+- fields: {codename: delete_aluno, content_type: 22, name: Can delete Aluno}
+  model: auth.permission
+  pk: 66
+- fields: {codename: add_avaliacao, content_type: 13, name: "Can add Avalia\xE7\xE3\
+      o"}
+  model: auth.permission
+  pk: 37
+- fields: {codename: change_avaliacao, content_type: 13, name: "Can change Avalia\xE7\
+      \xE3o"}
+  model: auth.permission
+  pk: 38
+- fields: {codename: delete_avaliacao, content_type: 13, name: "Can delete Avalia\xE7\
+      \xE3o"}
+  model: auth.permission
+  pk: 39
+- fields: {codename: add_templateavaliacao, content_type: 12, name: Can add Template
+      de Avaliacao}
+  model: auth.permission
+  pk: 34
+- fields: {codename: change_templateavaliacao, content_type: 12, name: Can change
+      Template de Avaliacao}
+  model: auth.permission
+  pk: 35
+- fields: {codename: delete_templateavaliacao, content_type: 12, name: Can delete
+      Template de Avaliacao}
+  model: auth.permission
+  pk: 36
+- fields: {codename: add_materia, content_type: 10, name: Can add Materia}
+  model: auth.permission
+  pk: 28
+- fields: {codename: change_materia, content_type: 10, name: Can change Materia}
+  model: auth.permission
+  pk: 29
+- fields: {codename: delete_materia, content_type: 10, name: Can delete Materia}
+  model: auth.permission
+  pk: 30
+- fields: {codename: add_monitor, content_type: 24, name: Can add Monitor}
+  model: auth.permission
+  pk: 70
+- fields: {codename: change_monitor, content_type: 24, name: Can change Monitor}
+  model: auth.permission
+  pk: 71
+- fields: {codename: delete_monitor, content_type: 24, name: Can delete Monitor}
+  model: auth.permission
+  pk: 72
+- fields: {codename: add_professor, content_type: 23, name: Can add Professor}
+  model: auth.permission
+  pk: 67
+- fields: {codename: change_professor, content_type: 23, name: Can change Professor}
+  model: auth.permission
+  pk: 68
+- fields: {codename: delete_professor, content_type: 23, name: Can delete Professor}
+  model: auth.permission
+  pk: 69
+- fields: {codename: add_entradagabarito, content_type: 17, name: Can add Entrada
+      Gabarito}
+  model: auth.permission
+  pk: 49
+- fields: {codename: change_entradagabarito, content_type: 17, name: Can change Entrada
+      Gabarito}
+  model: auth.permission
+  pk: 50
+- fields: {codename: delete_entradagabarito, content_type: 17, name: Can delete Entrada
+      Gabarito}
+  model: auth.permission
+  pk: 51
+- fields: {codename: add_filtroquestao, content_type: 20, name: "Can add Filtro de\
+      \ Quest\xE3o"}
+  model: auth.permission
+  pk: 58
+- fields: {codename: change_filtroquestao, content_type: 20, name: "Can change Filtro\
+      \ de Quest\xE3o"}
+  model: auth.permission
+  pk: 59
+- fields: {codename: delete_filtroquestao, content_type: 20, name: "Can delete Filtro\
+      \ de Quest\xE3o"}
+  model: auth.permission
+  pk: 60
+- fields: {codename: add_fonte, content_type: 19, name: Can add Fonte}
+  model: auth.permission
+  pk: 55
+- fields: {codename: change_fonte, content_type: 19, name: Can change Fonte}
+  model: auth.permission
+  pk: 56
+- fields: {codename: delete_fonte, content_type: 19, name: Can delete Fonte}
+  model: auth.permission
+  pk: 57
+- fields: {codename: add_fontegabarito, content_type: 18, name: Can add Fonte Gabarito}
+  model: auth.permission
+  pk: 52
+- fields: {codename: change_fontegabarito, content_type: 18, name: Can change Fonte
+      Gabarito}
+  model: auth.permission
+  pk: 53
+- fields: {codename: delete_fontegabarito, content_type: 18, name: Can delete Fonte
+      Gabarito}
+  model: auth.permission
+  pk: 54
+- fields: {codename: add_questao, content_type: 15, name: "Can add Quest\xE3o"}
+  model: auth.permission
+  pk: 43
+- fields: {codename: change_questao, content_type: 15, name: "Can change Quest\xE3\
+      o"}
+  model: auth.permission
+  pk: 44
+- fields: {codename: delete_questao, content_type: 15, name: "Can delete Quest\xE3\
+      o"}
+  model: auth.permission
+  pk: 45
+- fields: {codename: add_questaodeavaliacao, content_type: 16, name: "Can add Quest\xE3\
+      o de Avalia\xE7\xE3o"}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_questaodeavaliacao, content_type: 16, name: "Can change\
+      \ Quest\xE3o de Avalia\xE7\xE3o"}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_questaodeavaliacao, content_type: 16, name: "Can delete\
+      \ Quest\xE3o de Avalia\xE7\xE3o"}
+  model: auth.permission
+  pk: 48
+- fields: {codename: add_respostamultiplaescolha, content_type: 21, name: Can add
+      Resposta Multipla Escolha}
+  model: auth.permission
+  pk: 61
+- fields: {codename: change_respostamultiplaescolha, content_type: 21, name: Can change
+      Resposta Multipla Escolha}
+  model: auth.permission
+  pk: 62
+- fields: {codename: delete_respostamultiplaescolha, content_type: 21, name: Can delete
+      Resposta Multipla Escolha}
+  model: auth.permission
+  pk: 63
+- fields: {codename: add_tipoquestao, content_type: 14, name: "Can add Tipo de Quest\xE3\
+      o"}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_tipoquestao, content_type: 14, name: "Can change Tipo\
+      \ de Quest\xE3o"}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_tipoquestao, content_type: 14, name: "Can delete Tipo\
+      \ de Quest\xE3o"}
+  model: auth.permission
+  pk: 42
+- fields: {codename: add_turma, content_type: 11, name: Can add Turma}
+  model: auth.permission
+  pk: 31
+- fields: {codename: change_turma, content_type: 11, name: Can change Turma}
+  model: auth.permission
+  pk: 32
+- fields: {codename: delete_turma, content_type: 11, name: Can delete Turma}
+  model: auth.permission
+  pk: 33
+- fields: {codename: add_logentry, content_type: 8, name: Can add log entry}
+  model: auth.permission
+  pk: 22
+- fields: {codename: change_logentry, content_type: 8, name: Can change log entry}
+  model: auth.permission
+  pk: 23
+- fields: {codename: delete_logentry, content_type: 8, name: Can delete log entry}
+  model: auth.permission
+  pk: 24
+- fields: {codename: add_group, content_type: 2, name: Can add group}
+  model: auth.permission
+  pk: 4
+- fields: {codename: change_group, content_type: 2, name: Can change group}
+  model: auth.permission
+  pk: 5
+- fields: {codename: delete_group, content_type: 2, name: Can delete group}
+  model: auth.permission
+  pk: 6
+- fields: {codename: add_message, content_type: 4, name: Can add message}
+  model: auth.permission
+  pk: 10
+- fields: {codename: change_message, content_type: 4, name: Can change message}
+  model: auth.permission
+  pk: 11
+- fields: {codename: delete_message, content_type: 4, name: Can delete message}
+  model: auth.permission
+  pk: 12
+- fields: {codename: add_permission, content_type: 1, name: Can add permission}
+  model: auth.permission
+  pk: 1
+- fields: {codename: change_permission, content_type: 1, name: Can change permission}
+  model: auth.permission
+  pk: 2
+- fields: {codename: delete_permission, content_type: 1, name: Can delete permission}
+  model: auth.permission
+  pk: 3
+- fields: {codename: add_user, content_type: 3, name: Can add user}
+  model: auth.permission
+  pk: 7
+- fields: {codename: change_user, content_type: 3, name: Can change user}
+  model: auth.permission
+  pk: 8
+- fields: {codename: delete_user, content_type: 3, name: Can delete user}
+  model: auth.permission
+  pk: 9
+- fields: {codename: add_contenttype, content_type: 5, name: Can add content type}
+  model: auth.permission
+  pk: 13
+- fields: {codename: change_contenttype, content_type: 5, name: Can change content
+      type}
+  model: auth.permission
+  pk: 14
+- fields: {codename: delete_contenttype, content_type: 5, name: Can delete content
+      type}
+  model: auth.permission
+  pk: 15
+- fields: {codename: add_session, content_type: 6, name: Can add session}
+  model: auth.permission
+  pk: 16
+- fields: {codename: change_session, content_type: 6, name: Can change session}
+  model: auth.permission
+  pk: 17
+- fields: {codename: delete_session, content_type: 6, name: Can delete session}
+  model: auth.permission
+  pk: 18
+- fields: {codename: add_site, content_type: 7, name: Can add site}
+  model: auth.permission
+  pk: 19
+- fields: {codename: change_site, content_type: 7, name: Can change site}
+  model: auth.permission
+  pk: 20
+- fields: {codename: delete_site, content_type: 7, name: Can delete site}
+  model: auth.permission
+  pk: 21
+- fields: {codename: add_migrationhistory, content_type: 9, name: Can add migration
+      history}
+  model: auth.permission
+  pk: 25
+- fields: {codename: change_migrationhistory, content_type: 9, name: Can change migration
+      history}
+  model: auth.permission
+  pk: 26
+- fields: {codename: delete_migrationhistory, content_type: 9, name: Can delete migration
+      history}
+  model: auth.permission
+  pk: 27
+- fields:
+    date_joined: 2012-01-12 20:26:52.313092
+    email: root@root.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_login: 2012-01-15 20:42:47.468338
+    last_name: ''
+    password: sha1$b54de$eae97994f1a46fd2854eef364e0b1a7f80ce14eb
+    user_permissions: []
+    username: root
+  model: auth.user
+  pk: 1
+- fields:
+    date_joined: 2011-11-25 16:01:50
+    email: aluno@aluno.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2012-01-14 18:16:41
+    last_name: ''
+    password: sha1$d953e$cd6a142e5461670bf4d76ffb4e61dbb85438ccb9
+    user_permissions: []
+    username: aluno
+  model: auth.user
+  pk: 2
+- fields:
+    date_joined: 2012-01-15 20:45:42
+    email: professor@professor.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2012-01-15 20:45:42
+    last_name: ''
+    password: sha1$4e7ff$4c991292b53994c4ce08c4ec49fcaa5765afc0f8
+    user_permissions: []
+    username: professor
+  model: auth.user
+  pk: 3
+- fields:
+    date_joined: 2012-01-15 20:46:05
+    email: aluno@aluno2.com
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2012-01-15 20:46:05
+    last_name: ''
+    password: sha1$2d840$60f4a5327533195fa8744d9e28c6350f30f4785e
+    user_permissions: []
+    username: aluno2
+  model: auth.user
+  pk: 4

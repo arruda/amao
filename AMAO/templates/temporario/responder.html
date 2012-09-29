@@ -1,0 +1,20 @@
+Aluno: {{questaoAvaliacao.avaliacao.aluno.matricula}}
+<br/>
+Avaliacao: {{questaoAvaliacao.avaliacao.titulo}}
+<br/>
+Questao: {{questaoAvaliacao.questao.titulo}}
+<br/>
+<br/>
+Envie seus arquivos fontes: 
+<br/>
+
+	<form action="{% url responderQuestao questaoAvaliacao.pk %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {{ form.as_ul }}
+        {% endfor %}
+		<input type="submit" value="Enviar" />
+	</form>
+
+<a href="{% url corrigirQuestao questaoAvaliacao.id %}">Corrigir</a>

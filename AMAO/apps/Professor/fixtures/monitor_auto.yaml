@@ -1,0 +1,14 @@
+- fields: {materia: 5, matricula: "*)DVQph$Yd0S-~~9~=%DvKxBv4lxP)z/K&J1\f6@js-6/~l(E9%\\\
+      %kgL.L>f)b3AgmfH@YA4Xj+GI\tql$$\v1-\f {1pI]FLG?u=O~NXDh:B\\p2Ta'=$eXc1}%e\v\
+      WL4l[PAFhW${R%9B6*NEx3[3tvHQ;Ql\t&d[:&Q7C}v:q;aT.~rkp#m\f~E=wgJI\tv@{kj}O94IHa.b%fv>[rh8eZ)SN\\\
+      ^M6q/rz\nd8YjJ ]\vp:mW;4;!7{NoY>\\>B:M->h", slug: dvqphyd0s-9dvkxbv4lxpzkj1-6js-6le9kgllfb3agmfhya4x,
+    usuario: 4}
+  model: Professor.monitor
+  pk: 1
+- fields: {materia: 4, matricula: "&Bj\\m%tIqB|rp^1M=.;ikK6os$\n9N\n*s rfyGC/u&)3'%\
+      \ p)\\^a6#@..a0v|~mO#CgVK$\"p&5Whhzt%_Hw9E6Z*R>IsNo~D/_Sq\tfYHg+YR\vyvx<gh_fK913mt2!2>Z@)5mXxo@\
+      \ G3mjGD;A~\r]Y[K\fn~%G+K(<T/9\f0T:k=\nqf\r~37`31\f_>X10rslKmI(xKFnpRy\f]8Ri!,/*@yoewIa+\n\
+      )/4v\r{'902?][@GMHc\vqjj%W;V0Vz~]\\S|", slug: bjmtiqbrp1mikk6os-9n-s-rfygcu3-pa6a0vmocgvkp5whhzt,
+    usuario: 5}
+  model: Professor.monitor
+  pk: 2

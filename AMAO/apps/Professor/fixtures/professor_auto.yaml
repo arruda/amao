@@ -1,0 +1,72 @@
+- fields: {usuario: 12}
+  model: Professor.professor
+  pk: 1
+- fields: {usuario: 13}
+  model: Professor.professor
+  pk: 2
+- fields: {usuario: 14}
+  model: Professor.professor
+  pk: 3
+- fields: {usuario: 15}
+  model: Professor.professor
+  pk: 4
+- fields: {usuario: 16}
+  model: Professor.professor
+  pk: 5
+- fields: {usuario: 17}
+  model: Professor.professor
+  pk: 6
+- fields: {usuario: 18}
+  model: Professor.professor
+  pk: 7
+- fields: {usuario: 19}
+  model: Professor.professor
+  pk: 8
+- fields: {usuario: 20}
+  model: Professor.professor
+  pk: 9
+- fields: {usuario: 21}
+  model: Professor.professor
+  pk: 10
+- fields: {usuario: 22}
+  model: Professor.professor
+  pk: 11
+- fields: {usuario: 23}
+  model: Professor.professor
+  pk: 12
+- fields: {usuario: 24}
+  model: Professor.professor
+  pk: 13
+- fields: {usuario: 25}
+  model: Professor.professor
+  pk: 14
+- fields: {usuario: 26}
+  model: Professor.professor
+  pk: 15
+- fields: {usuario: 27}
+  model: Professor.professor
+  pk: 16
+- fields: {usuario: 28}
+  model: Professor.professor
+  pk: 17
+- fields: {usuario: 29}
+  model: Professor.professor
+  pk: 18
+- fields: {usuario: 30}
+  model: Professor.professor
+  pk: 19
+- fields: {usuario: 31}
+  model: Professor.professor
+  pk: 20
+- fields: {usuario: 32}
+  model: Professor.professor
+  pk: 21
+- fields: {usuario: 33}
+  model: Professor.professor
+  pk: 22
+- fields: {usuario: 34}
+  model: Professor.professor
+  pk: 23
+- fields: {usuario: 35}
+  model: Professor.professor
+  pk: 24

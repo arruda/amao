@@ -1,0 +1,19 @@
+<div id="top_bar">
+	<div id='menu'>
+        <a href="{% url dashboard %}"><h1>AMAO</h1></a>
+        <nav>
+		    {% if not request.user.is_authenticated %}
+                <div id="containner_login">
+			        <a id="login" href="{% url login %}">Login</a>
+                </div>
+		    {% else %}
+			    <a href="{% url dashboard %}">Dashboard</a>
+                <div id="containner_login">
+                    <a id="user" href="{% url dashboard %}">{{ request.user }}</a>
+			        <a id="login" href="{% url logout %}">Sair</a>
+                </div>
+		    {% endif %}
+	    </nav> 
+	   
+    </div>
+</div>

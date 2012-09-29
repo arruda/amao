@@ -1,0 +1,98 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Criar Questao</span></h1>
+{% endblock %}
+
+
+{% block 'body-centered' %}
+<div id="body-full">
+	{% if criado %}
+        <div class="area_div zona_dados">
+            <h2>Questão Criada</h2>
+            <a href="{% url dashboard %}">Voltar</a>
+        </div>
+    {% else %}
+        <form action="/questao/criar/" method="post" enctype="multipart/form-data" id="form_questao">
+            {% csrf_token %}
+                <div class="area_div zona_dados">
+                    <h3>Questão</h3>
+                    <div class="campo"><label>Titulo: </label>{{form.titulo}}</div>{{ form.titulo.errors }}
+                    <div class="campo"><label>Enunciado: </label>{{form.enunciado}}</div>{{ form.enunciado.errors }}
+                    <div class="campo"><label>Tipos: </label>{{form.tipo}}</div>{{ form.tipo.errors }}          
+                    <div class="campo"><label>Corretor: </label>{{form.id_corretor}}</div>{{ form.id_corretor.errors }}
+                </div>
+
+                <div id="area_fontes" class="area_div zona_dados">
+                    <h3>Fontes</h3>
+                    {{ formFontes.management_form }}
+                    <div class="line"><label>Arquivo </label><label>Usar na Resolucao </label><label>Remover</label></div>
+                    <div id="fontes" class='agrup'>
+                    {% for Qform in formFontes.forms %}
+                        <div class="fonte line" >
+                            <label><span>{{Qform.arquivo}}</span></label>
+                            <label><span>{{Qform.usarNaResolucao}}</span></label>
+                            <label><input type="button" class="removerFonte" value="Remover Fonte"  onClick="remover(this)"/></label>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="adicionar('fonte')" value="Adicionar Fonte" />
+                </div>
+
+                <div id="area_entradas" class="area_div zona_dados">
+                    <h3>Entradas</h3>
+                    {{ formEntradas.management_form }}
+                    <div class="line"><label>Arquivo </label><label>Remover</label></div>
+                    <div id="entradas" class='agrup'>
+                    {% for Qform in formEntradas.forms %}
+                        <div class="entrada line" >
+                            <label><span>{{Qform.arquivo}}</span></label>
+                            <label><input type="button" class="removerEntrada" value="Remover Entrada"  onClick="remover(this)"/></label>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="adicionar('entrada')" value="Adicionar Entrada" />
+                </div>
+
+                <div id="area_opcoes" class="area_div zona_dados">
+                    <h3>Opções Multipla Escolha</h3>
+                    {{ formOpcoes.management_form }}
+                    <div class="line"><label>Opcao</label><label>Correta</label><label>Anular</label><label>Remover</label></div>
+                    <div id="opcoes" class='agrup' >
+                    {% for Qform in formOpcoes.forms %}
+                        <div class="opcao line" >
+                            <label><span>{{Qform.opcao}}</span></label>
+                            <label><span>{{Qform.correta}}</span></label>
+                            <label><span>{{Qform.anular}}</span></label>
+                            <label><input type="button" class="removerOpcao" value="Remover Opção"  onClick="remover(this)"/></label>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="adicionar('opcao')" value="Adicionar Opção" />
+                </div>
+
+                <div class="area_div zona_dados">
+                    <h3>Resposta Discurciva</h3>
+                    <div class="campo"><label>Resposta Dscursiva: </label>{{form.respostaDiscursiva}}</div>{{ form.respostaDiscursiva.errors }}
+                </div>
+
+                <div class="area_div zona_dados">
+                <h3>Notas</h3>
+                    <div class="campo"><label>% Nota Programacao: </label>{{form.percentNotaProgramacao}}</div>{{ form.percentNotaProgramacao.errors }}
+                    <div class="campo"><label>% Nota Multipla: </label>{{form.percentNotaMultipla}}</div>{{ form.percentNotaMultipla.errors }}
+                    <div class="campo"><label>% Nota Discursiva: </label>{{form.percentNotaDiscursiva}}</div>{{ form.percentNotaDiscursiva.errors }} 
+                </div> 
+
+                <!--
+                <div class="campo"><label>Verificada: </label>{{form.verificada}}</div>{{ form.verificada.errors }}
+                <div class="campo"><label>Retorno Correcao: </label>{{form.retorno_correcao}}</div>{{ form.retorno_correcao.errors }}
+                -->
+            <div class="area_div zona_dados">
+		    <input type="button" value="Salvar Questão" onClick="salvar(this)" />
+            </div> 
+	    </form>
+    {% endif %}
+    <script src="/static/js/jsCriarQuestao.js" ></script>
+</div>
+{% endblock %}
+

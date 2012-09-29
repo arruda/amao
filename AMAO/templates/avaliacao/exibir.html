@@ -1,0 +1,51 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Avaliacao : {{ avaliacao.titulo }} </span></h1>
+{% endblock %}
+
+{% block 'body-centered' %}
+<div id="body-centered">
+    <div class="area_div zona_dados">
+        Avaliacao: {{ avaliacao.titulo }} </br>
+        Aluno: {{ avaliacao.aluno.usuario }} </br>
+    </div>
+
+    {% for questao in questoes %}
+    <div class="area_div zona_dados">
+        {% if avaliacao.templateAvaliacao.terminada %}
+            <a href={% url exibirQuestao questao.id %}><h3>Questão {{forloop.counter}}: {{ questao.questao.titulo }}</h3></a>
+        {% else %}
+            <a href={% url responderQuestao questao.id %}><h3>Questão {{forloop.counter}}: {{ questao.questao.titulo }}</h3></a>
+        {% endif %}
+
+        <div class='texto'>{{ questao.questao.enunciado }}</div>
+        <div class="area_div">
+            <a href={% url responderQuestao questao.id %}><input type='button' value='RESPONDER QUESTÃO' /></a>
+            <span>(Min/Max: {{questao.get_nota_minima}}/{{questao.get_nota_maxima}}) - Atual: {{questao.nota}}</span>
+        </div>
+        {% if avaliacao.templateAvaliacao.terminada %}
+        <div class="area_div">
+            <a href="{% url gabaritoQuestao questao.id %}">Gabarito</a><br/>
+            {% if questao.revisao %}
+            <span class="titulo_revisao">Revisão do professor:</span> 
+            <span class="revisao"> {{questao.revisao}}</span>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block 'body-aside' %}
+	<div id="aside-infos-avaliacao"  class="area_div zona_dados">
+	 <h1>Detalhes:</h1>
+	 <h4>Nota Min/Max da Avaliação: {{avaliacao.templateAvaliacao.get_nota_minima}}/{{avaliacao.templateAvaliacao.get_nota_maxima}}</h4>
+	 <h4>Inicio:{{avaliacao.templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}</h4>
+	 <h4>Termino:{{avaliacao.templateAvaliacao.data_termino|date:"d/m/y  H:i"}}</h4>
+	</div>
+{% endblock %}
+
+

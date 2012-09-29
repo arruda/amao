@@ -1,0 +1,31 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Criar Tipo de Questao</span></h1>
+{% endblock %}
+
+
+{% block 'body-centered' %}
+<div id="body-full">
+    {% if criado %}
+        <div class="area_div zona_dados">
+            <h2>Tipo de Questão Criada</h2>
+            <a href="{% url dashboard %}">Voltar</a> 
+        </div>  
+    {% else %}
+        <div class="area_div zona_dados">
+            <form action="/questao/criarTipo/" method="post" enctype="multipart/form-data" id="form_tipo_questao">
+                {% csrf_token %}
+                <h3>Tipo de Questão</h3>
+                <div class="campo"><label>Tipo: </label>{{form.tipo}}</div>{{ form.tipo.errors }}
+                <div class="campo"><label>Tipo Pai: </label>{{form.tipoPai}}</div>{{ form.tipoPai.errors }}
+
+		        <input type="submit" value="Salvar" />
+	        </form> 
+        </div>  
+    {% endif %}
+    <script src="/static/js/jsControleFormsetDinamico.js" ></script>
+    <script src="/static/js/jsCriarQuestao.js" ></script>
+</div>
+{% endblock %}
+

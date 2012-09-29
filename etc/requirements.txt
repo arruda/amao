@@ -1,0 +1,63 @@
+Django==1.3
+Werkzeug==0.6.2
+#django-extensions
+#usando o meu repositorio do django-extensiosn que tem uma dif no que gera o grafico uml.
+-e git+git://github.com/arruda/django-extensions.git#egg=django-extensions
+## Dev Enviroment only
+bpython
+yolk
+PyYaml
+django-annoying==0.7.6
+django-mptt==0.5.3
+django-debug-toolbar #mostra uma barra lateral com informacoes uteis sobre o request e os templates carregados numa requsicao
+
+##Para gerar o grafico UML:
+#apt-get install graphviz
+#-e git+git://github.com/arruda/pygraphviz.git@OSX_Linux_alternate#egg=pygraphviz
+
+#Forcar a versao que nao tem prob
+celery==2.5.1
+
+#correcao multithread
+django-celery==2.5.1
+
+#Interessantes de por no projeto
+#django-tinymce              ## wsgi editor
+
+## project preferences app
+#-e git+https://github.com/zbyte64/django-configstore.git#egg=djangoango-configstore
+
+#django-templatetag-sugar    ## template tag creator
+
+django-model-utils==1.1.0   ## model defining utils
+
+#django-admin-tools==0.4.0 ##deixar o admin mais amigavel
+
+
+#django-mptt==0.4.2  ##algo haver com o agrupamento da propria classe(Tipo)
+#django-tagging==0.3.1  ##tag no django
+
+
+#teste:
+
+#apps de teste
+model_mommy==0.7 #gera objetos de models com valores aleatorios
+South==0.7.6 #alterar os fixtures sem ter q regerar os mesmos do 0, fazendo migracao
+nose==1.1.2 #um test runner diferente
+django-nose==1.1 #pluging de integracao do nose com django, para usar recursos do django nos tests
+nose-exclude #pluging do nose para retirar alguns diretorios da suit de testes
+#nose-notify #notifica quando termina e comeca os testes, não funciona o dumpdata
+rednose #testes coloridos faceis de ler
+django-test-utils #testes automaticos, crawler e muito mais!
+#django-test-extensions #nao ta funcionando comigo, mas era pra fazer testes automaticamente quando houvesse uma alteracao no codigo.
+
+#lembrando que tem que instalar no sistema o venv-dependencies
+#sudo pip install venv-dependencies
+#linkar os modulos do pynotify
+#link_venv.py "gtk" "cairo" "gobject" "glib" "gio" "pango"
+#instalar o pygraphviz
+#sudo apt-get install graphviz-dev; sudo apt-get install python-pygraphviz 
+#e linkar as dependencias do pygraphviz
+#link_venv.py "pygraphviz"
+
+
