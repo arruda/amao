@@ -22,19 +22,23 @@ def criar_questao(request):
     formsetOpcoesInline=inlineformset_factory(Questao,OpcaoMultiplaEscolha,extra=4)
     if request.method == "POST":        
         form = criarQuestaoForm(request.POST)
-        if form.is_valid():           
-            novaQuestao=form.save(commit=False)
-            novaQuestao.autor = autor
-            formEntradas = formsetEntradasInline(request.POST, request.FILES,instance=novaQuestao)
-            formFontes = formsetFontesInline(request.POST, request.FILES,instance=novaQuestao)
-            formOpcoes = formsetOpcoesInline(request.POST,instance=novaQuestao)
+        # if form.is_valid():
+        #     novaQuestao=form.save(commit=False)
+        #     novaQuestao.autor = autor
+        #     formEntradas = formsetEntradasInline(request.POST, request.FILES,instance=novaQuestao)
+        #     formFontes = formsetFontesInline(request.POST, request.FILES,instance=novaQuestao)
+        #     formOpcoes = formsetOpcoesInline(request.POST,instance=novaQuestao)
                 
-            if formEntradas.is_valid() and formFontes.is_valid() and formOpcoes.is_valid():
-                novaQuestao.save()
-                formEntradas.save()  
-                formFontes.save() 
-                formOpcoes.save()    
-                criado=True  
+        #     if formEntradas.is_valid() and formFontes.is_valid() and formOpcoes.is_valid():
+        #         novaQuestao.save()
+        #         print('---')
+        #         dir(novaQuestao.titulo)
+        #         dir(novaQuestao.tipo)
+        #         print('---')
+        #         formEntradas.save()  
+        #         formFontes.save() 
+        #         formOpcoes.save()    
+        #         criado=True  
     else:
         #QuestoesForms=formsetInline()
         form = criarQuestaoForm()

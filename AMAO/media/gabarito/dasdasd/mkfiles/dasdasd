@@ -1,0 +1,13 @@
+CC=g++
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=/home/zanoni/workspace/amao/AMAO/media/gabarito/dasdasd/execs/dasdasd
+all: $(SOURCES) $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
+clean:
+	rm -rf /home/zanoni/workspace/amao/AMAO/media/gabarito/dasdasd/fontes/*.o
