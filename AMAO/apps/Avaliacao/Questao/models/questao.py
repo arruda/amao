@@ -111,8 +111,12 @@ class Questao(Abs_titulado_slugfy,Lockable):
         if self.slug != "" and self.slug != None and verificar == True:
             self.verificar_questao()
         
-        if not verificar:
+        
+        try:
             kwargs.pop('verificar')
+        except KeyError:
+            pass
+        
         super(Questao, self).save(*args, **kwargs)
         
       

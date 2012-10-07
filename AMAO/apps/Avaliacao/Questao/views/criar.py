@@ -34,6 +34,8 @@ def criar_questao(request):
                 formEntradas.save()  
                 formFontes.save() 
                 formOpcoes.save()    
+                novaQuestao.save(verificar=True)
+#                novaQuestao.verificar_questao()
                 criado=True  
     else:
         #QuestoesForms=formsetInline()
