@@ -6,8 +6,12 @@
 *.pyc
 *.db
 *.sqlite*
+celerybeat-schedule
 
 .project
 .pydevproject
 .settings
 
+
+#media
+gabarito
