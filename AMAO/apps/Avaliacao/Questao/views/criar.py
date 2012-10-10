@@ -34,6 +34,7 @@ def criar_questao(request):
                 formEntradas.save()  
                 formFontes.save() 
                 formOpcoes.save()    
+                form.save_m2m()
                 novaQuestao.save(verificar=True)
                 criado=True  
     else:
