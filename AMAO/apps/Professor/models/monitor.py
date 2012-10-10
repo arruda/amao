@@ -9,7 +9,7 @@ class Monitor(models.Model):
     
     usuario = models.ForeignKey(User, unique=True)
 #    matricula = models.CharField(max_length=250,unique=True)
-    materia = models.ForeignKey('Materia.Materia', unique=True)
+    materia = models.ForeignKey('Materia.Materia')
     
     class Meta:
         verbose_name = u'Monitor'
