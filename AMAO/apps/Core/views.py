@@ -12,6 +12,9 @@ from Professor.models import Professor, Monitor
 
 @render_to('index.html')
 def index(request):
+    if request.user!= None:
+        if request.user.is_authenticated():
+            return redirect('dashboard')
     return locals()
 
 def aluno_dashboad(request,dic):
