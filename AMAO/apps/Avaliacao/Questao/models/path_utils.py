@@ -174,15 +174,19 @@ def path_saidas(questao,header=None):
 
 #uploads
 def path_fontes_gabarito_upload(instance,filename):
+    filename = filename.replace(' ', '_')
     questao = instance.questao
 
     return os.path.join(path_helper('fontes',questao=questao),filename)
 
 def path_fontes_upload(instance,filename):
+    filename = filename.replace(' ', '_')
     dct = _dict_questao_aluno(instance.questao)
     return os.path.join(path_helper('fontes',**dct),filename)
 
 def path_entradas_gabarito_upload(instance,filename):
+    #replace spaces with _
+    filename = filename.replace(' ', '_')
     questao = instance.questao
     return os.path.join(path_helper('entradas',questao=questao),filename)
 
