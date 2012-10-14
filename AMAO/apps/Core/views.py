@@ -69,4 +69,26 @@ def dashboard(request):
     
     retorno = locals()
     retorno.update(dic)
+    
+    return redirect('perfil')
+#    return retorno
+
+
+
+@login_required     
+@render_to('usuarios/perfil/perfil.html')
+def perfil(request):
+    #prepara um dicionario que vai ser populado com variaveis
+    #de cada tipo de dashboard
+    dic = {}
+    aluno_dashboad(request,dic)
+    monitor_dashboad(request,dic)
+    professor_dashboad(request,dic)
+    
+    
+    retorno = locals()
+    retorno.update(dic)
     return retorno
+
+
+
