@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block 'body-centered' %}
-	<div id="body-centered">
-	<ol>
-		<li>Faça seu  <a href="{% url login %}">login</a></li>
-		<li>Acesse seu <a href="{% url dashboard %}">dashboard</a></li>
-		<li>Escolha uma avaliacao</li>
-		<li>Resolva suas questões</li>
-		<li>Receba o resultado na hora.</li>
-	</ol>
+<div id="body-full">
+    <div class="area_div zona_dados">
+			<ol>
+				<li>Faça seu  <a href="{% url login %}">login</a></li>
+				<li>Acesse seu <a href="{% url dashboard %}">dashboard</a></li>
+				<li>Escolha uma avaliacao</li>
+				<li>Resolva suas questões</li>
+				<li>Receba o resultado na hora.</li>
+			</ol>
 	</div>
+</div>
 {% endblock %}
