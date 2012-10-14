@@ -1,0 +1,17 @@
+{% extends "usuarios/dashboard.html"%}
+
+{% block 'tags-menu' %}
+	{% include 'usuarios/tabs_menu.html' with tab="perfil"  %}
+{% endblock %}			
+
+{% block 'zona-dados' %}
+    <h3>Perfil</h3>
+	{% if aluno %}
+		<span>Matricula:</span> {{aluno.matricula}} </br>
+		<span>Email:</span> {{aluno.usuario.email}} </br>
+	{% else %}
+		<span>{{request.user}}</span>  </br>
+		<span>Email:</span> {{request.user.email}} </br>
+	{% endif %}
+	<h5><a href="{% url password_change %}">Alterar Senha</a></h5>		
+{% endblock %}
