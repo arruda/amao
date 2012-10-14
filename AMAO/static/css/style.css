@@ -479,3 +479,38 @@ th td{
 .titulo_arquivo{
     margin-bottom:5px;
 }
+
+
+/********************************* TABS **********************************/
+#tabs_menu{
+	list-style: none;
+
+}
+#tabs_menu li {
+    display: inline;
+    padding: 1px 2px;
+}
+#tabs_menu li a {
+	color: #555;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    text-decoration: none;
+    background-color: #eeeeee;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+#tabs_menu li a:hover {
+    background-color: #dddddd;
+    padding: 5px 7px;
+}
+#tabs_menu li.active a {
+    background-color: #fff;
+    padding: 6px 8px;
+}
+#tabs_menu li.active a:hover {
+    background-color: #eeeeee;
+    padding: 6px 8px;
+}
