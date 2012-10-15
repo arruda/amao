@@ -10,4 +10,7 @@ urlpatterns = patterns('Avaliacao.Questao.views',
     url(r'^criar/$',   'criar_questao', name='criar_questao'),    
     url(r'^criarTipo/$',   'criar_tipo', name='criar_tipo'), 
     url(r'^exibirQuestao/(?P<questao_id>\S+)/$',   'exibirQuestao', name='exibirQuestao'), 
+    
+    
+    url(r'^listar/$',   'listar_questoes', name='listar_questoes'), 
 )

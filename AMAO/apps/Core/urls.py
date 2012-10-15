@@ -28,3 +28,7 @@ urlpatterns += patterns('django.contrib.auth.views',
 urlpatterns += patterns('Avaliacao.views',            
     url(r'^dashboard/avaliacoes/$', 'listar_avaliacoes', name='listar_avaliacoes'),
 )
+
+urlpatterns += patterns('Professor.views',            
+    url(r'^dashboard/criar_conteudos/$', 'criar_conteudos', name='criar_conteudos'),
+)

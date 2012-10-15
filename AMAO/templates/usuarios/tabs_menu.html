@@ -4,9 +4,18 @@
 		<li {%if tab == "feeds" %}class="active"{% endif %}>
 			<a href="#Feeds">Feeds</a>
 		</li>
+	{% if aluno %}
 		<li {%if tab == "avaliacoes" %}class="active"{% endif %}>
 			<a href="{% url listar_avaliacoes %}">Avaliações</a>
 		</li>
+	{% else %}
+		<li {%if tab == "consultas" %}class="active"{% endif %}>
+			<a href="{% url professor_consultar %}">Consultar Notas</a>
+		</li>
+		<li {%if tab == "criacao" %}class="active"{% endif %}>
+			<a href="{% url criar_conteudos %}">Criar Conteúdo</a>
+		</li>
+	{% endif %}
 		<li {%if tab == "perfil" %}class="active"{% endif %}>
 			<a href="{% url perfil %}">Perfil</a>
 		</li>

@@ -519,3 +519,8 @@ th td{
     background-color: #eeeeee;
     padding: 6px 8px;
 }
+
+
+.lista_horizontal li{
+	float: initial;
+}

@@ -1,0 +1,29 @@
+{% extends "usuarios/dashboard.html"%}
+
+{% block 'tags-menu' %}
+	{% include 'usuarios/tabs_menu.html' with tab="criacao"  %}
+{% endblock %}			
+
+{% block 'zona-dados' %}
+    <h3>Questões Válidas</h3>
+    <div>
+		<ul class='lista_horizontal'>
+	    	{% for questao in questoes_validas %}
+				<li >
+					<a href="#">{{questao.titulo}}</a>
+				</li>
+	    	{% endfor %}
+		</ul>
+    </div>
+
+    <h3>Questões Inválidas</h3>
+		<ul class='lista_horizontal'>
+	    	{% for questao in questoes_invalidas %}
+					<li >
+						<a href="#">{{questao.titulo}}</a>
+					</li>
+	    	{% endfor %}
+		</ul>
+    <div>
+    </div>
+{% endblock %}

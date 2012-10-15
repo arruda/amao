@@ -1,0 +1,24 @@
+{% extends "usuarios/dashboard.html"%}
+
+{% block 'tags-menu' %}
+	{% include 'usuarios/tabs_menu.html' with tab="criacao"  %}
+{% endblock %}			
+
+{% block 'zona-dados' %}
+    <h3>Criar Conteúdo</h3>
+
+	<ul class='lista_horizontal'>
+		<li >
+			<h4><a href="{% url criar_questao %}">Criar Questão</a></h4>
+		</li>
+		<li>
+			<h4><a href="{% url listar_questoes %}">Lista de Questão</a></h4>
+		</li>
+		<li>
+			<h4><a href="{% url criar_avaliacao %}">Criar Avaliação</a></h4>
+		</li>
+		<li>
+			<h4><a href="{% url criar_tipo %}">Criar Tipo de Questão</a></h4>
+		</li>
+	</ul>
+{% endblock %}
