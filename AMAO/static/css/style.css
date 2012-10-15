@@ -303,13 +303,18 @@ aside h3 {
 	padding-left:10px;
 }
 .grupo_avaliacoes{
+    /*
     float:left;
     width:100%;
     margin-bottom:5px;
+    */
 }
 .grupo_avaliacoes div{
+    /*
     padding:8px;
     float:left;
+    */
+    padding:8px;
     font-size:10pt;
 }
 .grupo_avaliacoes a{
