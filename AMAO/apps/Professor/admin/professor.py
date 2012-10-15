@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from Professor.models import Professor
+from Professor.models import Monitor
 
 
 
@@ -18,3 +19,4 @@ class ProfessorAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Professor, ProfessorAdmin)
+admin.site.register(Monitor, admin.ModelAdmin)
