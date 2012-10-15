@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import user_passes_test
 from Aluno.models import Aluno
 
 def check_aluno_exist(user):
+    if not user.is_authenticated():
+        return False
+    
     try:
         aluno = user.aluno_set.get()
         return True
