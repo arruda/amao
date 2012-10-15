@@ -1,0 +1,46 @@
+{% extends "usuarios/perfil/perfil.html"%}
+
+	
+{% block 'zona-dados' %}
+	<h1>Avaliações</h1>
+	    <h3>Avaliações Futuras:</h3>	
+	<div class="grupo_avaliacoes">
+		{% for templateAvaliacao in avaliacoes_futuras %}
+			<div><a href={% url comecar_simulado template_id=templateAvaliacao.id %}>{{ templateAvaliacao.titulo }}</a><br/>
+			Turma: {{templateAvaliacao.turma}}<br/>
+			Inicio: {{templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}<br/>
+			Termino: {{templateAvaliacao.data_termino|date:"d/m/y  H:i"}}
+			</div>
+		{% endfor %}
+	</div>
+		
+	    <h3>Avaliações para Iniciar:</h3>
+	<div class="grupo_avaliacoes">
+		{% for templateAvaliacao in avaliacoes_comecar %}
+			<div><a href={% url comecar_avaliacao template_id=templateAvaliacao.id %}>{{ templateAvaliacao.titulo }}</a></li><br/>
+			Turma: {{templateAvaliacao.turma}}<br/>
+			Inicio: {{templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}<br/>
+			Termino: {{templateAvaliacao.data_termino|date:"d/m/y  H:i"}}
+			</div>
+		{% endfor %}
+	</div>
+		
+	    <h3>Avaliações Em Andamento:</h3>
+	<div class="grupo_avaliacoes">
+		{% for avaliacao in avaliacoes_andamento %}
+			<div><a href={% url exibir_avaliacao template_id=avaliacao.id %}>{{ avaliacao.titulo }}</a><br/>
+			Turma: {{avaliacao.templateAvaliacao.turma}}<br/>
+			Inicio: {{avaliacao.templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}<br/>
+			Termino: {{avaliacao.templateAvaliacao.data_termino|date:"d/m/y  H:i"}}
+			</div>
+		{% endfor %}
+	</div>
+		
+	    <h3>Avaliações Terminadas:</h3>
+	<div class="grupo_avaliacoes">
+		{% for avaliacao in avaliacoes_passadas %}
+			<div><a href={% url exibir_avaliacao template_id=avaliacao.id %}>{{ avaliacao.titulo }}</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -23,3 +23,8 @@ urlpatterns += patterns('django.contrib.auth.views',
     
 
 )
+
+
+urlpatterns += patterns('Avaliacao.views',            
+    url(r'^dashboard/avaliacoes/$', 'listar_avaliacoes', name='listar_avaliacoes'),
+)

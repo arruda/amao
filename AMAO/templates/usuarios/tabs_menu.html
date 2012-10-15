@@ -5,7 +5,7 @@
 			<a href="#Feeds">Feeds</a>
 		</li>
 		<li {%if tab == "avaliacao" %}class="active"{% endif %}>
-			<a href="#Avaliacoes">Avaliações</a>
+			<a href="{% url listar_avaliacoes %}">Avaliações</a>
 		</li>
 		<li {%if tab == "perfil" %}class="active"{% endif %}>
 			<a href="{% url perfil %}">Perfil</a>
