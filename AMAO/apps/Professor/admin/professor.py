@@ -17,6 +17,6 @@ class ProfessorAdmin(admin.ModelAdmin):
     list_display = ('usuario',)
 
 
-
+ 
 admin.site.register(Professor, ProfessorAdmin)
 admin.site.register(Monitor, admin.ModelAdmin)
