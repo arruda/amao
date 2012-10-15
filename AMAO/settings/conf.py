@@ -65,6 +65,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',    
     'django.core.context_processors.request',
+    #AMAO
+    'context_processors.aluno_monitor_professor',
+    
 )
 ROOT_URLCONF = 'urls'
 
