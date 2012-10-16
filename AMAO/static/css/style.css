@@ -53,9 +53,16 @@ body {
     font-size: 12pt;
     line-height: 38px;
     font-weight:bold;
+    border-right:2px solid rgba(0,0,0,0.3);
 }
 #menu nav a:hover{
     color: #fff!important;
+}
+#menu .left_border{
+    border-left:2px solid rgba(0,0,0,0.3);
+}
+#menu .right_border{
+    border-right:2px solid rgba(0,0,0,0.3);
 }
 #containner_login{
     height:26px;
@@ -67,6 +74,10 @@ body {
     background: -moz-linear-gradient(#363636,#2A2A2A);
     background: -webkit-linear-gradient(#363636,#2A2A2A);
     padding: 0 10px;
+}
+
+#containner_login a{
+    border-right:none!important;
 }
 #user{
     line-height: 26px!important;

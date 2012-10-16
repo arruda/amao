@@ -6,8 +6,19 @@
                 <div id="containner_login">
 			        <a id="login" href="{% url login %}">Login</a>
                 </div>
-		    {% else %}
-			    <a href="{% url dashboard %}">Dashboard</a>
+		    {% else %}		    	
+			    <a href="{% url dashboard %}">Feeds</a>
+			    
+		    		{% if aluno or monitor %}		    			
+						<a href="{% url listar_avaliacoes %}">Avaliações</a>
+		    		{% endif %}
+		    		{% if professor %}		   
+			    		<a href="{% url professor_consultar %}">Consultar Notas</a>
+						<a href="{% url criar_conteudos %}">Criar Conteúdo</a>
+		    		{% endif %} 
+			    
+				<a href="{% url perfil %}">Perfil</a>
+			
                 <div id="containner_login">
                     <a id="user" href="{% url dashboard %}">{{ request.user }}</a>
 			        <a id="login" href="{% url logout %}">Sair</a>
