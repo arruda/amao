@@ -15,9 +15,9 @@
     <div class='area_dados'>
 	 <form action="{% url professor_consultar %}?questao={{questao.id}}" method="POST">
 	 	{% csrf_token %}
-	 	<li><label for="id_nota">Nota do Aluno</label>: {{form_questao.nota}}</li>
-		<li><label for="id_revisao">{{form_questao.revisao.label}}</label>:<br/>
-		{{form_questao.revisao}}</li>
+	 	<label for="id_nota">Nota do Aluno</label>: {{form_questao.nota}}<br/>
+		<label for="id_revisao">{{form_questao.revisao.label}}</label>:<br/>
+		{{form_questao.revisao}}<br/>
 		<input type="submit"  value="Alterar Nota"/>
 	 </form>
     </div>
