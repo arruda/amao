@@ -1,15 +1,18 @@
 
-<h1>Informações Gerais:</h1>
+<div class="area_div zona_dados">
+    <h3 >Informações Gerais:</h3>
+    <div class='area_dados'>
 	 <h4>Avaliação<a href="{% url professor_consultar %}?avaliacao={{questao.avaliacao.id}}">{{ questao.avaliacao }}</a></h4>
 	 <h4>Aluno: {{ avaliacao.aluno }} </h4>
 	 <h4>Titulo: {{ questao.questao.titulo }} </h4>
 	 <h4>Enunciado: </h4>
 	 <p>{{questao.questao.enunciado|linebreaks}}</p>
 	 <h4>Nota Min/Max da Questao: {{questao.get_nota_minima}} / {{questao.get_nota_maxima}}</h4>	 
-	 	<h3>Nota Programação: {{questao.get_nota_prog}}/{{questao.get_nota_prog_max}}</h3>
-	 	<h3>Nota Multipla Escolha: {{questao.get_nota_mult}}/{{questao.get_nota_mult_max}}</h3>
-	 	<h3>Nota Discursiva: {{questao.get_nota_disc}}/{{questao.get_nota_disc_max}}</h3>
-	 <hr/>
+	 	<h4>Nota Programação: {{questao.get_nota_prog}}/{{questao.get_nota_prog_max}}</h4>
+	 	<h4>Nota Multipla Escolha: {{questao.get_nota_mult}}/{{questao.get_nota_mult_max}}</h4>
+	 	<h4>Nota Discursiva: {{questao.get_nota_disc}}/{{questao.get_nota_disc_max}}</h4>
+    </div>
+    <div class='area_dados'>
 	 <form action="{% url professor_consultar %}?questao={{questao.id}}" method="POST">
 	 	{% csrf_token %}
 	 	<li><label for="id_nota">Nota do Aluno</label>: {{form_questao.nota}}</li>
@@ -17,21 +20,28 @@
 		{{form_questao.revisao}}</li>
 		<input type="submit"  value="Alterar Nota"/>
 	 </form>
-<hr/>
+    </div>
+</div>
 
 {% load nota_multipla_tags %}
-
-<h1>Arquivos Fonte:</h1>
+<div class="area_div zona_dados">
+	<h3>Arquivos Fonte:</h3>
 	{% for fonte in questao.fontes.all %}
-		<h3>{{fonte.filename}}</h3>
-		<textarea rows="10" cols="40" disabled="disabled">{{fonte.get_content}}</textarea>
-		<hr/>
+		<div class='area_dados'>
+			<h4>{{fonte.filename}}</h4>
+			<textarea rows="10" cols="40" disabled="disabled">{{fonte.get_content}}</textarea>
+		</div>
 	{% endfor %}
+</div>
 
-<h1>Multipla Escolhas:</h1>
-	<ul>
-		{% for opcao in questao.opcoesMultiplaEscolha.all %}
-			<li {% if questao.get_opcao_anuladora and opcao != questao.get_opcao_anuladora %}style="text-decoration:line-through"{% endif %}>({% get_nota_multipla questao opcao %}) - {{opcao.opcao}} </li>
-		{% endfor %}
-	</ul>
+<div class="area_div zona_dados">
+	<h3>Multipla Escolhas:</h3>
+    <div class='area_dados'>
+		<ul>
+			{% for opcao in questao.opcoesMultiplaEscolha.all %}
+				<li {% if questao.get_opcao_anuladora and opcao != questao.get_opcao_anuladora %}style="text-decoration:line-through"{% endif %}>({% get_nota_multipla questao opcao %}) - {{opcao.opcao}} </li>
+			{% endfor %}
+		</ul>
+    </div>
+</div>
 
