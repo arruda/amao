@@ -81,59 +81,61 @@ class TemplateAvaliacao(Abs_titulado):
         numQuestoesNecessarias= self.filtrosQuestoes.all().count()
 
         while numQuestoesNecessarias < 0:      
+            #array das questões que tem o menor_num_filtros numero de filtros em que ela se encaixa
             arrayDosMenores =[]
-            menor=None
-            #prepara o array com as questoes que tem menor numero de recorrencia
-            #isso eh, menor numero de filtro de questoes que possui ela como opcao
-            for key, value in recorrenciaDeQuestoes.items:
-                if not menor:
-                    arrayDosMenores.append(key)
-                    menor=value.__len__()
-                else:
-                    if value.__len__() == menor:
-                        arrayDosMenores.append(key)
-                    elif value.__len__() <= menor:
-                        arrayDosMenores = [key,]
-                        
-            #randomiza uma das questoes que tem menor recorrencia
-            import random       
-            rand = random.randint(0, arrayDosMenores.__len__()-1)
-            idQuestaoEscolhida = arrayDosMenores[rand] 
-            vetorDeFiltrosDaQuestaoEscolhida = recorrenciaDeQuestoes[idQuestaoEscolhida]
             
-            arrayDosMenores =[]
-            menor=None
-            #prepara o array com os filtros de questao que possuem a questao escolhida 
-            #que tem o menor numero de opcao de questao vinculadas a este
-            for filtro in vetorDeFiltrosDaQuestaoEscolhida:
-                if not menor:
-                    arrayDosMenores.append(filtro)
-                    menor=filtro.__len__()
+            #quantidade de filtros da questão que possui a menor_num_filtros quantidade de filtros
+            menor_num_filtros=None
+            
+            #prepara o array com as questoes que tem menor_num_filtros numero de recorrencia
+            #isso eh, menor_num_filtros numero de filtro de questoes que possui ela como opcao
+            for idQuestao, listIdFiltro in recorrenciaDeQuestoes.items():
+                quantidade_filtros = listIdFiltro.__len__()
+                if not menor_num_filtros:
+                    arrayDosMenores.append(idQuestao)
+                    menor_num_filtros= quantidade_filtros
                 else:
-                    if filtro.__len__() == menor:
-                        arrayDosMenores.append(filtro)
-                    elif filtro.__len__() <= menor:
-                        arrayDosMenores = [filtro,]
-           
-            #randomiza o filtro dentro os que possuem o menor numero de questoes
+                    if quantidade_filtros == menor_num_filtros:
+                        arrayDosMenores.append(idQuestao)
+                    elif quantidade_filtros < menor_num_filtros:
+                        arrayDosMenores = [idQuestao,]
+                        menor_num_filtros = quantidade_filtros
+                        
+                        
+            #randomiza uma das questoes que tem menor_num_filtros recorrencia
+            import random       
+            rand_id_questao = random.randint(0, arrayDosMenores.__len__()-1)
+            idQuestaoEscolhida = arrayDosMenores[rand_id_questao] 
+            vetorDeIdFiltrosDaQuestaoEscolhida = recorrenciaDeQuestoes[idQuestaoEscolhida]
+            
+            
+            arrayDosMenoresIdFiltrosDaQuestaoEscolhida =[]
+            menor_num_questoes_do_filtro=None
+            #prepara o array com os filtros de questao que possuem a questao escolhida 
+            #que tem o menor_num_filtros numero de opcao de questao vinculadas a este
+            for filtro in vetorDeIdFiltrosDaQuestaoEscolhida:
+                num_questoes = filtro.__len__()
+                
+                if not menor_num_questoes_do_filtro:
+                    arrayDosMenoresIdFiltrosDaQuestaoEscolhida.append(filtro)
+                    menor_num_questoes_do_filtro=num_questoes
+                    
+                else:
+                    if num_questoes == menor_num_questoes_do_filtro:
+                        arrayDosMenoresIdFiltrosDaQuestaoEscolhida.append(filtro)
+                    elif num_questoes < menor_num_questoes_do_filtro:
+                        arrayDosMenoresIdFiltrosDaQuestaoEscolhida = [filtro,]
+                        menor_num_questoes_do_filtro = num_questoes
+                        
+            #randomiza o filtro dentro os que possuem o 'menor_num_questoes_do_filtro' 
             #do vetor de filtros da questao escolhidas            
-            rand = random.randint(0, arrayDosMenores.__len__()-1)
-            filtroDeQuestaoEscolhida = arrayDosMenores[rand]  
+            rand_id_filtro = random.randint(0, arrayDosMenoresIdFiltrosDaQuestaoEscolhida.__len__()-1)
+            idFiltroDeQuestaoEscolhida = arrayDosMenoresIdFiltrosDaQuestaoEscolhida[rand_id_filtro]  
             
             #cria uma questao nessa avaliacao com o filtro escolhido
-            novaAvaliacao.add_questao(questao,filtroDeQuestaoEscolhida)   
+            novaAvaliacao.add_questao(questao,idFiltroDeQuestaoEscolhida)   
             #remove             
 
-        #agora que é garantido que tds as questoes estao corretas
-        #comeca a salvar cada uma delas na avaliacao           
-        for questao,filtro in questoes:                 
-            novaAvaliacao.add_questao(questao,filtro)      
-#            from Avaliacao.Questao.models import QuestaoDeAvaliacao
-#            #Cria uma instancia de QuestaoDeAvaliacao para essa questao e essa novaAvaliacao
-#            questaoAvaliacao = QuestaoDeAvaliacao(avaliacao=novaAvaliacao,questao=questao)
-#            #salva essa questaoAvaliacao
-#            questaoAvaliacao.save()
-               
                
         return novaAvaliacao        
         

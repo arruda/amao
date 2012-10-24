@@ -43,16 +43,17 @@ class FiltroQuestao(models.Model):
         """
                      
         ######################
-        #: se tiver questão exata, retorna a mesma, caso contrario, tenta recuperar uma questão aleatoria
+        #: se tiver questão exata, retorna a mesma(uma lista com apenas ela)
+        #caso contrario, tenta recuperar uma questão aleatoria, seguindo os tipos do filtro
         if self.questaoExata:
             print "(EXATA) " + self.questaoExata.slug
-            return self.questaoExata
+            return [self.questaoExata,]
         
         #prepara os tipos requeridos, juntando n elementos de num_descendentes cada um dos tipos
         tiposRequeridos = []
         for tipoFiltro in self.tipo.all():            
-            listaTiposFilho = tipoFiltro.get_descendants(include_self=True)
-            tiposRequeridos.append(listaTiposFilho)   
+            listaTiposFilho_e_proprio = tipoFiltro.get_descendants(include_self=True)
+            tiposRequeridos.append(listaTiposFilho_e_proprio)   
         print "===================================="
         print ">>>tiposFiltro:"
         print self.tipo.all()
@@ -61,18 +62,21 @@ class FiltroQuestao(models.Model):
         print ">>>>>>>>>>>>>>>>>>>"
         #recupera todas as questoes
         tdsQuestoes = Questao.objects.filter(verificada=True)
-        if questoesAnteriores != []:
-            tdsQuestoes = tdsQuestoes.exclude(questoesAnteriores)
+#        if questoesAnteriores != []:
+#            tdsQuestoes = tdsQuestoes.exclude(questoesAnteriores)
 
         questoesSelecionadas = []
 
         for questaoATestar in tdsQuestoes:
             numTiposRequeridos = tiposRequeridos.__len__()
+            
             for tipoQuestao in questaoATestar.tipo.all():
+                
                 for grupoDeTiposRequeridos in tiposRequeridos:
                     if tipoQuestao in grupoDeTiposRequeridos:
                         numTiposRequeridos-=1
                         break
+                    
                 if numTiposRequeridos == 0:
                     questoesSelecionadas.append(questaoATestar)
                     break
