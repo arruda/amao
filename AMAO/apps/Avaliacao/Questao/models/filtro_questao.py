@@ -68,18 +68,25 @@ class FiltroQuestao(models.Model):
         questoesSelecionadas = []
 
         for questaoATestar in tdsQuestoes:
-            numTiposRequeridos = tiposRequeridos.__len__()
-            
-            for tipoQuestao in questaoATestar.tipo.all():
+                        
+            questao_valida = True
+            for grupoDeTiposRequeridos in tiposRequeridos:
                 
-                for grupoDeTiposRequeridos in tiposRequeridos:
-                    if tipoQuestao in grupoDeTiposRequeridos:
-                        numTiposRequeridos-=1
+                tipo_valido = False
+                for tipoQuestao_da_questaoATestar in questaoATestar.tipo.all():
+                    
+                    if tipoQuestao_da_questaoATestar in grupoDeTiposRequeridos:
+                        tipo_valido=True
                         break
                     
-                if numTiposRequeridos == 0:
-                    questoesSelecionadas.append(questaoATestar)
+                if not tipo_valido:
+                    questao_valida = False
                     break
+                
+            if questao_valida:
+                questoesSelecionadas.append(questaoATestar)
+        
+            
         
         print ">>>questoesSelecionadas:"
         for q in questoesSelecionadas:
