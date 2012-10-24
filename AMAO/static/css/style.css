@@ -53,9 +53,16 @@ body {
     font-size: 12pt;
     line-height: 38px;
     font-weight:bold;
+    border-right:2px solid rgba(0,0,0,0.3);
 }
 #menu nav a:hover{
     color: #fff!important;
+}
+#menu .left_border{
+    border-left:2px solid rgba(0,0,0,0.3);
+}
+#menu .right_border{
+    border-right:2px solid rgba(0,0,0,0.3);
 }
 #containner_login{
     height:26px;
@@ -67,6 +74,10 @@ body {
     background: -moz-linear-gradient(#363636,#2A2A2A);
     background: -webkit-linear-gradient(#363636,#2A2A2A);
     padding: 0 10px;
+}
+
+#containner_login a{
+    border-right:none!important;
 }
 #user{
     line-height: 26px!important;
@@ -303,13 +314,18 @@ aside h3 {
 	padding-left:10px;
 }
 .grupo_avaliacoes{
+    /*
     float:left;
     width:100%;
     margin-bottom:5px;
+    */
 }
 .grupo_avaliacoes div{
+    /*
     padding:8px;
     float:left;
+    */
+    padding:8px;
     font-size:10pt;
 }
 .grupo_avaliacoes a{
@@ -478,4 +494,44 @@ th td{
 }
 .titulo_arquivo{
     margin-bottom:5px;
+}
+
+
+/********************************* TABS **********************************/
+#tabs_menu{
+	list-style: none;
+
+}
+#tabs_menu li {
+    display: inline;
+    padding: 1px 2px;
+}
+#tabs_menu li a {
+	color: #555;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    text-decoration: none;
+    background-color: #eeeeee;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+#tabs_menu li a:hover {
+    background-color: #dddddd;
+    padding: 5px 7px;
+}
+#tabs_menu li.active a {
+    background-color: #fff;
+    padding: 6px 8px;
+}
+#tabs_menu li.active a:hover {
+    background-color: #eeeeee;
+    padding: 6px 8px;
+}
+
+
+.lista_horizontal li{
+	float: initial;
 }

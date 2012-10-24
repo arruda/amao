@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import user_passes_test
 from Professor.models import Professor, Monitor
 
 def check_professor_or_monitor_exist(user):
+    if not user.is_authenticated():
+        return False
+    
     try:
         prof = user.professor_set.get()
         return True

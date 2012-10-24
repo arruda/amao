@@ -22,7 +22,7 @@ def criar_questao(request):
     formsetOpcoesInline=inlineformset_factory(Questao,OpcaoMultiplaEscolha,extra=4)
     if request.method == "POST":        
         form = criarQuestaoForm(request.POST)
-        if form.is_valid():           
+        if form.is_valid():
             novaQuestao=form.save(commit=False)
             novaQuestao.autor = autor
             formEntradas = formsetEntradasInline(request.POST, request.FILES,instance=novaQuestao)
@@ -34,6 +34,8 @@ def criar_questao(request):
                 formEntradas.save()  
                 formFontes.save() 
                 formOpcoes.save()    
+                form.save_m2m()
+                novaQuestao.save(verificar=True)
                 criado=True  
     else:
         #QuestoesForms=formsetInline()

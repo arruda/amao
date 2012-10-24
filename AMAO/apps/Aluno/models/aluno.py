@@ -43,7 +43,7 @@ class Aluno(models.Model):
     
     def avaliacoes_passadas(self):
         "lista todas as avaliacoes que ja terminaram"
-        return self.avaliacoes.filter(ativa=False,simulado=True)
+        return self.avaliacoes.filter(ativa=False,simulado=False)
     
     def simulados_andamento(self):
         "lista os simulados que o aluno tem ativo"

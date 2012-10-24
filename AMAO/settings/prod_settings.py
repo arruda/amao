@@ -7,7 +7,7 @@ DATABASES = {
         'ENGINE': 'postgresql_psycopg2',
         'NAME': 'django_db',
         'USER': 'django_login',
-        'PASSWORD': 'Amao.123',
+        'PASSWORD': 'Amao.2@12',
         'HOST': '',
         'PORT': '',
     }

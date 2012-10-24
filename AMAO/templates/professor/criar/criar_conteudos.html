@@ -1,0 +1,29 @@
+{% extends "util/base.html" %}
+{% block 'body-hgroup' %}
+	<h1><span>Criar Conteúdos</span></h1>
+{% endblock %}
+	
+{% block 'body-centered' %}
+		<div class="area_div zona_dados">		
+		    <h3>Questões</h3>		    
+			<ul class='lista_horizontal'>
+				<li >
+					<h4><a href="{% url criar_questao %}">Criar Questão</a></h4>
+				</li>
+				<li>
+					<h4><a href="{% url listar_questoes %}">Lista de Questão</a></h4>
+				</li>
+				<li>
+					<h4><a href="{% url criar_tipo %}">Criar Tipo de Questão</a></h4>
+				</li>
+			</ul>				
+		</div>
+		<div class="area_div zona_dados">		
+		    <h3>Avaliações</h3>		    
+			<ul class='lista_horizontal'>				
+				<li>
+					<h4><a href="{% url criar_avaliacao %}">Criar Avaliação</a></h4>
+				</li>
+			</ul>				
+		</div>
+{% endblock %}

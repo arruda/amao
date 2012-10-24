@@ -1,0 +1,54 @@
+{% extends "util/base.html" %}
+
+{% block 'body-hgroup' %}
+	<h1><span>Avaliações</span></h1>
+{% endblock %}
+	
+
+{% block 'body-centered' %}
+		<div class="area_div zona_dados">	
+    	<h3>Avaliações Futuras:</h3>	
+		{% for templateAvaliacao in avaliacoes_futuras %}
+			<div><a href={% url comecar_simulado template_id=templateAvaliacao.id %}>{{ templateAvaliacao.titulo }}</a><br/>
+			Matéria: {{templateAvaliacao.turma.materia}}<br/>
+			Turma: {{templateAvaliacao.turma}}<br/>
+			Inicio: {{templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}<br/>
+			Termino: {{templateAvaliacao.data_termino|date:"d/m/y  H:i"}}
+			</div>
+		{% endfor %}		
+		</div>
+		
+		<div class="area_div zona_dados">	
+	    <h3>Avaliações para Iniciar:</h3>	
+		{% for templateAvaliacao in avaliacoes_comecar %}
+			<div><a href={% url comecar_avaliacao template_id=templateAvaliacao.id %}>{{ templateAvaliacao.titulo }}</a></li><br/>
+			Matéria: {{templateAvaliacao.turma.materia}}<br/>
+			Turma: {{templateAvaliacao.turma}}<br/>
+			Inicio: {{templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}<br/>
+			Termino: {{templateAvaliacao.data_termino|date:"d/m/y  H:i"}}
+			</div>
+		{% endfor %}	
+		</div>
+		
+		<div class="area_div zona_dados">	
+	    <h3>Avaliações Em Andamento:</h3>
+		{% for avaliacao in avaliacoes_andamento %}
+			<div><a href={% url exibir_avaliacao template_id=avaliacao.id %}>{{ avaliacao.titulo }}</a><br/>
+			Matéria: {{templateAvaliacao.turma.materia}}<br/>
+			Turma: {{avaliacao.templateAvaliacao.turma}}<br/>
+			Inicio: {{avaliacao.templateAvaliacao.data_inicio|date:"d/m/y  H:i"}}<br/>
+			Termino: {{avaliacao.templateAvaliacao.data_termino|date:"d/m/y  H:i"}}
+			</div>
+		{% endfor %}
+		</div>
+		
+		<div class="area_div zona_dados">	
+	    <h3>Avaliações Terminadas:</h3>		
+		{% for avaliacao in avaliacoes_passadas %}
+			<div><a href={% url exibir_avaliacao template_id=avaliacao.id %}>{{ avaliacao.titulo }}</a>
+			</div>
+		{% endfor %}
+		</div>
+{% endblock %}
+
+
