@@ -50,6 +50,7 @@ class TemplateAvaliacao(Abs_titulado):
         é o mesmo método usado para gerar uma simulação, mas nesse caso as questões especificas são trocadas, e no lugar delas é pego
         qualquer outra questão que tenha os mesmos tipos de questão que elas.
         """
+        from Avaliacao.Questao.models import FiltroQuestao
         #cria uma avaliacao/simulado para esse aluno ligada a esse templateAvaliacao
         data_inicio = self.data_inicio
         data_termino=self.data_termino
@@ -79,8 +80,11 @@ class TemplateAvaliacao(Abs_titulado):
                 recorrenciaDeQuestoes[questao.id].append(idFiltro)
         ####TERMINANDO DE MONTAR ESTRUTURA
         numQuestoesNecessarias= self.filtrosQuestoes.all().count()
+        
+        print "\n\n\n\n\n==================================================\n\n\n\n\n"
         print "numQuestoesNecessarias>>>%s" % str(numQuestoesNecessarias)
         while numQuestoesNecessarias > 0:      
+            print "Nova questao"
             #array das questões que tem o menor_num_filtros numero de filtros em que ela se encaixa
             arrayDosMenores =[]
             
@@ -91,6 +95,9 @@ class TemplateAvaliacao(Abs_titulado):
             #isso eh, menor_num_filtros numero de filtro de questoes que possui ela como opcao
             for idQuestao, listIdFiltro in recorrenciaDeQuestoes.items():
                 quantidade_filtros = listIdFiltro.__len__()
+                
+#                print ">> idQuestao>>>%s" % str(idQuestao) 
+#                print ">> listIdFiltro>>>%s" % str(listIdFiltro)     
                 if not menor_num_filtros:
                     arrayDosMenores.append(idQuestao)
                     menor_num_filtros= quantidade_filtros
@@ -101,32 +108,35 @@ class TemplateAvaliacao(Abs_titulado):
                         arrayDosMenores = [idQuestao,]
                         menor_num_filtros = quantidade_filtros
                         
-                        
+            print "arrayDosMenores>>>%s" % str(arrayDosMenores)            
             #randomiza uma das questoes que tem menor_num_filtros recorrencia
             import random       
             rand_id_questao = random.randint(0, arrayDosMenores.__len__()-1)
             idQuestaoEscolhida = arrayDosMenores[rand_id_questao] 
             vetorDeIdFiltrosDaQuestaoEscolhida = recorrenciaDeQuestoes[idQuestaoEscolhida]
-            
+            print "idQuestaoEscolhida>>>%s" % str(idQuestaoEscolhida)         
             
             arrayDosMenoresIdFiltrosDaQuestaoEscolhida =[]
             menor_num_questoes_do_filtro=None
             #prepara o array com os filtros de questao que possuem a questao escolhida 
             #que tem o menor_num_filtros numero de opcao de questao vinculadas a este
-            for filtro in vetorDeIdFiltrosDaQuestaoEscolhida:
-                num_questoes = filtro.__len__()
+            for idFiltro in vetorDeIdFiltrosDaQuestaoEscolhida:
+                num_questoes = opcoesDeQuestoesDeFiltro[idFiltro].__len__()
+#                num_questoes = filtro.__len__()
                 
                 if not menor_num_questoes_do_filtro:
-                    arrayDosMenoresIdFiltrosDaQuestaoEscolhida.append(filtro)
+                    arrayDosMenoresIdFiltrosDaQuestaoEscolhida.append(idFiltro)
                     menor_num_questoes_do_filtro=num_questoes
                     
                 else:
                     if num_questoes == menor_num_questoes_do_filtro:
-                        arrayDosMenoresIdFiltrosDaQuestaoEscolhida.append(filtro)
+                        arrayDosMenoresIdFiltrosDaQuestaoEscolhida.append(idFiltro)
                     elif num_questoes < menor_num_questoes_do_filtro:
-                        arrayDosMenoresIdFiltrosDaQuestaoEscolhida = [filtro,]
+                        arrayDosMenoresIdFiltrosDaQuestaoEscolhida = [idFiltro,]
                         menor_num_questoes_do_filtro = num_questoes
                         
+            print "arrayDosMenoresIdFiltrosDaQuestaoEscolhida>>>%s" % str(arrayDosMenoresIdFiltrosDaQuestaoEscolhida)         
+            
             #randomiza o filtro dentro os que possuem o 'menor_num_questoes_do_filtro' 
             #do vetor de filtros da questao escolhidas            
             rand_id_filtro = random.randint(0, arrayDosMenoresIdFiltrosDaQuestaoEscolhida.__len__()-1)
@@ -134,7 +144,7 @@ class TemplateAvaliacao(Abs_titulado):
             
             #cria uma questao nessa avaliacao com o filtro escolhido
             novaAvaliacao.add_questao(idQuestaoEscolhida,idFiltroDeQuestaoEscolhida)   
-            
+            recorrenciaDeQuestoes.pop(idQuestaoEscolhida)
             #menos uma questão para criar
             numQuestoesNecessarias = numQuestoesNecessarias -1
 

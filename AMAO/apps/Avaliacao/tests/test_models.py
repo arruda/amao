@@ -314,14 +314,17 @@ class GerarAvaliacaoTest(TestCase):
         
         #verifica se a avaliacao tem o mesmo titulo que o templateAvaliacao
         self.assertEqual(avaliacao.titulo,self.templateAvaliacao.titulo)
-        
+        msg_error="Questao de Avaliacao: %s nao esta presente na lista de questoes possiveis para o filtro:%s"
+        questoes_selecionadas = []
         #verifica se as questões foram selecionadas corretamente        
         for i in xrange(0,10):
             questaoAvaliacao = avaliacao.questoes.all()[i]
             filtroCorrespondente = questaoAvaliacao.filtro
-                    
-            self.assertIn(questaoAvaliacao,filtroCorrespondente.filtrarQuestao())
-    
+            print ">>>> I :%d" % i
+            self.assertNotIn(questaoAvaliacao.questao, questoes_selecionadas)
+            self.assertIn(questaoAvaliacao.questao,filtroCorrespondente.filtrarQuestao())
+            
+            questoes_selecionadas.append(questaoAvaliacao.questao)
     
     
     

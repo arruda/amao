@@ -41,7 +41,7 @@ class Avaliacao(Abs_titulado_slugfy):
         else:
             kwargs['questao_id']=questao
             
-        q = self.questoes.create(kwargs)
+        q = self.questoes.create(**kwargs)
         print "Questao Criada>>>>%s" % str(q)
 #        for fonte in q.questao.fontesGabarito.filter(usarNaResolucao=True):
 #            fonte.copiar_para_aluno(q)
