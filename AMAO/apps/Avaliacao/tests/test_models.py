@@ -286,15 +286,41 @@ class GerarAvaliacaoTest(TestCase):
     def test_fixtures(self):
         "testar as fixtures carregaram corretamente"
         self.assertEquals(Aluno.objects.get(pk=1).slug,'123456')
+    
+    def test_filtrarQuestao(self):
+        "testar se um filtroQuestao(pk=6) retorna corretamente as questoes possiveis"
+        
+        for num_id in xrange(1,11):
+            filtro = FiltroQuestao.objects.get(pk=num_id)
+            lista_ids_questoes=[]
+            for i in xrange(num_id,11):
+                lista_ids_questoes.append(i)
+                lista_ids_questoes.append(i+10)
+                lista_ids_questoes.append(i+20)
+                
+            if num_id == 5:
+                lista_ids_questoes= [1]
+                
+            print "lista_ids_questoes>> %s" % str(lista_ids_questoes) 
+            
+            questoes_selecionadas = filtro.filtrarQuestao()
+            msg_erro="Questao de pk:%s nao esta dentro da lista que questoes possiveis do filtro de pk:%s"
+            for questao in questoes_selecionadas:
+                self.assertIn(questao.pk, lista_ids_questoes, msg_erro%(questao.pk,num_id))
         
     def test_gerarAvaliacao(self):
         "testa se a avaliacao foi gerada corretamente"
         avaliacao = self.templateAvaliacao.gerarAvaliacao(self.aluno)
-        raise Exception("quero ler!!")
-    
-    
-    
-    
+        
+        #verifica se a avaliacao tem o mesmo titulo que o templateAvaliacao
+        self.assertEqual(avaliacao.titulo,self.templateAvaliacao.titulo)
+        
+        #verifica se as questões foram selecionadas corretamente        
+        for i in xrange(0,10):
+            questaoAvaliacao = avaliacao.questoes.all()[i]
+            filtroCorrespondente = questaoAvaliacao.filtro
+                    
+            self.assertIn(questaoAvaliacao,filtroCorrespondente.filtrarQuestao())
     
     
     

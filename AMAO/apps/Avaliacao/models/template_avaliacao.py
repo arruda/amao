@@ -79,8 +79,8 @@ class TemplateAvaliacao(Abs_titulado):
                 recorrenciaDeQuestoes[questao.id].append(idFiltro)
         ####TERMINANDO DE MONTAR ESTRUTURA
         numQuestoesNecessarias= self.filtrosQuestoes.all().count()
-
-        while numQuestoesNecessarias < 0:      
+        print "numQuestoesNecessarias>>>%s" % str(numQuestoesNecessarias)
+        while numQuestoesNecessarias > 0:      
             #array das questões que tem o menor_num_filtros numero de filtros em que ela se encaixa
             arrayDosMenores =[]
             
@@ -133,8 +133,10 @@ class TemplateAvaliacao(Abs_titulado):
             idFiltroDeQuestaoEscolhida = arrayDosMenoresIdFiltrosDaQuestaoEscolhida[rand_id_filtro]  
             
             #cria uma questao nessa avaliacao com o filtro escolhido
-            novaAvaliacao.add_questao(questao,idFiltroDeQuestaoEscolhida)   
-            #remove             
+            novaAvaliacao.add_questao(idQuestaoEscolhida,idFiltroDeQuestaoEscolhida)   
+            
+            #menos uma questão para criar
+            numQuestoesNecessarias = numQuestoesNecessarias -1
 
                
         return novaAvaliacao        

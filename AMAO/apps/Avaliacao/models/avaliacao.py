@@ -30,14 +30,19 @@ class Avaliacao(Abs_titulado_slugfy):
 
         
     def add_questao(self,questao,filtro):
-        kwargs={filtro:filtro,nota:"0.00"}
+        
+        kwargs={'nota':"0.00",}
+        if filtro.__class__.__name__ == "FiltroQuestao":
+            kwargs['filtro']=filtro
+        else:
+            kwargs['filtro_id']=filtro
         if questao.__class__.__name__ == "Questao":
             kwargs['questao']=questao
         else:
-            kwargs['pk']=questao
+            kwargs['questao_id']=questao
             
-        q = self.questoes.create(questao=questao,filtro=filtro,nota="0.00")
-#        print q
+        q = self.questoes.create(kwargs)
+        print "Questao Criada>>>>%s" % str(q)
 #        for fonte in q.questao.fontesGabarito.filter(usarNaResolucao=True):
 #            fonte.copiar_para_aluno(q)
 
