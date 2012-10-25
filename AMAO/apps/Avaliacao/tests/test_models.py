@@ -126,7 +126,7 @@ class TemplateAvaliacaoTest(TestCase):
             self.assertIn(template,templates_list)
     
     def test_gerar_simulado(self):
-        " verifica se ao gerar um avaliacao para um aluno ele faz corretamente, como filtros,  questoes exatas e etc..."  
+        " verifica se ao gerar um avaliacão para um aluno ele faz corretamente, como filtros,  questoes exatas e etc..."  
         from Avaliacao.Questao.models import Questao
         #prepara a avaliacao       
         self.templateAvaliacao = TemplateAvaliacao(titulo="Avaliacao Teste Criacao",turma=self.turma,ativa=False)

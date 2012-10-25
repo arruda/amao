@@ -84,7 +84,7 @@ class TemplateAvaliacao(Abs_titulado):
         print "\n\n\n\n\n==================================================\n\n\n\n\n"
         print "numQuestoesNecessarias>>>%s" % str(numQuestoesNecessarias)
         while numQuestoesNecessarias > 0:      
-            print "Nova questao"
+            print "====\nNova questao"
             #array das questões que tem o menor_num_filtros numero de filtros em que ela se encaixa
             arrayDosMenores =[]
             

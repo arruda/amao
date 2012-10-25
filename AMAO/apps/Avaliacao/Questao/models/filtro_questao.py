@@ -46,7 +46,7 @@ class FiltroQuestao(models.Model):
         #: se tiver questão exata, retorna a mesma(uma lista com apenas ela)
         #caso contrario, tenta recuperar uma questão aleatoria, seguindo os tipos do filtro
         if self.questaoExata:
-            print "(EXATA) " + self.questaoExata.slug
+#            print "(EXATA) " + self.questaoExata.slug
             return [self.questaoExata,]
         
         #prepara os tipos requeridos, juntando n elementos de num_descendentes cada um dos tipos
@@ -54,12 +54,12 @@ class FiltroQuestao(models.Model):
         for tipoFiltro in self.tipo.all():            
             listaTiposFilho_e_proprio = tipoFiltro.get_descendants(include_self=True)
             tiposRequeridos.append(listaTiposFilho_e_proprio)   
-        print "===================================="
-        print ">>>tiposFiltro:"
-        print self.tipo.all()
-        print ">>>tiposRequeridos:"
-        print tiposRequeridos
-        print ">>>>>>>>>>>>>>>>>>>"
+#        print "===================================="
+#        print ">>>tiposFiltro:"
+#        print self.tipo.all()
+#        print ">>>tiposRequeridos:"
+#        print tiposRequeridos
+#        print ">>>>>>>>>>>>>>>>>>>"
         #recupera todas as questoes
         tdsQuestoes = Questao.objects.filter(verificada=True)
 #        if questoesAnteriores != []:
@@ -88,10 +88,10 @@ class FiltroQuestao(models.Model):
         
             
         
-        print ">>>questoesSelecionadas:"
-        for q in questoesSelecionadas:
-            print "%s - [%s]" %(q,q.tipo.all())
-        print ">>>>>>>>>>>>>>>>>>>"
+#        print ">>>questoesSelecionadas:"
+#        for q in questoesSelecionadas:
+#            print "%s - [%s]" %(q,q.tipo.all())
+#        print ">>>>>>>>>>>>>>>>>>>"
                        
         if questoesSelecionadas == []:
             raise Exception("Nenhuma questao encontrada para os seguintes filtro:%s"%str(self.pk))
