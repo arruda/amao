@@ -37,6 +37,11 @@ def criar_questao(request):
                 form.save_m2m()
                 novaQuestao.save(verificar=True)
                 criado=True  
+        else:
+            #QuestoesForms=formsetInline()
+            formEntradas = formsetEntradasInline()
+            formFontes = formsetFontesInline()
+            formOpcoes = formsetOpcoesInline()
     else:
         #QuestoesForms=formsetInline()
         form = criarQuestaoForm()
