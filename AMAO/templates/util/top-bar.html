@@ -12,7 +12,7 @@
 		    		{% if aluno or monitor %}		    			
 						<a href="{% url listar_avaliacoes %}">Avaliações</a>
 		    		{% endif %}
-		    		{% if professor %}		   
+		    		{% if professor or monitor %}		   
 			    		<a href="{% url professor_consultar %}">Consultar Notas</a>
 						<a href="{% url criar_conteudos %}">Criar Conteúdo</a>
 		    		{% endif %} 
