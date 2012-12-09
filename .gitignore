@@ -16,3 +16,8 @@ celerybeat.pid
 
 #media
 gabarito
+
+#safeexec
+AMAO/safeexec/safeexec
+AMAO/safeexec/os-detect
+AMAO/safeexec/*.o
