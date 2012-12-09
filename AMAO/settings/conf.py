@@ -99,6 +99,10 @@ CORRETORES = (
     (1,'CPP','Um corretor basico de c++.','Corretor.corretor.corretor_cpp.CorretorCPP'),
 )
 
+#safeexec
+
+SAFEEXEC_PATH = LOCAL('safeexec/safeexec')
+
 #CORRETORES= (
 #        ( 0, 'aguardando',  u'Aguardando Pagamento'),
 #        ( 1, 'aguardando',  u'Aguardando Pagamento'),

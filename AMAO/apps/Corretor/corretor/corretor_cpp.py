@@ -73,9 +73,23 @@ class CorretorCPP(CorretorSemProg):
             path_exec = path_execs(questao,settings.MEDIA_ROOT)   
             path_saida = path_saidas(questao,settings.MEDIA_ROOT) 
         
+        max_file_size = 1024 #1Mb
+        
+        safeexec_path = settings.SAFEEXEC_PATH
+        
         #para rodar p executavel e por sua saida no local correto.
         #chama o executavel, passando uma entrada, e redirecionando a saida para um arquivo.
-        command = "%s < %s > %s" %(path_exec,entrada_gabarito,path_saida)
+        command = "%(SAFEEXEC)s --fsize %(FILE_SIZE)s --exec %(EXEC)s < %(INPUT)s > %(OUTPUT)s"
+        cmd_infos = {
+                     'SAFEEXEC' : safeexec_path,
+                     'FILE_SIZE': max_file_size,
+                     'EXEC' : path_exec,
+                     'INPUT':entrada_gabarito,
+                     'OUTPUT': path_saida
+                     }
+        command = command % cmd_infos
+        print "command", command
+                            
 
         output = os.system(command)
         
