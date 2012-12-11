@@ -7,7 +7,8 @@ from os.path import basename
 
 #from path_utils import get_upload_path_entradaGabarito, get_upload_path_fonteGabarito, get_upload_path_fontes
 from path_utils import path_entradas_gabarito_upload, path_fontes_gabarito_upload, path_fontes_upload, path_helper
-        
+from encoding_utils import convert_to_utf8
+
 from questao_avaliacao import QuestaoDeAvaliacao
 from questao import Questao
 
@@ -28,6 +29,13 @@ class EntradaGabarito(models.Model):
 
     def __unicode__(self):
         return self.arquivo.name   
+    
+    def save(self, *args, **kwargs):
+        super(EntradaGabarito, self).save(*args, **kwargs)
+        
+        #force utf-8 encoding
+        if self.arquivo != None and self.arquivo != "":     
+            convert_to_utf8(self.arquivo.path)
 
 class AbsFonte(models.Model):
     
@@ -50,8 +58,11 @@ class AbsFonte(models.Model):
             old = cls.objects.get(pk=self.pk)
             print old.arquivo.name
             rm_fisica_arquivos(None,instance=old)
-                
         super(AbsFonte, self).save(*args, **kwargs)
+        
+        #force utf-8 encoding
+        if self.arquivo != None and self.arquivo != "":     
+            convert_to_utf8(self.arquivo.path)
         
     class Meta:
         abstract = True
