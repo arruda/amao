@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from django.db.models.signals import pre_delete, pre_save 
+from django.db.models.signals import pre_delete, pre_save, post_save 
 
 from os.path import basename
 
@@ -53,16 +53,13 @@ class AbsFonte(models.Model):
         return self.arquivo.name   
     
     def save(self, *args, **kwargs):
-        if self.pk != None:
-            cls = self.__class__
-            old = cls.objects.get(pk=self.pk)
-            print old.arquivo.name
-            rm_fisica_arquivos(None,instance=old)
+#        if self.pk != None:
+#            cls = self.__class__
+#            old = cls.objects.get(pk=self.pk)
+#            print "deleting %s" % str(old.arquivo.name)
+#            rm_fisica_arquivos(None,instance=old)
         super(AbsFonte, self).save(*args, **kwargs)
         
-        #force utf-8 encoding
-        if self.arquivo != None and self.arquivo != "":     
-            convert_to_utf8(str(self.arquivo.path))
         
     class Meta:
         abstract = True
@@ -79,6 +76,13 @@ def rm_fisica_arquivos(sender,**kwargs):
     
     remove(join(settings.MEDIA_ROOT,str(fonte)))
     print join(settings.MEDIA_ROOT,str(fonte))
+    
+def forcar_utf8_signal(sender,**kwargs):
+    "sinal de post_save para forcar utf8"
+    fonte = kwargs['instance']
+    #forca utf-8 encoding
+    if fonte.arquivo != None and fonte.arquivo != "":     
+        convert_to_utf8(str(fonte.arquivo.path))
     
 
 class FonteGabarito(AbsFonte):
@@ -138,6 +142,8 @@ class Fonte(AbsFonte):
 #pre_save.connect(rm_fisica_arquivos, sender=FonteGabarito)
 pre_delete.connect(rm_fisica_arquivos, sender=Fonte)
 pre_delete.connect(rm_fisica_arquivos, sender=FonteGabarito)
+post_save.connect(forcar_utf8_signal, sender=Fonte)
+post_save.connect(forcar_utf8_signal, sender=FonteGabarito)
         
     #Ver questao de signals em django    
     #para fazer isso da forma correta!
