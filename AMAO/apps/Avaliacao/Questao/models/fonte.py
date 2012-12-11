@@ -62,7 +62,7 @@ class AbsFonte(models.Model):
         
         #force utf-8 encoding
         if self.arquivo != None and self.arquivo != "":     
-            convert_to_utf8(self.arquivo.path)
+            convert_to_utf8(str(self.arquivo.path))
         
     class Meta:
         abstract = True
