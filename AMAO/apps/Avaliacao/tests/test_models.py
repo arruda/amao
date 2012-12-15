@@ -329,7 +329,185 @@ class GerarAvaliacaoTest(TestCase):
     
     
     
+class GerarAvaliacaoCasoA1Test(TestCase):
+    """
+    fazendo isso basado no caso A1 descrito na documentacao
+    Basicamente:
+    q1 -> C, Facil
+    q2 -> C, Facil
+    q3 -> C.malloc, Facil
+    q4 -> C++, Facil
+    q5 -> C,C++, c.malloc, Facil
     
+    
+    
+    Avaliação ->
+    1 -> q1
+    2 -> C, Facil
+    3 -> Facil, C.Malloc
+    
+    
+    Resultado esperado ->
+    1 -> q1
+    2 -> C, Facil
+    3 -> Facil, C.Malloc
+    
+    
+    Resultado ->
+    1 -> Facil, C.Malloc
+    2 -> C, Facil
+    3 -> q5 ou q1(aleatoriamente)
+    """
+    fixtures = ['test_alunos']
+
+    def setUp(self):
+        self.aluno = Aluno.objects.get(pk=1)
+        self.turma = mommy.make_one(Turma,nome="Teste",sigla="tst")
+        self.gerar_tipoQuestao()
+        self.gerar_Questoes()
+        self.gerarTemplate()
+
+    def gerar_tipoQuestao(self):
+        "gera tipos de questao que sao denominados tipo1-10, com 3 filhos cada(nomeados tipoX-1-tipoX-3)"
+        from Avaliacao.Questao.models import TipoQuestao
+        
+        tipo_C = TipoQuestao(tipo="C")
+        tipo_C.save()
+        
+        tipo_C_Malloc = TipoQuestao(tipo="Malloc", tipoPai=tipo_C)
+        tipo_C_Malloc.save()
+        
+        tipo_CPP = TipoQuestao(tipo="CPP")
+        tipo_CPP.save()
+        
+        tipo_Facil = TipoQuestao(tipo="Facil")
+        tipo_Facil.save()
+        
+
+    def gerar_Questoes(self):
+        """gera questoes mocked com tipo variando 
+        """
+        import random
+            
+    
+        from Avaliacao.Questao.models import Questao
+        tipos=[]
+        #q1 -> C, Facil
+        tipos = TipoQuestao.objects.filter(tipo__in = ["C", "Facil"] )
+        q1 = mommy.make_one(Questao,tipo=tipos,titulo="questao1")
+        q1.verificada=True
+        q1.save(verificar=False)
+        
+        #q2 -> C, Facil
+        tipos = TipoQuestao.objects.filter(tipo__in = ["C", "Facil"] )
+        q2 = mommy.make_one(Questao,tipo=tipos,titulo="questao2")
+        q2.verificada=True
+        q2.save(verificar=False)
+        
+        #q3 -> C.malloc, Facil
+        tipos = TipoQuestao.objects.filter(tipo__in = ["Malloc", "Facil"] )
+        q3 = mommy.make_one(Questao,tipo=tipos,titulo="questao3")        
+        q3.verificada=True
+        q3.save(verificar=False)
+        
+        #q4 -> C++, Facil
+        tipos = TipoQuestao.objects.filter(tipo__in = ["CPP", "Facil"] )
+        q4 = mommy.make_one(Questao,tipo=tipos,titulo="questao4")        
+        q4.verificada=True
+        q4.save(verificar=False)
+        
+        #q5 -> C,C++, c.malloc, Facil
+        tipos = TipoQuestao.objects.filter(tipo__in = ["C","Malloc","CPP", "Facil"] )
+        q5 = mommy.make_one(Questao,tipo=tipos,titulo="questao5")        
+        q5.verificada=True
+        q5.save(verificar=False)
+        
+    
+    
+    def gerarTemplate(self):
+        "gera um template com filtro coerentes"
+        from Avaliacao.Questao.models import Questao
+        
+#    Avaliação ->
+#    1 -> q1
+#    2 -> C, Facil
+#    3 -> Facil, C.Malloc
+        #prepara a avaliacao       
+        self.templateAvaliacao = TemplateAvaliacao(titulo="Avaliacao Teste Filtros",turma=self.turma,ativa=True)
+        self.templateAvaliacao.data_inicio = datetime.datetime.now() - datetime.timedelta(hours=3)
+        self.templateAvaliacao.data_termino = datetime.datetime.now() + datetime.timedelta(hours=5)
+        self.templateAvaliacao.save()
+        #prepara os filtros
+        #são 3 questoes na avaliacao
+        
+        tipos = TipoQuestao.objects.filter(tipo__in = ["C", "Facil"] )
+        fq1 = mommy.make_one(FiltroQuestao,templateAvaliacao=self.templateAvaliacao,questaoExata=Questao.objects.get(pk=1),tipo=tipos)
+        fq1.save()
+        
+        tipos = TipoQuestao.objects.filter(tipo__in = ["C", "Facil"] )
+        fq2 = mommy.make_one(FiltroQuestao,templateAvaliacao=self.templateAvaliacao,questaoExata=None,tipo=tipos)
+        fq2.save()
+        
+        tipos = TipoQuestao.objects.filter(tipo__in = ["Facil","Malloc"] )
+        fq3 = mommy.make_one(FiltroQuestao,templateAvaliacao=self.templateAvaliacao,questaoExata=None,tipo=tipos)
+        fq3.save()
+        
+    
+    def test_fixtures(self):
+        "testar as fixtures carregaram corretamente"
+        self.assertEquals(Aluno.objects.get(pk=1).slug,'123456')
+    
+    def test_filtrarQuestao(self):
+        "testar se um filtroQuestao(pk=6) retorna corretamente as questoes possiveis"
+        msg_erro="Questao de pk:%s nao esta dentro da lista que questoes possiveis do filtro de pk:%s"
+        
+        fq1 = FiltroQuestao.objects.get(pk=1)
+        questoes_selecionadas1 = fq1.filtrarQuestao()
+        
+        for questao in questoes_selecionadas1:
+            self.assertEquals([questao.pk,], [1,], msg_erro%(questao.pk,fq1.pk))
+            
+        fq2 = FiltroQuestao.objects.get(pk=2)
+        questoes_selecionadas2 = fq2.filtrarQuestao()
+        
+        num_questoes = questoes_selecionadas2.__len__()
+        self.assertEquals(num_questoes , 3, "filtro 2 nao teve numero correto de questoes. Esperava: %s mas veio %s" % (3, num_questoes))
+        for questao in questoes_selecionadas2:
+            questoes_ids = [1,2,3]
+            self.assertIn(questao.pk, questoes_ids , msg_erro%(questao.pk,fq2.pk))
+        
+        fq3 = FiltroQuestao.objects.get(pk=3)
+        questoes_selecionadas3 = fq3.filtrarQuestao()
+        
+        num_questoes = questoes_selecionadas3.__len__()
+        self.assertEquals(num_questoes , 1, "filtro 3 nao teve numero correto de questoes. Esperava: %s mas veio %s" % (1, num_questoes))
+        for questao in questoes_selecionadas2:
+            questoes_ids = [3,]
+            self.assertEquals([questao.pk,], questoes_ids , msg_erro%(questao.pk,fq3.pk))
+        
+                
+                
+            
+#        
+#    def test_gerarAvaliacao(self):
+#        "testa se a avaliacao foi gerada corretamente"
+#        avaliacao = self.templateAvaliacao.gerarAvaliacao(self.aluno)
+#        
+#        #verifica se a avaliacao tem o mesmo titulo que o templateAvaliacao
+#        self.assertEqual(avaliacao.titulo,self.templateAvaliacao.titulo)
+#        msg_error="Questao de Avaliacao: %s nao esta presente na lista de questoes possiveis para o filtro:%s"
+#        questoes_selecionadas = []
+#        #verifica se as questões foram selecionadas corretamente        
+#        for i in xrange(0,10):
+#            questaoAvaliacao = avaliacao.questoes.all()[i]
+#            filtroCorrespondente = questaoAvaliacao.filtro
+#            print ">>>> I :%d" % i
+#            self.assertNotIn(questaoAvaliacao.questao, questoes_selecionadas)
+#            self.assertIn(questaoAvaliacao.questao,filtroCorrespondente.filtrarQuestao())
+#            
+#            questoes_selecionadas.append(questaoAvaliacao.questao)
+#    
+#    
     
     
     
