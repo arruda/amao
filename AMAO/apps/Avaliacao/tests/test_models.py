@@ -349,8 +349,8 @@ class GerarAvaliacaoCasoA1Test(TestCase):
     
     Resultado esperado ->
     1 -> q1
-    2 -> C, Facil
-    3 -> Facil, C.Malloc
+    2 -> C, Facil (q2, q5)
+    3 -> Facil, C.Malloc (q3, q5)
     
     
     Resultado ->
@@ -487,17 +487,38 @@ class GerarAvaliacaoCasoA1Test(TestCase):
                 
                 
             
+        
+    def test_gerarAvaliacao(self):
+        "testa se a avaliacao foi gerada corretamente"
+        
+#    Resultado esperado ->
+#    1 -> q1
+#    2 -> C, Facil (q2, q5)
+#    3 -> Facil, C.Malloc (q3, q5)
+#    
+        avaliacao = self.templateAvaliacao.gerarAvaliacao(self.aluno)
+        
+        #verifica se a avaliacao tem o mesmo titulo que o templateAvaliacao
+        self.assertEqual(avaliacao.titulo,self.templateAvaliacao.titulo)
+        msg_error="Questao de Avaliacao: %s nao esta presente na lista de questoes possiveis para o filtro:%s"
+        questoes_selecionadas = []
+        
+        possiveis_q1 = [1,]
+        possiveis_q2 = [2,5]
+        possiveis_q3 = [3,5]
+        
+        q1 = avaliacao.questoes.all()[0]
+        self.assertIn(q1.questao.pk, possiveis_q1, msg_error % (q1, 1 ))
+        
+        q2 = avaliacao.questoes.all()[1]
+        self.assertIn(q2.questao.pk, possiveis_q2, msg_error % (q2, 2 ))
+        
+        q3 = avaliacao.questoes.all()[2]
+        self.assertIn(q3.questao.pk, possiveis_q3, msg_error % (q3, 3 ))
+        
 #        
-#    def test_gerarAvaliacao(self):
-#        "testa se a avaliacao foi gerada corretamente"
-#        avaliacao = self.templateAvaliacao.gerarAvaliacao(self.aluno)
-#        
-#        #verifica se a avaliacao tem o mesmo titulo que o templateAvaliacao
-#        self.assertEqual(avaliacao.titulo,self.templateAvaliacao.titulo)
-#        msg_error="Questao de Avaliacao: %s nao esta presente na lista de questoes possiveis para o filtro:%s"
-#        questoes_selecionadas = []
 #        #verifica se as questões foram selecionadas corretamente        
-#        for i in xrange(0,10):
+#        for i in xrange(0,2):
 #            questaoAvaliacao = avaliacao.questoes.all()[i]
 #            filtroCorrespondente = questaoAvaliacao.filtro
 #            print ">>>> I :%d" % i
@@ -505,8 +526,8 @@ class GerarAvaliacaoCasoA1Test(TestCase):
 #            self.assertIn(questaoAvaliacao.questao,filtroCorrespondente.filtrarQuestao())
 #            
 #            questoes_selecionadas.append(questaoAvaliacao.questao)
-#    
-#    
+    
+    
     
     
     
