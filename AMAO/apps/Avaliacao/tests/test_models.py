@@ -469,21 +469,20 @@ class GerarAvaliacaoCasoA1Test(TestCase):
             
         fq2 = FiltroQuestao.objects.get(pk=2)
         questoes_selecionadas2 = fq2.filtrarQuestao()
-        
         num_questoes = questoes_selecionadas2.__len__()
-        self.assertEquals(num_questoes , 3, "filtro 2 nao teve numero correto de questoes. Esperava: %s mas veio %s" % (3, num_questoes))
+        self.assertEquals(num_questoes , 4, "filtro 2 nao teve numero correto de questoes. Esperava: %s mas veio %s" % (4, num_questoes))
         for questao in questoes_selecionadas2:
-            questoes_ids = [1,2,3]
+            questoes_ids = [1,2,3,5]
             self.assertIn(questao.pk, questoes_ids , msg_erro%(questao.pk,fq2.pk))
         
         fq3 = FiltroQuestao.objects.get(pk=3)
         questoes_selecionadas3 = fq3.filtrarQuestao()
         
         num_questoes = questoes_selecionadas3.__len__()
-        self.assertEquals(num_questoes , 1, "filtro 3 nao teve numero correto de questoes. Esperava: %s mas veio %s" % (1, num_questoes))
-        for questao in questoes_selecionadas2:
-            questoes_ids = [3,]
-            self.assertEquals([questao.pk,], questoes_ids , msg_erro%(questao.pk,fq3.pk))
+        self.assertEquals(num_questoes , 2, "filtro 3 nao teve numero correto de questoes. Esperava: %s mas veio %s" % (2, num_questoes))
+        for questao in questoes_selecionadas3:
+            questoes_ids = [3,5]
+            self.assertIn(questao.pk, questoes_ids , msg_erro%(questao.pk,fq3.pk))
         
                 
                 
