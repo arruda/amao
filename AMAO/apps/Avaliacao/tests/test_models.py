@@ -501,10 +501,9 @@ class GerarAvaliacaoCasoA1Test(TestCase):
         #verifica se a avaliacao tem o mesmo titulo que o templateAvaliacao
         self.assertEqual(avaliacao.titulo,self.templateAvaliacao.titulo)
         msg_error="Questao de Avaliacao: %s nao esta presente na lista de questoes possiveis para o filtro:%s"
-        questoes_selecionadas = []
         
         possiveis_q1 = [1,]
-        possiveis_q2 = [2,5]
+        possiveis_q2 = [2,3,5]
         possiveis_q3 = [3,5]
         
         q1 = avaliacao.questoes.all()[0]
@@ -516,18 +515,14 @@ class GerarAvaliacaoCasoA1Test(TestCase):
         q3 = avaliacao.questoes.all()[2]
         self.assertIn(q3.questao.pk, possiveis_q3, msg_error % (q3, 3 ))
         
-#        
-#        #verifica se as questões foram selecionadas corretamente        
-#        for i in xrange(0,2):
-#            questaoAvaliacao = avaliacao.questoes.all()[i]
-#            filtroCorrespondente = questaoAvaliacao.filtro
-#            print ">>>> I :%d" % i
-#            self.assertNotIn(questaoAvaliacao.questao, questoes_selecionadas)
-#            self.assertIn(questaoAvaliacao.questao,filtroCorrespondente.filtrarQuestao())
-#            
-#            questoes_selecionadas.append(questaoAvaliacao.questao)
-    
-    
+        self.assertFalse(q1.questao.pk == q2.questao.pk)
+        self.assertFalse(q2.questao.pk == q3.questao.pk)
+        self.assertFalse(q1.questao.pk == q3.questao.pk)
+        print "q1: %s" % (q1,)
+        print "q2: %s" % (q2,)
+        print "q3: %s" % (q3,)
+        
+        
     
     
     

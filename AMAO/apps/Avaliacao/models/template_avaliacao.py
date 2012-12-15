@@ -66,12 +66,32 @@ class TemplateAvaliacao(Abs_titulado):
         novaAvaliacao =\
         self.avaliacoes.create(titulo=self.titulo,aluno=aluno,simulado=simulado,data_inicio=data_inicio,data_termino=data_termino)
 
+        ####RETIRANDO AS QUESTOES QUE SAO EXATAS
+        filtros_questoes_exatas = self.filtrosQuestoes.exclude(questaoExata=None)
+        
+        questoes_exatas = [f.filtrarQuestao()[0] for f in filtros_questoes_exatas ]
+        
+        ####SALVANDO logo as questoes exatas
+        for i in xrange(0,filtros_questoes_exatas.count()):
+            novaAvaliacao.add_questao(questoes_exatas[i],filtros_questoes_exatas[i].pk)  
+        
+        ###### FAZENDO O RESTO DAS QUESTOES ALEATORIAS
+        filtros_restantes = self.filtrosQuestoes.filter(questaoExata=None)
+        
         ####MONTANDO ESTRUTURA             
         recorrenciaDeQuestoes = {}
         #prepara vetor que possui as questoes possiveis para cada filtro
         opcoesDeQuestoesDeFiltro = {}
-        for fQuestao in self.filtrosQuestoes.all():
-            opcoesDeQuestoesDeFiltro[fQuestao.pk]=fQuestao.filtrarQuestao()
+        for fQuestao in filtros_restantes.all():
+            opcoes_para_filtro = fQuestao.filtrarQuestao()
+            #removendo questoes exatas
+            for questao_exata in questoes_exatas:
+                try:
+                    opcoes_para_filtro.remove(questao_exata)
+                except ValueError:
+                    pass
+            
+            opcoesDeQuestoesDeFiltro[fQuestao.pk]=opcoes_para_filtro
             
         for idFiltro in opcoesDeQuestoesDeFiltro:
             for questao in opcoesDeQuestoesDeFiltro[idFiltro]:                
@@ -79,7 +99,7 @@ class TemplateAvaliacao(Abs_titulado):
                     recorrenciaDeQuestoes[questao.id] = []
                 recorrenciaDeQuestoes[questao.id].append(idFiltro)
         ####TERMINANDO DE MONTAR ESTRUTURA
-        numQuestoesNecessarias= self.filtrosQuestoes.all().count()
+        numQuestoesNecessarias= filtros_restantes.all().count()
         
         print "\n\n\n\n\n==================================================\n\n\n\n\n"
         print "numQuestoesNecessarias>>>%s" % str(numQuestoesNecessarias)
