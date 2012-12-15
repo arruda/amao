@@ -37,6 +37,7 @@ class QuestaoDeAvaliacao(Lockable):
     class Meta:
         verbose_name = u'Questão de Avaliação'
         app_label = 'Questao'
+        ordering = ['filtro__pk',]
 
             
     def __unicode__(self):
