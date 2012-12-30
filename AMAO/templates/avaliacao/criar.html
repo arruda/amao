@@ -1,5 +1,34 @@
 {% extends "util/base.html"%}
 
+{% block 'js-imports' %}
+	{{ block.super }}
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jQuery-Timepicker-Addon/jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}js/jQuery-Timepicker-Addon/jquery-ui-sliderAccess.js"></script>
+{% endblock %}
+
+{% block 'css-extras' %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui-timepicker-addon.css">
+{% endblock %}
+
+{% block 'jquery-docready' %}
+	{{ block.super }}
+	$('#id_data_inicio').datetimepicker({
+	            showOn: "button",
+	            buttonImage: "{{ STATIC_URL}}images/calendar.png",
+	            buttonImageOnly: true,
+	            dateFormat: "yy-mm-dd",
+	            timeFormat: "hh:mm",
+	            });
+	$('#id_data_termino').datetimepicker({
+	            showOn: "button",
+	            buttonImage: "{{ STATIC_URL}}images/calendar.png",
+	            buttonImageOnly: true,
+	            dateFormat: "yy-mm-dd",
+	            timeFormat: "hh:mm",
+	            });
+{% endblock %}
+
 {% block 'body-hgroup' %}
 	<h1><span>Criar Avaliacao de Turma</span></h1>
 {% endblock %}

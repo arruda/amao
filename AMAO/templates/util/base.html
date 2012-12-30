@@ -4,6 +4,12 @@
 	{{ block.super }}
 {% endblock %}
 
+{% block 'css-extras' %}
+	{{ block.super }}
+		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+
+{% endblock %}
+
 
 {% block body %}
 	{% include "util/top-bar.html" %}
@@ -52,6 +58,7 @@
 {% endblock %}
 
 {% block 'js-imports' %}
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
     <script src="/static/js/jsControleFormsetDinamico.js" ></script>
     <script src="/static/js/jsInterface.js" ></script>
 {% endblock %}
