@@ -16,7 +16,7 @@ celerybeat.pid
 .settings
 
 
-#media
+AMAO/media
 gabarito
 
 #safeexec
