@@ -20,7 +20,7 @@
 				<a href="{% url perfil %}">Perfil</a>
 			
                 <div id="containner_login">
-                    <a id="user" href="{% url dashboard %}">{{ request.user }}</a>
+                    <a id="user" href="{% url dashboard %}">{{ request.user.email }}</a>
 			        <a id="login" href="{% url logout %}">Sair</a>
                 </div>
 		    {% endif %}
