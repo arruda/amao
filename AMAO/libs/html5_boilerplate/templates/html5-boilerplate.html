@@ -47,6 +47,7 @@
 		$(window).load(function() {
 			{% block 'jquery-winload' %}{% endblock %}
 		});			
+
 	</script>  
 </head>
 
@@ -54,6 +55,10 @@
 {% block body %}
 
 {% endblock %}
+
+  <script type="text/javascript">
+    {% block 'js-onpage' %}{% endblock %}
+  </script>  
 
   <!--[if lt IE 7 ]>
     <script src="{{ STATIC_URL }}js/libs/dd_belatedpng.js"></script>

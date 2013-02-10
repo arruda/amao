@@ -44,12 +44,20 @@
                 {{Qform.errors}}
                 <div class="fonte line" >
                     <div class='area_div'><label>Arquivo: </label><span>{{Qform.arquivo}}</span></div>
-                    <div class='area_div'><label>Apagar </label><span>{{Qform.DELETE}}</span><span>{{Qform.questao}}</span><span>{{Qform.id}}</span>
-                    <input type="button" class="removerFonte" value="Remover Fonte"  onClick="remover(this)"/></div>
+                    <div class='area_div'>
+                        <label>Apagar </label>
+                        <span>{{Qform.DELETE}}</span>
+                        <span>{{Qform.questao}}</span>
+                        <span>{{Qform.id}}</span>
+                        {% comment %}
+                            <input type="button" class="removerFonte" value="Remover Fonte"  onClick="remover(this)"/>
+                        {% endcomment %}    
+                    </div>
                 </div>
             {% endfor %}
+
             </div>
-            <input type="button" onClick="adicionar('fonte')" value="adicionar Fonte" />
+            <input type="button" onClick="add_new_fonte()" value="+ Fontes" />
         </div>
 		{%endif%}
 		<div id="opcoes_multipla" class="area_div zona_dados">
@@ -65,13 +73,14 @@
 	        </div>
         </div>
 		<div class="area_div zona_dados">
-		    <input type="button" onClick="salvar(this)" value="Responder/Enviar" />
+            {% comment %}
+            <input type="button" onClick="salvar(this)" value="Responder/Enviar" />
+            {% endcomment %}    
+            <input type="submit" value="Responder/Enviar" />
 	        <a href="{% url corrigirQuestao questaoAvaliacao.id %}"><input type="button" value="Corrigir Programação"></a>
         </div>
 	</form>
 </div>
-<script src="/static/js/jsControleFormsetDinamico.js" ></script>
-<script src="/static/js/jsResponderQuestao.js" ></script>
 {% endblock %}
 {% block 'body-aside' %}
 	<div id="aside-infos-questao" class="area_div zona_dados">
@@ -82,5 +91,48 @@
 	 	<h3>Nota Multipla Escolha: {{questaoAvaliacao.get_nota_mult}}/{{questaoAvaliacao.get_nota_mult_max}}</h3>
 	 	<h3>Nota Discursiva: {{questaoAvaliacao.get_nota_disc}}/{{questaoAvaliacao.get_nota_disc_max}}</h3>
 	</div>
+{% endblock %}
+
+{% block 'js-onpage' %}
+    {{ block.super }}
+    var inline_fonte_html_template = "\
+    <div class='fonte line' >\
+                <div class='area_div'>\
+                    <label>Arquivo: </label>\
+                    <span><input type='file' name='fontes-NUM_FONTE-arquivo' id='id_fontes-NUM_FONTE-arquivo'></span>\
+                </div>\
+                <div class='area_div'>\
+                        <label>Apagar </label>\
+                        <span>\
+                            <input type='checkbox' name='fontes-NUM_FONTE-DELETE' id='id_fontes-NUM_FONTE-DELETE'>\
+                        </span>\
+                        <span>\
+                            <input type='hidden' name='fontes-NUM_FONTE-questao' value='ID_QUESTAO' id='id_fontes-NUM_FONTE-questao'>\
+                        </span>\
+                        <span>\
+                            <input type='hidden' name='fontes-NUM_FONTE-id'  id='id_fontes-NUM_FONTE-id'>\
+                        </span>\
+                </div>\
+    </div>"
+
+    function get_inline_fonte_html(id_questao,num_fonte){
+
+                var inline_fonte_html = inline_fonte_html_template;
+                inline_fonte_html = inline_fonte_html.replace(/NUM_FONTE/g, num_fonte);
+                inline_fonte_html = inline_fonte_html.replace(/ID_FONTE/g, num_fonte);
+                inline_fonte_html = inline_fonte_html.replace(/ID_QUESTAO/g, id_questao);
+
+                return inline_fonte_html;
+    }
+
+    function add_new_fonte(){
+        var new_fonte_num = $(".fonte.line").length;
+        //var id_fonte = $("#id_fontes-INITIAL_FORMS").val();
+        var id_questao = {{ questaoAvaliacao.questao.id }};
+        $("#fontesRes").append( get_inline_fonte_html(id_questao,new_fonte_num) );
+        var total_forms = $("#id_fontes-TOTAL_FORMS");
+        total_forms.val(parseInt(total_forms.val()) +1);
+    }
+
 {% endblock %}
 

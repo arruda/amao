@@ -13,8 +13,8 @@ def change_widget_to_NoFullPathLinkFileInput(f):
 
 class NoFullPathLinkFileInput(ClearableFileInput):
     "new widget that removes the link and full path from a uploaded file, for security"
-    
 
+    # template_with_initial = u'%(initial_text)s: %(initial)s %(clear_template)s<br />%(input_text)s: %(input)s'
     def render(self, name, value, attrs=None):
         substitutions = {
             'initial_text': self.initial_text,
@@ -25,6 +25,7 @@ class NoFullPathLinkFileInput(ClearableFileInput):
         template = u'%(input)s'
         substitutions['input'] = super(ClearableFileInput, self).render(name, value, attrs)
         if value and hasattr(value, "url"):
+            self.template_with_initial = u'%(initial_text)s: %(initial)s %(clear_template)s'
             value_new = force_unicode(value).split('/')[-1]
             template = self.template_with_initial
             substitutions['initial'] = (u'%s' % escape(value_new))
