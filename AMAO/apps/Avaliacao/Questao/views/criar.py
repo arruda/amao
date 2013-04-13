@@ -59,9 +59,6 @@ def editar_questao(request,questao_id):
 
     questao = get_object_or_404(Questao,pk=questao_id)
 
-    #nao permite editar questoes que ja estao sendo usadas ou ja foram usadas antes
-    if questao.avaliacoes.count() != 0:
-        return redirect('/')
 
     autor = request.user
     criado=False
@@ -69,6 +66,10 @@ def editar_questao(request,questao_id):
     formsetFontesInline=inlineformset_factory(Questao,FonteGabarito,formfield_callback=change_widget_to_NoFullPathLinkFileInput,extra=1)
     formsetOpcoesInline=inlineformset_factory(Questao,OpcaoMultiplaEscolha,extra=4)
     if request.method == "POST":
+        #nao permite editar questoes que ja estao sendo usadas ou ja foram usadas antes
+        if questao.avaliacoes.count() != 0:
+            return redirect('/')
+
         form = criarQuestaoForm(request.POST,instance=questao)
         if form.is_valid():
             questao=form.save(commit=False)
