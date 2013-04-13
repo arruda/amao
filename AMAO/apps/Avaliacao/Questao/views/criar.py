@@ -82,13 +82,7 @@ def editar_questao(request,questao_id):
                 form.save_m2m()
                 questao.save(verificar=True)
                 criado=True
-        # else:
-        #     #QuestoesForms=formsetInline()
-        #     formEntradas = formsetEntradasInline(instance=questao)
-        #     formFontes = formsetFontesInline(instance=questao)
-        #     formOpcoes = formsetOpcoesInline(instance=questao)
     else:
-        #QuestoesForms=formsetInline()
         form = criarQuestaoForm(instance=questao)
         formOpcoes = formsetOpcoesInline(instance=questao)
         formEntradas = formsetEntradasInline(instance=questao)

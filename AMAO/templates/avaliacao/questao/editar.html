@@ -9,8 +9,8 @@
 <div id="body-full">
 	{% if criado %}
         <div class="area_div zona_dados">
-            <h2>Questão Criada</h2>
-            <a href="{% url dashboard %}">Voltar</a>
+            <h2>Questão</h2>
+            <a href="{% url criar_conteudos %}">Voltar</a>
         </div>
     {% else %}
         <form action="{% url editar_questao questao.pk %}" method="post" enctype="multipart/form-data" id="form_questao">

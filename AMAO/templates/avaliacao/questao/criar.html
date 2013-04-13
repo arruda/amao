@@ -10,7 +10,7 @@
 	{% if criado %}
         <div class="area_div zona_dados">
             <h2>Questão Criada</h2>
-            <a href="{% url dashboard %}">Voltar</a>
+            <a href="{% url criar_conteudos %}">Voltar</a>
         </div>
     {% else %}
         <form action="/questao/criar/" method="post" enctype="multipart/form-data" id="form_questao">
@@ -19,9 +19,9 @@
                     <h3>Questão</h3>
                     <div class="campo"><label>Titulo: </label>{{form.titulo}}</div>{{ form.titulo.errors }}
                     <div class="campo"><label>Enunciado: </label>{{form.enunciado}}</div>{{ form.enunciado.errors }}
-                    <div class="campo"><label>Tipos: </label>{{form.tipo}}</div>{{ form.tipo.errors }}          
+                    <div class="campo"><label>Tipos: </label>{{form.tipo}}</div>{{ form.tipo.errors }}
                     <div class="campo"><label>Corretor: </label>{{form.id_corretor}}</div>{{ form.id_corretor.errors }}
-                   
+
                 </div>
 
                 <div id="area_fontes" class="area_div zona_dados">
@@ -81,8 +81,8 @@
                 <h3>Notas</h3>
                     <div class="campo"><label>% Nota Programacao: </label>{{form.percentNotaProgramacao}}</div>{{ form.percentNotaProgramacao.errors }}
                     <div class="campo"><label>% Nota Multipla: </label>{{form.percentNotaMultipla}}</div>{{ form.percentNotaMultipla.errors }}
-                    <div class="campo"><label>% Nota Discursiva: </label>{{form.percentNotaDiscursiva}}</div>{{ form.percentNotaDiscursiva.errors }} 
-                </div> 
+                    <div class="campo"><label>% Nota Discursiva: </label>{{form.percentNotaDiscursiva}}</div>{{ form.percentNotaDiscursiva.errors }}
+                </div>
 
                 <!--
                 <div class="campo"><label>Verificada: </label>{{form.verificada}}</div>{{ form.verificada.errors }}
@@ -90,7 +90,7 @@
                 -->
             <div class="area_div zona_dados">
 		    <input type="button" value="Salvar Questão" onClick="salvar(this)" />
-            </div> 
+            </div>
 	    </form>
     {% endif %}
     <script src="/static/js/jsCriarQuestao.js" ></script>
