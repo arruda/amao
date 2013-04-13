@@ -7,27 +7,27 @@
 
 {% block 'body-centered' %}
 	<div id="body-full">
-	
+
 	            <div class="area_div zona_dados">
 	    			<h3>Questões Válidas</h3>
 					<ul class='lista_horizontal'>
 				    	{% for questao in questoes_validas %}
 							<li >
-								<a href="#">{{questao.titulo}}</a>
+								<a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a>
 							</li>
 				    	{% endfor %}
-					</ul>               
+					</ul>
 	            </div>
 	            <div class="area_div zona_dados">
 	    			<h3>Questões Inválidas</h3>
 					<ul class='lista_horizontal'>
 				    	{% for questao in questoes_invalidas %}
 							<li >
-								<a href="#">{{questao.titulo}}</a>
+								<a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a>
 							</li>
 				    	{% endfor %}
-					</ul>               
+					</ul>
 	            </div>
-	
+
 	</div>
 {% endblock %}
