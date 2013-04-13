@@ -1,0 +1,224 @@
+{% extends "util/base.html"%}
+
+{% block 'body-hgroup' %}
+	<h1><span>Criar Questao</span></h1>
+{% endblock %}
+
+
+{% block 'body-centered' %}
+<div id="body-full">
+	{% if criado %}
+        <div class="area_div zona_dados">
+            <h2>Questão Criada</h2>
+            <a href="{% url dashboard %}">Voltar</a>
+        </div>
+    {% else %}
+        <form action="{% url editar_questao questao.pk %}" method="post" enctype="multipart/form-data" id="form_questao">
+            {% csrf_token %}
+                <div class="area_div zona_dados">
+                    <h3>Questão</h3>
+                    <div class="campo"><label>Titulo: </label>{{form.titulo}}</div>{{ form.titulo.errors }}
+                    <div class="campo"><label>Enunciado: </label>{{form.enunciado}}</div>{{ form.enunciado.errors }}
+                    <div class="campo"><label>Tipos: </label>{{form.tipo}}</div>{{ form.tipo.errors }}
+                    <div class="campo"><label>Corretor: </label>{{form.id_corretor}}</div>{{ form.id_corretor.errors }}
+
+                </div>
+
+                {# comment #}
+                <div id="area_fontes" class="area_div zona_dados">
+                    <h3>Fontes</h3>
+                    {{ formFontes.management_form }}
+                    <div class="line"><label>Arquivo </label><label>Usar na Resolucao </label><label>Remover</label></div>
+                    <div id="fontes" class='agrup'>
+                    {% for Qform in formFontes.forms %}
+
+                            {% for hidden in Qform.hidden_fields %}
+                            {{ hidden }}
+                            {% endfor %}
+
+                        <div class="fonte line" >
+                            <label><span>{{Qform.arquivo}}</span></label>
+                            <label><span>{{Qform.usarNaResolucao}}</span></label>
+
+                        {% comment %}
+                            <label><input type="button" class="removerFonte" value="Remover Fonte"  onClick="remover(this)"/></label>
+                        {% endcomment %}
+                        <label>Apagar<span>{{Qform.DELETE}}</span></label>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="add_new_something('fonte')" value="Adicionar Fonte" />
+                </div>
+
+                {# endcomment #}
+
+                <div id="area_entradas" class="area_div zona_dados">
+                    <h3>Entradas</h3>
+                    {{ formEntradas.management_form }}
+                    <div class="line"><label>Arquivo </label><label>Remover</label></div>
+                    <div id="entradas" class='agrup'>
+                    {% for Qform in formEntradas.forms %}
+
+                        {% comment %}
+                        {{Qform.as_p}}
+
+                        {% endcomment %}
+
+                            {% for hidden in Qform.hidden_fields %}
+                            {{ hidden }}
+                            {% endfor %}
+                                <div class="entrada line" >
+
+                                    <label><span>{{Qform.arquivo}}</span></label>
+
+                                    <label>Apagar<span>{{Qform.DELETE}}</span></label>
+                                </div>
+
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="add_new_something('entrada')" value="Adicionar Entrada" />
+                </div>
+
+                <div id="area_opcoes" class="area_div zona_dados">
+                    <h3>Opções Multipla Escolha</h3>
+                    {{ formOpcoes.management_form }}
+                    <div class="line"><label>Opcao</label><label>Correta</label><label>Anular</label><label>Remover</label></div>
+                    <div id="opcoes" class='agrup' >
+                    {% for Qform in formOpcoes.forms %}
+                        <div class="opcao line" >
+                            <label><span>{{Qform.opcao}}</span></label>{{ Qform.opcao.errors }}
+                            <label><span>{{Qform.correta}}</span></label>{{ Qform.correta.errors }}
+                            <label><span>{{Qform.anular}}</span></label>{{ Qform.anular.errors }}
+
+                            <label>Apagar<span>{{Qform.DELETE}}</span></label>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="button" onClick="add_new_something('opcao')" value="Adicionar Opção" />
+                </div>
+
+                <div class="area_div zona_dados">
+                    <h3>Resposta Discurciva</h3>
+                    <div class="campo"><label>Resposta Dscursiva: </label>{{form.respostaDiscursiva}}</div>{{ form.respostaDiscursiva.errors }}
+                </div>
+
+                <div class="area_div zona_dados">
+                <h3>Notas</h3>
+                    <div class="campo"><label>% Nota Programacao: </label>{{form.percentNotaProgramacao}}</div>{{ form.percentNotaProgramacao.errors }}
+                    <div class="campo"><label>% Nota Multipla: </label>{{form.percentNotaMultipla}}</div>{{ form.percentNotaMultipla.errors }}
+                    <div class="campo"><label>% Nota Discursiva: </label>{{form.percentNotaDiscursiva}}</div>{{ form.percentNotaDiscursiva.errors }}
+                </div>
+
+                <!--
+                <div class="campo"><label>Verificada: </label>{{form.verificada}}</div>{{ form.verificada.errors }}
+                <div class="campo"><label>Retorno Correcao: </label>{{form.retorno_correcao}}</div>{{ form.retorno_correcao.errors }}
+                -->
+            <div class="area_div zona_dados">
+		    <input type="button" value="Salvar Questão" onClick="salvar(this)" />
+            </div>
+	    </form>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+{% block 'js-onpage' %}
+    {{ block.super }}
+
+    var inline_fonte_html_template = "\
+    <div class='fonte line' >\
+        <label>\
+            <span>\
+                <input type='file' name='fontesGabarito-NUM-arquivo' id='id_fontesGabarito-NUM-arquivo'>\
+            </span>\
+        </label>\
+        <label>\
+            <span>\
+                <input type='checkbox' name='fontesGabarito-NUM-usarNaResolucao' id='id_fontesGabarito-0-usarNaResolucao'>\
+            </span>\
+        </label>\
+        <label>Apagar \
+            <span>\
+            <input type='checkbox' name='fontesGabarito-NUM-DELETE' id='id_fontesGabarito-NUM-DELETE'>\
+            </span>\
+        </label>\
+        <span>\
+            <input type='hidden' name='fontesGabarito-NUM_FONTE-questao' value='ID_QUESTAO' id='id_fontesGabarito-NUM-questao'>\
+        </span>\
+        <span>\
+            <input type='hidden' name='fontesGabarito-NUM-id'  id='id_fontesGabarito-NUM-id'>\
+        </span>\
+    </div>"
+
+    var inline_entrada_html_template = "\
+    <div class='entrada line' >\
+        <label><span><input type='file' name='entradasGabarito-NUM-arquivo' id='id_entradasGabarito-NUM-arquivo'></span></label>\
+        <span>\
+            <input type='hidden' name='entradasGabarito-NUM-questao' value='ID_QUESTAO' id='id_entradasGabarito-NUM-questao'>\
+        </span>\
+        <span>\
+            <input type='hidden' name='entradasGabarito-NUM-id'  id='id_entradasGabarito-NUM-id'>\
+        </span>\
+    </div>"
+
+
+    var inline_opcao_html_template = "\
+    <div class='opcao line' >\
+         <label><span><input id='id_multiplaEscolhas-NUM-opcao' type='text' name='multiplaEscolhas-NUM-opcao' maxlength='250'></span></label>\
+        <label><span><input type='text' name='multiplaEscolhas-NUM-correta' value='0.00' id='id_multiplaEscolhas-NUM-correta'></span></label>\
+        <label><span><input checked='checked' type='checkbox' name='multiplaEscolhas-NUM-anular' id='id_multiplaEscolhas-NUM-anular'></span></label>\
+        <label>Apagar<span><input type='checkbox' name='multiplaEscolhas-NUM-DELETE' id='id_multiplaEscolhas-NUM-DELETE'></span></label>\
+        <span>\
+            <input type='hidden' name='multiplaEscolhas-NUM-questao' value='ID_QUESTAO' id='id_multiplaEscolhas-NUM-questao'>\
+        </span>\
+        <span>\
+            <input type='hidden' name='multiplaEscolhas-NUM-id'  id='id_multiplaEscolhas-NUM-id'>\
+        </span>\
+    </div>"
+
+
+    function get_inline_something_html(id_questao,tipo,num){
+
+
+                var inline_html = "";
+                if(tipo == 'fonte'){
+                    inline_html= inline_fonte_html_template;
+                }
+                if(tipo == 'entrada'){
+                    inline_html= inline_entrada_html_template;
+                }
+                if(tipo == 'opcao'){
+                    inline_html= inline_opcao_html_template;
+                }
+                inline_html = inline_html.replace(/NUM/g, num);
+                inline_html = inline_html.replace(/ID_QUESTAO/g, id_questao);
+
+                console.log(inline_html);
+                return inline_html;
+    }
+
+    function add_new_something(tipo){
+
+        var new_something_num = $("."+ tipo + ".line").length;
+        var id_questao = {{ questao.id }};
+        var id_agrupador = tipo + "s";
+        if(tipo == 'opcao'){
+            id_agrupador = 'opcoes';
+        }
+
+        $("#"+id_agrupador).append( get_inline_something_html(id_questao,tipo,new_something_num) );
+        var id_total_forms;
+        if (tipo == 'fonte'){
+            id_total_forms = 'id_fontesGabarito-TOTAL_FORMS';
+        }
+        else if (tipo == 'entrada'){
+            id_total_forms = 'id_entradasGabarito-TOTAL_FORMS';
+        }
+        else if (tipo == 'opcao'){
+            id_total_forms = 'id_multiplaEscolhas-TOTAL_FORMS';
+        }
+        var total_forms = $("#" + id_total_forms);
+        total_forms.val(parseInt(total_forms.val()) +1);
+    }
+
+{% endblock %}
