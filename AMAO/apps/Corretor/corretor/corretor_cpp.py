@@ -3,9 +3,8 @@ import os
 from decimal import Decimal
 from django.conf import settings
 from corretor_sem_prog import CorretorSemProg
-from Corretor.base import Corretor, CompiladorException, ExecutorException,ComparadorException, LockException
+from Corretor.base import CompiladorException, ExecutorException,ComparadorException, LockException, CorretorException
 from Corretor.utils import comparar_strings
-from celery.decorators import task
 
 
 class CorretorCPP(CorretorSemProg):
