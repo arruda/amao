@@ -8,26 +8,45 @@
 {% block 'body-centered' %}
 	<div id="body-full">
 
-	            <div class="area_div zona_dados">
+	            <div class="area_div zona_dados area_lista_questoes">
 	    			<h3>Questões Válidas</h3>
-					<ul class='lista_horizontal'>
-				    	{% for questao in questoes_validas %}
-							<li >
-								<a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a>
-							</li>
-				    	{% endfor %}
-					</ul>
+
+                    <div class="line"><label>Título </label><label>Tipos </label><label>Autor</label></div>
+                    <div id="entradas" class='agrup'>
+
+                        {% for questao in questoes_validas %}
+                            <div class="line" >
+                                 <label><span><a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a></span></label>
+                                <label><span>
+                                    {% for tipoQ in questao.tipo.all %}
+                                        {{tipoQ.tipo}},
+                                    {% endfor %}
+                                </span></label>
+                                <label><span>{{questao.autor.email}}</span></label>
+                            </div>
+                        {% endfor %}
+                    </div>
 	            </div>
-	            <div class="area_div zona_dados">
-	    			<h3>Questões Inválidas</h3>
-					<ul class='lista_horizontal'>
-				    	{% for questao in questoes_invalidas %}
-							<li >
-								<a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a>
-							</li>
-				    	{% endfor %}
-					</ul>
-	            </div>
+
+                <div class="area_div zona_dados area_lista_questoes">
+                    <h3>Questões Inválidas</h3>
+
+                    <div class="line"><label>Título </label><label>Tipos </label><label>Autor</label></div>
+                    <div id="entradas" class='agrup'>
+
+                        {% for questao in questoes_invalidas %}
+                            <div class="line" >
+                                 <label><span><a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a></span></label>
+                                <label><span>
+                                    {% for tipoQ in questao.tipo.all %}
+                                        {{tipoQ.tipo}},
+                                    {% endfor %}
+                                </span></label>
+                                <label><span>{{questao.autor.email}}</span></label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
 
 	</div>
 {% endblock %}
