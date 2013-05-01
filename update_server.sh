@@ -19,7 +19,8 @@ sudo -H -u ${AMAO_USER} git pull origin deploy
 echo "recoletando statics"
 ./AMAO/manage.py collectstatic --dry-run --noinput
 
-
+echo "alterando owner"
+chown -R amao:amao AMAO/
 
 echo "limpando pycs"
 clear_pyc
