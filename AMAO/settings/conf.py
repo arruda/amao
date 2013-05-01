@@ -110,7 +110,7 @@ SAFEEXEC_PATH = LOCAL('safeexec/safeexec')
 
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = ['--rednose','--testmatch=^test','--stop','--exclude-dir-file=nose_exclude.txt','-s',]#(,'--with-notify')
+NOSE_ARGS = ['--rednose','--testmatch=^test','--exclude-dir-file=nose_exclude.txt','-s',]#(,'--with-notify')
 
 DEBUG_TOOLBAR_CONFIG = {
 'INTERCEPT_REDIRECTS':False,
