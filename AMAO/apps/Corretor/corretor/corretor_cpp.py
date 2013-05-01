@@ -5,6 +5,7 @@ from django.conf import settings
 from corretor_sem_prog import CorretorSemProg
 from Corretor.base import CompiladorException, ExecutorException,ComparadorException, LockException, CorretorException
 from Corretor.utils import comparar_strings
+from Corretor.chamada_sistema import ChamadaSistema
 
 
 class CorretorCPP(CorretorSemProg):
@@ -22,14 +23,16 @@ class CorretorCPP(CorretorSemProg):
 
         #antes de compilar limpa antigos executaveis
         os.system("make clean_exec -f " + path_mkfile)
-#        print "Compilando: %s"%questao
+
         #compila usando makefile dos fontes
         command = "make -f " + path_mkfile
-        output = os.system(command)
+        chamada = ChamadaSistema(command)
+        chamada.executar()
+        # output = os.system(command)
         #depois de compilar limpa os arquivos .o gerados
         os.system("make clean -f " + path_mkfile)
 
-        return output
+        return chamada
 
     def pre_executar(self,**kwargs):
         """Metodo chamado antes de se executar.
@@ -198,6 +201,9 @@ class CorretorCPP(CorretorSemProg):
 
     def _res_incorreta(self, ret):
         for res in ret:
+            if type(res)==type(ChamadaSistema('')):
+                res = res.returncode
+
             if res != 0 and res != None:
                 return True
         return False
@@ -222,12 +228,13 @@ class CorretorCPP(CorretorSemProg):
         novo_dict = kwargs.copy()
         del novo_dict['questao']
 
+
         ret_compilar_gabarito = self.compilar_completo(questao=gabarito,**novo_dict)
         ret_executar_gabarito = self.executar_completo(questao=gabarito,entrada_gabarito=entrada_gabarito,**novo_dict)
 
         ret_compilar_questao = self.compilar_completo(questao=questao,**novo_dict)
         if self._res_incorreta(ret_compilar_questao):
-            raise CompiladorException("Erro na compilação.")
+            raise CompiladorException("Erro na compilação.")# % ret_compilar_questao[1].output)
 
         ret_executar_questao = self.executar_completo(questao=questao,entrada_gabarito=entrada_gabarito,**novo_dict)
         if self._res_incorreta(ret_executar_questao):

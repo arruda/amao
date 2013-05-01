@@ -31,7 +31,7 @@ LOGIN_REDIRECT_URL = '/dashboard/'
 #EMAIL_HOST_PASSWORD = 'pass'
 #EMAIL_USE_TLS = True
 
-AUTHENTICATION_BACKENDS = ( 
+AUTHENTICATION_BACKENDS = (
         'user_backends.email_username.EmailOrUsernameModelBackend',
         'django.contrib.auth.backends.ModelBackend',
 )
@@ -63,11 +63,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
-    'django.core.context_processors.static',    
+    'django.core.context_processors.static',
     'django.core.context_processors.request',
     #AMAO
     'context_processors.aluno_monitor_professor',
-    
+
 )
 ROOT_URLCONF = 'urls'
 
@@ -110,7 +110,7 @@ SAFEEXEC_PATH = LOCAL('safeexec/safeexec')
 
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = ['--rednose','--testmatch=^test','--stop','--exclude-dir-file=nose_exclude.txt']#(,'--with-notify')
+NOSE_ARGS = ['--rednose','--testmatch=^test','--stop','--exclude-dir-file=nose_exclude.txt','-s',]#(,'--with-notify')
 
 DEBUG_TOOLBAR_CONFIG = {
 'INTERCEPT_REDIRECTS':False,

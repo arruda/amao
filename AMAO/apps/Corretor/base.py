@@ -101,9 +101,9 @@ class Corretor(object):
         Este metodo chama os outros metodos necessarios para fazer a mesma, e usa uma questao de avaliacao como parametros principais.
         """
         return
-    
+
     def nota(self,**kwargs):
         """Metodo chamado para fazer dar a nota de uma questao.
         """
         return
-        
+
