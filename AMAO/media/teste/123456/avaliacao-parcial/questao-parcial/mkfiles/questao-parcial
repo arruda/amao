@@ -1,0 +1,15 @@
+CC=g++
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=/home/arruda/projetos/amao/AMAO/media/teste/123456/avaliacao-parcial/questao-parcial/fontes/hello_world.h /home/arruda/projetos/amao/AMAO/media/teste/123456/avaliacao-parcial/questao-parcial/fontes/main.cpp 
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=/home/arruda/projetos/amao/AMAO/media/teste/123456/avaliacao-parcial/questao-parcial/execs/questao-parcial
+all: $(SOURCES) $(EXECUTABLE)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
+clean:
+	rm -rf /home/arruda/projetos/amao/AMAO/media/teste/123456/avaliacao-parcial/questao-parcial/fontes/*.o
+clean_exec:
+	rm -rf /home/arruda/projetos/amao/AMAO/media/teste/123456/avaliacao-parcial/questao-parcial/execs/questao-parcial
