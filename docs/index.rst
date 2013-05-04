@@ -11,13 +11,16 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   apps/Aluno/Aluno
    apps/Avaliacao/Avaliacao
+   apps/Core/Core
+   apps/Corretor/Corretor
+   apps/Materia/Materia
+   apps/Professor/Professor
+   libs/abs_models/abs_models
+   libs/context_processors/context_processors
+   libs/htmlt_boilerplate/htmlt_boilerplate
+   libs/test_utils/test_utils
+   libs/user_backends/user_backends
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
