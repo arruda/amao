@@ -19,7 +19,7 @@
             <a href={% url responderQuestao questao.id %}><h3>Questão {{forloop.counter}}: {{ questao.questao.titulo }}</h3></a>
         {% endif %}
 
-        <div class='texto'>{{ questao.questao.enunciado }}</div>
+        <div class='texto'>{{ questao.questao.enunciado|linebreaks }}</div>
         <div class="area_div">
             <a href={% url responderQuestao questao.id %}><input type='button' value='RESPONDER QUESTÃO' /></a>
             <span>(Min/Max: {{questao.get_nota_minima}}/{{questao.get_nota_maxima}}) - Atual: {{questao.nota}}</span>
@@ -28,7 +28,7 @@
         <div class="area_div">
             <a href="{% url gabaritoQuestao questao.id %}">Gabarito</a><br/>
             {% if questao.revisao %}
-            <span class="titulo_revisao">Revisão do professor:</span> 
+            <span class="titulo_revisao">Revisão do professor:</span>
             <span class="revisao"> {{questao.revisao}}</span>
             {% endif %}
         </div>

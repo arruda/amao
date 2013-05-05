@@ -2,7 +2,7 @@
 
 {% block 'js-imports' %}
 {{ block.super }}
-  	<script src="{{ STATIC_URL }}js/accordion.js"></script> 
+  	<script src="{{ STATIC_URL }}js/accordion.js"></script>
 {% endblock %}
 
 {% block 'body-hgroup' %}
@@ -13,7 +13,7 @@
 <div id="sub_superior">
 	<h2 class="avaliacao">Avaliacao: <a href={% url exibir_avaliacao template_id=questaoAvaliacao.avaliacao.id %}>{{ questaoAvaliacao.avaliacao.titulo }}</a></h2>
 	<h3 class="background">Enunciado:</h3>
-    <div class='texto'>{{ questaoAvaliacao.questao.enunciado }}</div>
+    <div class='texto'>{{ questaoAvaliacao.questao.enunciado|linebreaks }}</div>
 </div>
 {% endblock %}
 
@@ -41,17 +41,19 @@
             {{ fontes_formset.management_form }}
             <div id="fontesRes" class='agrup'>
             {% for Qform in fontes_formset %}
+
+                {% for hidden in Qform.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
                 {{Qform.errors}}
                 <div class="fonte line" >
                     <div class='area_div'><label>Arquivo: </label><span>{{Qform.arquivo}}</span></div>
                     <div class='area_div'>
                         <label>Apagar </label>
                         <span>{{Qform.DELETE}}</span>
-                        <span>{{Qform.questao}}</span>
-                        <span>{{Qform.id}}</span>
                         {% comment %}
                             <input type="button" class="removerFonte" value="Remover Fonte"  onClick="remover(this)"/>
-                        {% endcomment %}    
+                        {% endcomment %}
                     </div>
                 </div>
             {% endfor %}
@@ -75,7 +77,7 @@
 		<div class="area_div zona_dados">
             {% comment %}
             <input type="button" onClick="salvar(this)" value="Responder/Enviar" />
-            {% endcomment %}    
+            {% endcomment %}
             <input type="submit" value="Responder/Enviar" />
 	        <a href="{% url corrigirQuestao questaoAvaliacao.id %}"><input type="button" value="Corrigir Programação"></a>
         </div>
@@ -128,7 +130,7 @@
     function add_new_fonte(){
         var new_fonte_num = $(".fonte.line").length;
         //var id_fonte = $("#id_fontes-INITIAL_FORMS").val();
-        var id_questao = {{ questaoAvaliacao.questao.id }};
+        var id_questao = {{ questaoAvaliacao.id }};
         $("#fontesRes").append( get_inline_fonte_html(id_questao,new_fonte_num) );
         var total_forms = $("#id_fontes-TOTAL_FORMS");
         total_forms.val(parseInt(total_forms.val()) +1);

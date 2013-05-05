@@ -7,7 +7,7 @@
 	 <h4>Titulo: {{ questao.questao.titulo }} </h4>
 	 <h4>Enunciado: </h4>
 	 <p>{{questao.questao.enunciado|linebreaks}}</p>
-	 <h4>Nota Min/Max da Questao: {{questao.get_nota_minima}} / {{questao.get_nota_maxima}}</h4>	 
+	 <h4>Nota Min/Max da Questao: {{questao.get_nota_minima}} / {{questao.get_nota_maxima}}</h4>
 	 	<h4>Nota Programação: {{questao.get_nota_prog}}/{{questao.get_nota_prog_max}}</h4>
 	 	<h4>Nota Multipla Escolha: {{questao.get_nota_mult}}/{{questao.get_nota_mult_max}}</h4>
 	 	<h4>Nota Discursiva: {{questao.get_nota_disc}}/{{questao.get_nota_disc_max}}</h4>
@@ -42,6 +42,13 @@
 				<li {% if questao.get_opcao_anuladora and opcao != questao.get_opcao_anuladora %}style="text-decoration:line-through"{% endif %}>({% get_nota_multipla questao opcao %}) - {{opcao.opcao}} </li>
 			{% endfor %}
 		</ul>
+    </div>
+</div>
+
+<div class="area_div zona_dados">
+    <h3>Discursiva:</h3>
+    <div class='area_dados'>
+        <textarea rows="10" cols="40" disabled="disabled">{{questao.respostaDiscursiva}}</textarea>
     </div>
 </div>
 
