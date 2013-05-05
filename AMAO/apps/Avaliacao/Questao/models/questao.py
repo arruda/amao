@@ -83,18 +83,13 @@ class Questao(Abs_titulado_slugfy,Lockable):
              return
 
         corretor = self.corretor()
-        # try:
-        #     corretor = self.corretor()
-        #     ret_compilar_gabarito = corretor.compilar_completo(questao=self)
-        #     entrada_gabarito=os.path.join(settings.MEDIA_ROOT,str(self.get_rand_entrada()))
-        #     ret_executar_gabarito = corretor.executar_completo(questao=self,entrada_gabarito=entrada_gabarito)
-        #     if not res_incorreta(ret_compilar_gabarito) and not res_incorreta(ret_executar_gabarito):
-        #         self.verificada = True
 
-        # except CorretorException:
-        #     self.verificada = False
-
+        retorno = self.get_retorno_or_create
+        self.save(verificar=False)
         corretor_task = run_corretor_validar_gabarito.delay(corretor=corretor,questao=self)
+        retorno = retorno.__class__.objects.get(pk=retorno.pk)
+        retorno.task_id = corretor_task.task_id
+        retorno.save()
 
     @property
     def is_programacao(self):
