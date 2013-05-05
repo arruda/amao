@@ -9,6 +9,7 @@ from model_utils import Choices
 from abs_models import Abs_titulado_slugfy
 from Corretor.utils import get_corretor_choices, get_corretor_por_id
 from Corretor.base import CorretorException
+from Corretor.models import RetornoCorrecao
 from Corretor.tasks import run_corretor_validar_gabarito
 from tipo_questao import TipoQuestao
 from lockable import Lockable
@@ -100,6 +101,16 @@ class Questao(Abs_titulado_slugfy,Lockable):
         "retorna true se essa for uma questao de programação"
         return self.percentNotaProgramacao > Decimal("0")
 
+
+    @property
+    def get_retorno_or_create(self):
+        retorno = self.retorno_correcao
+        if not self.retorno_correcao:
+            retorno = RetornoCorrecao()
+            retorno.save()
+            self.retorno_correcao = retorno
+
+        return retorno
 
     def save(self, *args, **kwargs):
         #Antes de salvar deve verificar se a questão é propria para ser usada em uma avaliacao

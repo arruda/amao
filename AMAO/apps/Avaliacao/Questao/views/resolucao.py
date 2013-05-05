@@ -26,7 +26,7 @@ def responderQuestao(request,questao_id):
     questaoAvaliacao = get_object_or_404(QuestaoDeAvaliacao,pk=questao_id)
     if not questaoAvaliacao.verifica_aluno(aluno):
         return redirect('/')
-    fontes_extra_gabarito = [fonte for fonte in questaoAvaliacao.questao.fontesGabarito.filter(usarNaResolucao=True)] 
+    fontes_extra_gabarito = [fonte for fonte in questaoAvaliacao.questao.fontesGabarito.filter(usarNaResolucao=True)]
     FontesInlineFormSet = inlineformset_factory(QuestaoDeAvaliacao, Fonte,formfield_callback=change_widget_to_NoFullPathLinkFileInput,extra=1)
 #    RespostasMultiplaInlineFormSet = inlineformset_factory(QuestaoDeAvaliacao, OpcaoMultiplaEscolha)#,formfield_callback=change_widget_to_NoFullPathLinkFileInput)
     if request.method == "POST":
@@ -40,8 +40,8 @@ def responderQuestao(request,questao_id):
             fontes_formset = FontesInlineFormSet(instance=questaoAvaliacao)
 #            respostas_formset.save()
 #            respostas_formset = RespostasMultiplaInlineFormSet(instance=questaoAvaliacao)
-            
-    else:        
+
+    else:
         questao_form = ResolucaoQuestaoAvaliacaoForm(instance=questaoAvaliacao)
         fontes_formset = FontesInlineFormSet(instance=questaoAvaliacao)
 #        respostas_formset = RespostasMultiplaInlineFormSet(instance=questaoAvaliacao)
@@ -71,7 +71,7 @@ def responderQuestao(request,questao_id):
 #        if isinstance(erro,LockException):
 #            tipo = RetornoCorrecao.TIPOS.lock
 #            correcao_msg = erro.message
-##    
+##
 #    if questaoAvaliacao.retorno_correcao:
 #        ret = questaoAvaliacao.retorno_correcao
 #    else:
@@ -81,7 +81,7 @@ def responderQuestao(request,questao_id):
 #    ret.save()
 #    questaoAvaliacao.retorno_correcao = ret
 #    questaoAvaliacao.save()
-    
+
 
 @aluno_exist
 @login_required
@@ -92,11 +92,11 @@ def corrigirQuestao(request,questao_id):
     if not questaoAvaliacao.verifica_aluno(aluno):
         return redirect('/')
 
-    correcao_msg = "Corrigindo..." 
+    correcao_msg = "Corrigindo..."
     if questaoAvaliacao.retorno_correcao != None and questaoAvaliacao.retorno_correcao:
 #        questaoAvaliacao.retorno_correcao.delete()
         pass
-    
+
     corretor = questaoAvaliacao.questao.corretor()
 #    dados_corretor = {
 #                      'corretor':corretor,
@@ -105,7 +105,7 @@ def corrigirQuestao(request,questao_id):
 #                      }
     retorno = questaoAvaliacao.get_retorno_or_create
     questaoAvaliacao.save()
-    
+
     corretor_task = run_corretor.delay(corretor=corretor,questao=questaoAvaliacao,limitar=["prog"])
     retorno.task_id = corretor_task.task_id
     retorno.save()
@@ -116,7 +116,7 @@ def corrigirQuestao(request,questao_id):
 #                         kwargs={'correcao_msg':correcao_msg,'questaoAvaliacao':questaoAvaliacao})
 #    t.setDaemon(True)
 #    t.start()
-        
+
     return locals()
 
 @aluno_exist
@@ -127,31 +127,42 @@ def ajax_retorno_correcao(request,questao_id):
     aluno = request.user.aluno_set.get()
     questaoAvaliacao = get_object_or_404(QuestaoDeAvaliacao,pk=questao_id)
     correcao_msg = "Carregando..."
-    
+
     if questaoAvaliacao.verifica_aluno(aluno):
-        task_id = "%s"%questaoAvaliacao.retorno_correcao.task_id
+        retorno_questao = questaoAvaliacao.retorno_correcao
+        task_id = "%s"%retorno_questao.task_id
         print ">>ajax_retorno_Correcao: task_id: %s" % task_id
         retorno = run_corretor.AsyncResult(task_id)
         if retorno.ready():
             print ">>retorno.ready()"
             if retorno.successful() == True:
                 print ">>retorno.successful()"
+                tipo = RetornoCorrecao.TIPOS.correto
                 correcao_msg = "Correto!"
             elif isinstance(retorno.result,CorretorException):
-                erro = retorno.result   
-                print "erro: %s" % erro.message             
+                erro = retorno.result
+                print "erro: %s" % erro.message
                 if isinstance(erro,ExecutorException):
                     correcao_msg = erro.message
+                    tipo = RetornoCorrecao.TIPOS.execucao
                 if isinstance(erro,CompiladorException):
                     correcao_msg = erro.message
+                    tipo = RetornoCorrecao.TIPOS.compilacao
                 if isinstance(erro,ComparadorException):
                     correcao_msg = erro.message
+                    tipo = RetornoCorrecao.TIPOS.comparacao
                 if isinstance(erro,LockException):
                     correcao_msg = erro.message
-            
+                    tipo = RetornoCorrecao.TIPOS.lock
+
+            retorno_questao.msg=correcao_msg
+            retorno_questao.tipo = tipo
+            retorno_questao.save()
+
+
 #            questaoAvaliacao.retorno_correcao=None
-#            
+#
 #            questaoAvaliacao.save()
-            
+
     return locals()
-        
+
