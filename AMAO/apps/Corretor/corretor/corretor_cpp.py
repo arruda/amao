@@ -207,6 +207,29 @@ class CorretorCPP(CorretorSemProg):
             if res != 0 and res != None:
                 return True
         return False
+
+    def _limitar_texto_feedback(self, questao, feedback):
+        """
+        Dado o texto de feedback(msg de erro) e uma questao(de avaliacao),
+
+        remove o começo das paths para impedir que os alunos possam se usar disso.
+
+        Assim o texto:
+
+            /home/arruda/projetos/amao/AMAO/media/123456/avaliacao-slug/questao-slug/fontes/main.c
+
+        se torna isso:
+
+            .../fontes/main.c
+
+
+
+        """
+        from Avaliacao.Questao.models import path_base
+        base = path_base(questao=questao.questao,aluno=questao.avaliacao.aluno,avaliacao=questao.avaliacao)
+        base_abs = os.path.join(settings.MEDIA_ROOT,base)
+        return feedback.replace(base_abs,'...')
+
     def _corrigir_programacao(self,**kwargs):
         """Corrige apenas a parte de programação
         retorna a nota do aluno nessa parte.
@@ -234,7 +257,9 @@ class CorretorCPP(CorretorSemProg):
 
         ret_compilar_questao = self.compilar_completo(questao=questao,**novo_dict)
         if self._res_incorreta(ret_compilar_questao):
-            raise CompiladorException("Erro na compilação.")# % ret_compilar_questao[1].output)
+            msg_erro=self._limitar_texto_feedback(questao,"Erro na compilacao: %s" % ret_compilar_questao[1].output)
+            print ">>>passou pela msg_erro"
+            raise CompiladorException(msg_erro)
 
         ret_executar_questao = self.executar_completo(questao=questao,entrada_gabarito=entrada_gabarito,**novo_dict)
         if self._res_incorreta(ret_executar_questao):

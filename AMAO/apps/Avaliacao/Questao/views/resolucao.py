@@ -134,6 +134,8 @@ def ajax_retorno_correcao(request,questao_id):
         print ">>ajax_retorno_Correcao: task_id: %s" % task_id
         retorno = run_corretor.AsyncResult(task_id)
         if retorno.ready():
+            # import pdb; pdb.set_trace()
+
             print ">>retorno.ready()"
             if retorno.successful() == True:
                 print ">>retorno.successful()"
