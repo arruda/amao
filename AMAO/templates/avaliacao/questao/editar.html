@@ -1,7 +1,7 @@
 {% extends "util/base.html"%}
 
 {% block 'body-hgroup' %}
-	<h1><span>Criar Questao</span></h1>
+	<h1><span>Editar Questao</span></h1>
 {% endblock %}
 
 
@@ -9,14 +9,15 @@
 <div id="body-full">
 	{% if criado %}
         <div class="area_div zona_dados">
-            <h2>Questão</h2>
-            <a href="{% url criar_conteudos %}">Voltar</a>
+            <h2>Validando Questão:</h2>
+            <p>{% include "avaliacao/questao/retorno_correcao.html" %}  </p>
         </div>
-    {% else %}
+    {% endif %}
         <form action="{% url editar_questao questao.pk %}" method="post" enctype="multipart/form-data" id="form_questao">
             {% csrf_token %}
                 <div class="area_div zona_dados">
                     <h3>Questão</h3>
+                    <div class="campo"><label>É Valida? </label><span id="questao_valida">{% if form.verificada.value %}Sim{% else %}Não{% endif %}</span></div>
                     <div class="campo"><label>Titulo: </label>{{form.titulo}}</div>{{ form.titulo.errors }}
                     <div class="campo"><label>Enunciado: </label>{{form.enunciado}}</div>{{ form.enunciado.errors }}
                     <div class="campo"><label>Tipos: </label>{{form.tipo}}</div>{{ form.tipo.errors }}
@@ -117,7 +118,6 @@
 		    <input type="button" value="Salvar Questão" onClick="salvar(this)" />
             </div>
 	    </form>
-    {% endif %}
 </div>
 {% endblock %}
 
@@ -220,5 +220,30 @@
         var total_forms = $("#" + id_total_forms);
         total_forms.val(parseInt(total_forms.val()) +1);
     }
+
+
+    {% if criado %}
+        function updateRetorno() {
+         console.log("updateRetorno");
+            $.ajax({ url: "{% url ajax_retorno_correcao_gabarito questao.id %}",
+                             success: function(data) {
+                                 $('#ret-correcao').html(data);
+                                 if ($('#has_return').val() == "retorno"){
+                                     clearInterval(reload);
+
+                                 }
+                                 if( $('#ret-correcao p').text() == "Correto!"){
+                                    $('#questao_valida').text("Sim");
+                                 }
+                                 else{
+                                    $('#questao_valida').text("Não");
+                                 }
+                             }
+            });
+        };
+        $('#questao_valida').text("Carregando...");
+        updateRetorno();
+        reload = setInterval( 'updateRetorno()', 1800 );
+    {% endif %}
 
 {% endblock %}

@@ -9,8 +9,11 @@ from Professor.views.utils import prof_monit_exist
 from Professor.models import Professor, Monitor
 from Avaliacao.Questao.models import Questao ,EntradaGabarito, FonteGabarito ,OpcaoMultiplaEscolha
 from Avaliacao.Questao.forms import criarQuestaoForm,criarTipoQuestaoForm
+from Corretor.tasks import run_corretor_validar_gabarito
+from Corretor.models.retorno import RetornoCorrecao
 
-from AMAO.libs.forms_amao.widgets import change_widget_to_NoFullPathLinkFileInput
+from forms_amao.widgets import change_widget_to_NoFullPathLinkFileInput
+
 @prof_monit_exist
 @login_required
 @render_to('avaliacao/questao/criar.html')
@@ -86,12 +89,35 @@ def editar_questao(request,questao_id):
                 form.as_p()
                 form.save_m2m()
                 questao.save(verificar=True)
+                form = criarQuestaoForm(instance=questao)
+                formOpcoes = formsetOpcoesInline(instance=questao)
+                formEntradas = formsetEntradasInline(instance=questao)
+                formFontes = formsetFontesInline(instance=questao)
                 criado=True
     else:
         form = criarQuestaoForm(instance=questao)
         formOpcoes = formsetOpcoesInline(instance=questao)
         formEntradas = formsetEntradasInline(instance=questao)
         formFontes = formsetFontesInline(instance=questao)
+
+    return locals()
+
+@prof_monit_exist
+@login_required
+@render_to('avaliacao/questao/retorno_correcao.html')
+def ajax_retorno_correcao_gabarito(request,questao_id):
+    "funcao para o ajax saber qual o status do retorno da correcao de validacao de uma questao gabarito(prof)"
+
+    correcao_msg = "Validando..."
+    questao = get_object_or_404(Questao,pk=questao_id)
+
+    retorno_questao = questao.retorno_correcao
+    task_id = "%s"%retorno_questao.task_id
+    print ">>ajax_retorno_correcao_gabarito: task_id: %s" % task_id
+    retorno = run_corretor_validar_gabarito.AsyncResult(task_id)
+    if retorno.ready():
+        retorno_questao = RetornoCorrecao.objects.get(pk=questao.retorno_correcao.pk)
+        correcao_msg = retorno_questao.msg
 
     return locals()
 
