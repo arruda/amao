@@ -12,6 +12,13 @@
             <h2>Validando Questão:</h2>
             <p>{% include "avaliacao/questao/retorno_correcao.html" %}  </p>
         </div>
+    {% else %}
+        {% if not questao.verificada %}
+        <div class="area_div zona_dados">
+            <h2>Validando Questão:</h2>
+            <p>{% include "avaliacao/questao/retorno_correcao.html" %}  </p>
+        </div>
+        {% endif %}
     {% endif %}
         <form action="{% url editar_questao questao.pk %}" method="post" enctype="multipart/form-data" id="form_questao">
             {% csrf_token %}
@@ -222,7 +229,7 @@
     }
 
 
-    {% if criado %}
+    {% if criado or  not questao.verificada %}
         function updateRetorno() {
          console.log("updateRetorno");
             $.ajax({ url: "{% url ajax_retorno_correcao_gabarito questao.id %}",

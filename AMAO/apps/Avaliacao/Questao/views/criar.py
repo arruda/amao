@@ -41,6 +41,7 @@ def criar_questao(request):
                 form.save_m2m()
                 novaQuestao.save(verificar=True)
                 criado=True
+                return redirect('editar_questao',novaQuestao.id)
         else:
             #QuestoesForms=formsetInline()
             formEntradas = formsetEntradasInline()
