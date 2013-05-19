@@ -12,6 +12,8 @@ urlpatterns = patterns('Avaliacao.Questao.views',
     url(r'^editar/(?P<questao_id>\S+)/$',   'editar_questao', name='editar_questao'),
     url(r'^criarTipo/$',   'criar_tipo', name='criar_tipo'),
     url(r'^exibirQuestao/(?P<questao_id>\S+)/$',   'exibirQuestao', name='exibirQuestao'),
+    url(r'^exibirFonte/(?P<fonte_id>\S+)/$',   'exibir_arquivo_fonte', name='exibir_arquivo_fonte'),
+    url(r'^exibirFonteGabarito/(?P<fonte_id>\S+)/$',   'exibir_arquivo_fonte_gabarito', name='exibir_arquivo_fonte_gabarito'),
 
 
     url(r'^listar/$',   'listar_questoes', name='listar_questoes'),
