@@ -11,8 +11,9 @@
         <div class="area_div zona_dados">
             <h3>Filtros</h3>
             <form action="{% url listar_questoes %}" method="get">
-                {{ filter_form.as_ul}}
-
+                {{ filter_form.as_p}}
+                <span>Mantenha pressionado "Control" (ou "Command" no Mac) para selecionar mais de um Tipo de Questão.</span>
+                </br>
                 <input type="submit" value="Filtrar" />
             </form>
         </div>

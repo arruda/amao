@@ -10,6 +10,10 @@ from Avaliacao.Questao.models import TipoQuestao, Questao
 class FiltroQuestaoForm(forms.Form):
     "filtro de parametros para questoes"
 
+    busca = forms.CharField(label='Busca', required=False)
+
+    valida = forms.ChoiceField(label='Valida',choices=(('','---------'),(False, u'Não'), (True,u'Sim')), required=False)
+
     def __init__(self, user, *args, **kwargs):
         self.user = user
         super(FiltroQuestaoForm, self).__init__(*args, **kwargs)
@@ -49,9 +53,14 @@ class FiltroQuestaoForm(forms.Form):
 
         questoes = Questao.objects.all()
 
-        # author = self.cleaned_data.get('author',None)
-        # if author:
-        #     books = books.filter(author=author)
+        valida = self.cleaned_data.get('valida',"")
+        if valida != "":
+            valida = True if valida == "True" else False
+            questoes = questoes.filter(verificada=valida)
+
+        busca = self.cleaned_data.get('busca', None)
+        if busca:
+            questoes = questoes.filter(titulo__icontains=busca)
 
         tipos = self.cleaned_data.get('tipos',None)
         tipos_requeridos = []
@@ -62,7 +71,4 @@ class FiltroQuestaoForm(forms.Form):
         if tipos:
             questoes = self._get_questoes_tipo(questoes,tipos_requeridos)
 
-        # search = self.cleaned_data.get('search', None)
-        # if search:
-        #     books = books.filter(name__icontains=search)
         return questoes
