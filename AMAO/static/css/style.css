@@ -384,6 +384,59 @@ aside h3 {
 .area_lista_questoes .line label+label+label+label{
     width:15%;
 }
+
+/********************************-LISTAGEM DE QUESTAO-********************************/
+
+.listagem-inline {
+    background:#aaa;
+    border: 2px solid #888;
+    margin-bottom:5px;
+    padding: 3px 7px;
+    font-size: 10pt;
+    border-radius: 10px;
+}
+
+.listagem-inline h2{
+    font-size: 16px;
+}
+
+.listagem-inline h2 .ui-icon{
+    display: inline-block;
+    margin-right: 5px;
+}
+.listagem-inline .questao-valida{
+
+}
+.listagem-inline .questao-invalida{
+
+}
+
+.listagem-inline ul{
+    list-style-type: none;
+    padding: initial;
+    margin: initial;
+}
+.listagem-inline ul li{
+
+    background: #ddd;
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 5px;
+    box-shadow: 1px 1px 4px #444;
+
+    /*padding: initial;*/
+    display: block;
+    float: initial;
+}
+.listagem-inline ul li label{
+    font-size: 14pt;
+}
+.listagem-inline ul li span{
+    margin: initial;
+    float: initial;
+    display: initial;
+    color: initial;
+}
 /********************************-RESPONDER QUESTAO-********************************/
 .area_div h3{
     /*margin:15px 0px 5px 0px;   */

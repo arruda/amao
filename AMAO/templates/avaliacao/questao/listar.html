@@ -21,22 +21,33 @@
         <div class="area_div zona_dados area_lista_questoes">
 			<h3>Questões</h3>
 
-            <div class="line"><label>Título </label><label>Tipos </label><label>Autor</label><label>Valida</label></div>
-            <div id="entradas" class='agrup'>
-
-                {% for questao in questoes %}
-                    <div class="line" >
-                         <label><span><a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a></span></label>
-                        <label><span>
+            {% for questao in questoes %}
+            <div class="listagem-inline">
+                <h2><span class="ui-icon {% if questao.verificada %}ui-icon-circle-check{% else %}ui-icon-circle-close{% endif %}"></span>{{questao.titulo}}</h2>
+                <ul>
+                    <li>
+                        <label>Título:</label>
+                        <span><a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a></span>
+                    </li>
+                    <li>
+                        <label>Tipos:</label>
+                        <span>
                             {% for tipoQ in questao.tipo.all %}
                                 {{tipoQ.tipo}},
                             {% endfor %}
-                        </span></label>
-                        <label><span>{{questao.autor.email|default_if_none:"Nenhum"|default:"Nenhum" }}</span></label>
-                        <label><span>{% if questao.verificada %}Sim{% else %}Não{% endif %}</span></label>
-                    </div>
-                {% endfor %}
+                        </span>
+                    </li>
+                    <li>
+                        <label>Autor:</label>
+                        <span>{{questao.autor.email|default_if_none:"Nenhum"|default:"Nenhum" }}</span>
+                    </li>
+                    <li>
+                        <label>Verificada:</label>
+                        <span>{% if questao.verificada %}Sim{% else %}Não{% endif %}</span>
+                    </li>
+                </ul>
             </div>
+            {% endfor %}
         </div>
 
 	</div>
