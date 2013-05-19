@@ -44,5 +44,4 @@ def exibir_arquivo_fonte_gabarito(request,fonte_id):
     fonte = get_object_or_404(FonteGabarito,pk=fonte_id)
 
 
-
     return locals()
