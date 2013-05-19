@@ -2,7 +2,31 @@
 import os
 from django.conf import settings
 class CorretorException(Exception):
-    pass
+
+    def _limitar_texto_msg(self, msg, questao=None):
+        """
+        Dado o texto de msg de erro e uma questao(de avaliacao),
+
+        remove o começo das paths para impedir que os usuarios possam se usar disso.
+
+        Assim o texto:
+
+            /home/arruda/projetos/amao/AMAO/media/123456/avaliacao-slug/questao-slug/fontes/main.c
+
+        se torna isso:
+
+            .../123456/avaliacao-slug/questao-slug/fontes/main.c
+
+
+        """
+        # from Avaliacao.Questao.models import path_base
+        # base = path_base(questao=questao.questao,aluno=questao.avaliacao.aluno,avaliacao=questao.avaliacao)
+        base_abs = settings.MEDIA_ROOT
+        # os.path.join(settings.MEDIA_ROOT,base)
+        return msg.replace(base_abs,'...')
+
+    def __init__(self,msg, questao=None):
+        self.message =self._limitar_texto_msg(msg,questao=questao)
 
 class LockException(CorretorException):
     pass
