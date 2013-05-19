@@ -386,37 +386,38 @@ aside h3 {
 }
 
 /********************************-LISTAGEM DE QUESTAO-********************************/
+/*#listagem_resultado {
 
-.listagem-inline {
+}*/
+
+#listagem_resultado h2{
+    font-size: 16px;
+}
+
+#listagem_resultado .ui-state-active{
+    background:#ddd;
+}
+
+#listagem_resultado h2 .ui-icon{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#listagem_resultado .listagem-inline {
     background:#aaa;
     border: 2px solid #888;
     margin-bottom:5px;
     padding: 3px 7px;
     font-size: 10pt;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
-.listagem-inline h2{
-    font-size: 16px;
-}
-
-.listagem-inline h2 .ui-icon{
-    display: inline-block;
-    margin-right: 5px;
-}
-.listagem-inline .questao-valida{
-
-}
-.listagem-inline .questao-invalida{
-
-}
-
-.listagem-inline ul{
+#listagem_resultado .listagem-inline ul{
     list-style-type: none;
     padding: initial;
     margin: initial;
 }
-.listagem-inline ul li{
+#listagem_resultado .listagem-inline ul li{
 
     background: #ddd;
     border-radius: 5px;
@@ -428,14 +429,24 @@ aside h3 {
     display: block;
     float: initial;
 }
-.listagem-inline ul li label{
+#listagem_resultado .listagem-inline ul li label{
     font-size: 14pt;
 }
-.listagem-inline ul li span{
+#listagem_resultado .listagem-inline ul li span{
     margin: initial;
     float: initial;
     display: initial;
     color: initial;
+}
+
+#listagem_resultado .listagem-inline a{
+    background: #ddd;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #444;
+    display: inline-block;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
 }
 /********************************-RESPONDER QUESTAO-********************************/
 .area_div h3{

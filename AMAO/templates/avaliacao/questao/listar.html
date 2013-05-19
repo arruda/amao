@@ -20,35 +20,48 @@
 
         <div class="area_div zona_dados area_lista_questoes">
 			<h3>Questões</h3>
+            <div id="listagem_resultado">
+                {% for questao in questoes %}
+                    <h2><span class="ui-icon {% if questao.verificada %}ui-icon-circle-check{% else %}ui-icon-circle-close{% endif %}"></span>{{questao.titulo}}</h2>
+                    <div class="listagem-inline">
+                        <ul>
+                            <li>
+                                <label>Título:</label>
+                                <span>{{questao.titulo}}</span>
+                            </li>
+                            <li>
+                                <label>Tipos:</label>
+                                <span>
+                                    {% for tipoQ in questao.tipo.all %}
+                                        {{tipoQ.tipo}},
+                                    {% endfor %}
+                                </span>
+                            </li>
+                            <li>
+                                <label>Autor:</label>
+                                <span>{{questao.autor.email|default_if_none:"Nenhum"|default:"Nenhum" }}</span>
+                            </li>
+                            <li>
+                                <label>Verificada:</label>
+                                <span>{% if questao.verificada %}Sim{% else %}Não{% endif %}</span>
+                            </li>
+                        </ul>
 
-            {% for questao in questoes %}
-            <div class="listagem-inline">
-                <h2><span class="ui-icon {% if questao.verificada %}ui-icon-circle-check{% else %}ui-icon-circle-close{% endif %}"></span>{{questao.titulo}}</h2>
-                <ul>
-                    <li>
-                        <label>Título:</label>
-                        <span><a href="{% url editar_questao questao.pk %}">{{questao.titulo}}</a></span>
-                    </li>
-                    <li>
-                        <label>Tipos:</label>
-                        <span>
-                            {% for tipoQ in questao.tipo.all %}
-                                {{tipoQ.tipo}},
-                            {% endfor %}
-                        </span>
-                    </li>
-                    <li>
-                        <label>Autor:</label>
-                        <span>{{questao.autor.email|default_if_none:"Nenhum"|default:"Nenhum" }}</span>
-                    </li>
-                    <li>
-                        <label>Verificada:</label>
-                        <span>{% if questao.verificada %}Sim{% else %}Não{% endif %}</span>
-                    </li>
-                </ul>
+
+                        <a href="{% url editar_questao questao.pk %}">Editar</a>
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
 
 	</div>
+{% endblock %}
+{% block 'js-onpage' %}
+    {{ block.super }}
+
+    $('#listagem_resultado').accordion({
+        icons: null,
+      collapsible: true
+    });
+
 {% endblock %}
