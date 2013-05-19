@@ -25,7 +25,7 @@ body {
 }
 #menu{
    margin:0 auto;
-   width:980px;
+   width:1130px;
    float:initial;
 }
 #menu h1{
@@ -42,7 +42,7 @@ body {
     height:35px;
     border-left:2px solid rgba(0,0,0,0.3);
     float: right;
-    width:780px;
+    width:780px;width: 940px;
 }
 #menu nav a{
     text-decoration:none;
