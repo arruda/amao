@@ -57,7 +57,7 @@ class Migration(SchemaMigration):
         'Corretor.retornocorrecao': {
             'Meta': {'object_name': 'RetornoCorrecao'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'msg': ('django.db.models.fields.CharField', [], {'max_length': '128', 'null': 'True', 'blank': 'True'}),
+            'msg': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'task_id': ('django.db.models.fields.CharField', [], {'max_length': '350', 'null': 'True', 'blank': 'True'}),
             'tipo': ('django.db.models.fields.SmallIntegerField', [], {'default': '0'})
         },
@@ -127,7 +127,7 @@ class Migration(SchemaMigration):
             'verificada': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         },
         'Questao.questaodeavaliacao': {
-            'Meta': {'object_name': 'QuestaoDeAvaliacao'},
+            'Meta': {'ordering': "['filtro__pk']", 'object_name': 'QuestaoDeAvaliacao'},
             'avaliacao': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'questoes'", 'to': "orm['Avaliacao.Avaliacao']"}),
             'filtro': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'questoesGeradas'", 'to': "orm['Questao.FiltroQuestao']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),

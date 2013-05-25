@@ -21,7 +21,7 @@ class RetornoCorrecao(models.Model):
                        (5,'correto',u'Correto'),
                    )
     tipo =  models.SmallIntegerField(u"Tipo",choices=TIPOS, default=TIPOS.loading)
-    msg = models.CharField(u"Mensagem",max_length=128,blank=True,null=True)
+    msg = models.TextField(u"Mensagem",blank=True,null=True)
     task_id = models.CharField(max_length=350,blank=True,null=True)
     class Meta:
         verbose_name = u'Retorno Correção'
