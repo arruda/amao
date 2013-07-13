@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 from django.conf import settings
+
+
 class CorretorException(Exception):
 
     def _limitar_texto_msg(self, msg, questao=None):
@@ -26,7 +28,9 @@ class CorretorException(Exception):
         return msg.replace(base_abs,'...')
 
     def __init__(self,msg, questao=None):
+        Exception.__init__(self, msg)
         self.message =self._limitar_texto_msg(msg,questao=questao)
+
 
 class LockException(CorretorException):
     pass

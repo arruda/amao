@@ -20,7 +20,9 @@ def run_corretor(*args,**kwargs):
         Sendo assim acho que o mais adeguado é fazer essa funcao que deixa isso encapsulado e pode ser executado sem problemas.
     """
     corretor = kwargs['corretor']
-    return corretor.corrigir(*args,**kwargs)
+    ret = None
+    ret = corretor.corrigir(*args,**kwargs)
+    return ret
 
 
 @task
