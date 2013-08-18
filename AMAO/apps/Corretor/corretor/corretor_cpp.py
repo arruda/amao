@@ -227,8 +227,10 @@ class CorretorCPP(CorretorSemProg):
         """
         from Avaliacao.Questao.models import path_base
         base = path_base(questao=questao.questao,aluno=questao.avaliacao.aluno,avaliacao=questao.avaliacao)
-        base_abs = os.path.join(settings.MEDIA_ROOT,base)
-        return feedback.replace(base_abs,'...')
+
+        feedback_unicode = feedback.decode('utf-8')
+        feedback = feedback_unicode.replace(base,'...')
+        return feedback
 
     def _corrigir_programacao(self,**kwargs):
         """Corrige apenas a parte de programação
@@ -254,12 +256,11 @@ class CorretorCPP(CorretorSemProg):
 
         ret_compilar_gabarito = self.compilar_completo(questao=gabarito,**novo_dict)
         ret_executar_gabarito = self.executar_completo(questao=gabarito,entrada_gabarito=entrada_gabarito,**novo_dict)
-
         ret_compilar_questao = self.compilar_completo(questao=questao,**novo_dict)
         if self._res_incorreta(ret_compilar_questao):
             msg_erro=self._limitar_texto_feedback(questao,"Erro na compilacao: %s" % ret_compilar_questao[1].output)
             print ">>>passou pela msg_erro"
-            raise CompiladorException(msg_erro)
+            raise CompiladorException(msg_erro,questao=None)
 
         ret_executar_questao = self.executar_completo(questao=questao,entrada_gabarito=entrada_gabarito,**novo_dict)
         if self._res_incorreta(ret_executar_questao):
@@ -324,7 +325,7 @@ class CorretorCPP(CorretorSemProg):
             raise CorretorException(u"Não foi passado uma questao nos arqumentos.")
 
 
-        print "corrigir1>>>questao.retorno_correcao: %s" % questao.retorno_correcao
+        # print "corrigir1>>>questao.retorno_correcao: %s" % questao.retorno_correcao
         gabarito = questao.questao
 
         #limite de o que deve ser corrigido
@@ -351,7 +352,7 @@ class CorretorCPP(CorretorSemProg):
 
             try:
                 perc_prog = self._corrigir_programacao(**kwargs)
-            except Exception as e:
+            except CorretorException as e:
                 prog_erro = e
 
         #verifica se é para corrigir as multiplas escolhas
@@ -371,7 +372,7 @@ class CorretorCPP(CorretorSemProg):
         if prog_erro:
             raise prog_erro
 
-        print "corrigir2>>>questao.retorno_correcao: %s" % questao.retorno_correcao
+        # print "corrigir2>>>questao.retorno_correcao: %s" % questao.retorno_correcao
         return nota
 
     def nota(self,**kwargs):
