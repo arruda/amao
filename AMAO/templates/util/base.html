@@ -6,7 +6,7 @@
 
 {% block 'css-extras' %}
 	{{ block.super }}
-		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" media="all" type="text/css" href="/static/css/jquery-ui.css" />
 
 {% endblock %}
 
@@ -29,28 +29,28 @@
 
 				{% endblock %}
 			</div>
-			
+
 			<div id="body-centered" >
 				{% block 'body-centered' %}
-				
+
 				{% endblock %}
 			</div>
-			
+
 			<aside>
 		        {% block 'body-aside' %}
 
 				{% endblock %}
 			</aside>
-			
+
 			<section>
 		        {% block 'body-section' %}
-				
+
 				{% endblock %}
 			</section>
 		{% endblock %}
 		<br class="clear"/>
 	</div>
-	
+
     </div>
 <footer class="clear background">
 	{% include "util/footer.html" %}
@@ -58,7 +58,7 @@
 {% endblock %}
 
 {% block 'js-imports' %}
-	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/jsControleFormsetDinamico.js" ></script>
     <script src="/static/js/jsInterface.js" ></script>
 {% endblock %}

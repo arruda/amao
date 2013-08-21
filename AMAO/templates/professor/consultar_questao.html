@@ -3,7 +3,7 @@
     <h3 >Informações Gerais:</h3>
     <div class='area_dados'>
 	 <h4>Avaliação<a href="{% url professor_consultar %}?avaliacao={{questao.avaliacao.id}}">{{ questao.avaliacao }}</a></h4>
-	 <h4>Aluno: {{ avaliacao.aluno }} </h4>
+	 <h4>Aluno: {{ questao.avaliacao.aluno }} </h4>
 	 <h4>Titulo: {{ questao.questao.titulo }} </h4>
 	 <h4>Enunciado: </h4>
 	 <p>{{questao.questao.enunciado|linebreaks}}</p>

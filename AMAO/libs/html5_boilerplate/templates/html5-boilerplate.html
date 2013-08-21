@@ -31,14 +31,14 @@
 
 
   	<!-- CSS: implied media="all" -->
-  	<!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css?v=2"> --> 
+  	<!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css?v=2"> -->
   	{% block 'css-extras' %}{% endblock %}
   	<!-- Uncomment if you are specifically targeting less enabled mobile browsers
 	<link rel="stylesheet" media="handheld" href="{{ STATIC_URL }}css/handheld.css?v=2">  -->
 
   	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  	<script src="{{ STATIC_URL }}js/libs/modernizr-1.7.min.js"></script> 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  	<script src="{{ STATIC_URL }}js/libs/modernizr-1.7.min.js"></script>
+	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
 	{% block 'js-imports' %}{% endblock %}
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -46,9 +46,9 @@
 		});
 		$(window).load(function() {
 			{% block 'jquery-winload' %}{% endblock %}
-		});			
+		});
 
-	</script>  
+	</script>
 </head>
 
 <body>
@@ -58,7 +58,7 @@
 
   <script type="text/javascript">
     {% block 'js-onpage' %}{% endblock %}
-  </script>  
+  </script>
 
   <!--[if lt IE 7 ]>
     <script src="{{ STATIC_URL }}js/libs/dd_belatedpng.js"></script>
@@ -71,7 +71,7 @@
     g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
     s.parentNode.insertBefore(g,s)}(document,"script"));
   </script>
-{% endblock %}  
+{% endblock %}
   {% block 'body-bottom' %}{% endblock %}
 </body>
 </html>

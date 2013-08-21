@@ -37,8 +37,10 @@
 {% block 'body-centered' %}
 <div id="body-full">
     {% if criado %}
-        <h2>Avaliacao Criada</h2>
-        <a href="{% url dashboard %}">Voltar</a>
+        <div class="area_div zona_dados">
+            <h2>Avaliacao Criada</h2>
+            <a href="{% url dashboard %}">Voltar</a>
+        </div>
     {% else %}
         <form action="/avaliacao/criar/" method="post" enctype="multipart/form-data" id="form_avaliacao">
             {% csrf_token %}
@@ -67,7 +69,9 @@
                     </div>
                     <input type="button" onClick="adicionar('questao')" value="Adicionar Questao" />
                 </div>
-		    <input type="button" value="Salvar" onClick="salvar(this)" />
+            <div class="area_div zona_dados">
+		      <input type="button" value="Salvar" onClick="salvar(this)" />
+            </div>
 	    </form>
     {% endif %}
     <script src="/static/js/jsControleFormsetDinamico.js" ></script>
