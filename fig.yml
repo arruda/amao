@@ -1,0 +1,18 @@
+mq:
+  build: dockers/rabbitmq
+  environment:
+    - RABBITMQ_PASS=mypass
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+db:
+  build: dockers/pgserver
+  ports:
+    - "5434:5432"
+  volumes:
+    - ./dockers/pgserver/data:/data
+    - ./dockers/pgserver/log:/var/log/postgresql
+  environment:
+    - USER=django_login
+    - DB=django_db
+    - PASS=Amao.2@12

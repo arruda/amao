@@ -24,3 +24,6 @@ AMAO/safeexec/safeexec
 AMAO/safeexec/os-detect
 AMAO/safeexec/*.o
 build
+
+dockers/pgserver/log
+dockers/pgserver/data
