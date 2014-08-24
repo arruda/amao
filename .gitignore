@@ -27,3 +27,4 @@ build
 
 dockers/pgserver/log
 dockers/pgserver/data
+AMAO/env.json
