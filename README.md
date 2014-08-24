@@ -19,6 +19,12 @@ ferramentas existentes de autocorreção a fim de aproveitar tais conceitos na f
 do AMAO. Os resultados obtidos orientaram então o desenvolvimento do software
 proposto.
 
+Monografia
+----------
+
+A monografia pode ser vista em sua versão final no link:
+[AMAO - DESENVOLVIMENTO DE UM AMBIENTE ONLINE DE AUXÍLIO À CORREÇÃO E RESOLUÇÃO DE AVALIAÇÕES DE PROGRAMAÇÃO](http://pt.slideshare.net/felipearrudapontes/monografia-arruda-zanonifinal)
+
 LICENÇA
 -------
 
